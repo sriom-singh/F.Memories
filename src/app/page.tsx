@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
+import { Testimonials } from "@/components/Testimonials";
 export default function Home() {
   return (
     <>
@@ -17,7 +18,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
 
           <div className="flex md:items-center absolute inset-0  items-center  font-spartan flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
-            <h1 className="lg:text-7xl   font-spartan text-white  md:text-6xl text-5xl text-start lg:text-center">
+            <h1 className="lg:text-7xl text-center  font-spartan text-white  md:text-6xl text-5xl lg:text-center">
               Discover Your Destination
             </h1>
             <p className="font-normal text-sm text-center  font-sans text-white/70 ">
@@ -26,7 +27,7 @@ export default function Home() {
               <br /> and frame it forever.
             </p>
             <Button
-              className="bg-black/10 border-white/40 text-black font-normal md:w-52 w-32 py-6 mt-4 hover:bg-primary/80  rounded-full text-normal text-lg"
+              className="bg-black/10 border-primary  text-black font-normal md:w-52 w-32 py-6 mt-4 hover:bg-primary/80  rounded-full text-normal text-lg"
               variant="outline"
             >
               Explore Tours
@@ -36,10 +37,10 @@ export default function Home() {
       </div>
       {/* Popular Locations */}
       <div className="max-w-7xl md:px-0 px-8 py-12 mx-auto">
-        <h2 className="font-cursive text-2xl font-semibold">
+        <h2 className="font-cursive text-xl md:text-2xl font-semibold">
           Start Traveling Today
         </h2>
-        <h2 className="font-spartan text-5xl text-black font-semibold">
+        <h2 className="font-spartan xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Popular Locations
         </h2>
         <Carousel
@@ -54,7 +55,7 @@ export default function Home() {
           <div className="absolute -top-8 right-2 flex items-center justify-center">
             <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
           </div>
-          <CarouselContent   className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  border ">
+          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  border ">
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem
                 key={index}
@@ -89,10 +90,10 @@ export default function Home() {
       </div>
       {/* Explore the world */}
       <div className="max-w-7xl  py-12 mx-auto">
-        <h2 className="font-cursive text-center text-2xl font-semibold">
+        <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
-        <h2 className="font-spartan text-center md:text-5xl text-3xl text-black font-semibold">
+        <h2 className="font-spartan text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Explore the world
         </h2>
         <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
@@ -130,8 +131,10 @@ export default function Home() {
       </div>
       {/* Why choose us */}
       <div className="max-w-7xl  lg:px-0 px-8 py-12 mx-auto ">
-        <h2 className="font-cursive text-2xl font-semibold">Why Choose Us</h2>
-        <h2 className="font-spartan md:text-5xl text-3xl  text-black font-semibold">
+        <h2 className="font-cursive text-xl md:text-2xl font-semibold">
+          Why Choose Us
+        </h2>
+        <h2 className="font-spartan  xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           We Arrange the Best <br /> Tour Ever Possible
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 max-w-7xl mx-auto w-full">
@@ -186,13 +189,31 @@ export default function Home() {
             </div>
             <img
               src="/pricing.png"
- 
               alt="linear demo image"
               className="absolute -right-10  size-80 md:size-96 lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
             />
           </WobbleCard>
         </div>
       </div>
+      {/* Get Help */}
+      <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
+        <div className="bg-accent-foreground p-8">
+          <h2 className="font-cursive text-xl ">
+            Confused Get Help
+          </h2>
+          <div className="flex justify-between">
+
+          <h2 className="font-spartan py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
+            Get Help from Our Travel Agent
+          </h2>
+          <Button variant={"default"}>Explore Now</Button>
+          </div>
+          <p className="text-sm opacity-80 py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <Testimonials/>
     </>
   );
 }

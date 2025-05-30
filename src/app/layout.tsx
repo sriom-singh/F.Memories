@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { MonteCarlo, League_Spartan } from "next/font/google";
 import "./globals.css";
-import { MainNavbar } from "@/components/ui/Navbar";
+import { MainNavbar } from "@/components/Navbar";
 
 const monteCarlo = MonteCarlo({
   variable: "--font-monte",
