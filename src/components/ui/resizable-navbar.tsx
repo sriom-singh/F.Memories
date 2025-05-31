@@ -70,7 +70,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       ref={ref}
       // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
       className={cn(
-        "fixed font-spartan inset-x-0  z-40 w-full",
+        "fixed font-openSans inset-x-0  z-40 w-full",
         className,
         !visible ? "bg-black/15 " : "dark:bg-neutral-950/80"
       )}
@@ -236,7 +236,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
-      <span className="font-medium text-xl font-spartan text-white dark:text-white">
+      <span className="font-semibold text-primary text-base font-openSans   dark:text-white">
         F.Memories
       </span>
     </a>

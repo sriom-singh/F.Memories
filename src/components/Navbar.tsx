@@ -40,8 +40,8 @@ export function MainNavbar() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems className="text-lg text-black" items={navItems} />
-          <div className="flex font-spartan items-center  gap-4">
+          <NavItems className="text-base text-black" items={navItems} />
+          <div className="flex font-openSans items-center  gap-4">
             <NavbarButton className="font-semibold">Login</NavbarButton>
             <NavbarButton className="font-semibold" variant="gradient">
               Contact Us

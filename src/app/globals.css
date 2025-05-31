@@ -7,7 +7,7 @@
 
 
 @theme inline {
- --font-spartan: var(--font-spartan);
+ --font-openSans: var(--font-openSans);
  --font-cursive: var(--font-monte);
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
  

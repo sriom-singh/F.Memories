@@ -17,8 +17,8 @@ export default function Home() {
           <img src="./hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
           <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
 
-          <div className="flex md:items-center absolute inset-0  items-center  font-spartan flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
-            <h1 className="lg:text-7xl text-center  font-spartan text-white  md:text-6xl text-5xl lg:text-center">
+          <div className="flex md:items-center absolute inset-0  items-center  font-openSans flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
+            <h1 className="lg:text-7xl text-center  font-openSans text-white  md:text-6xl text-5xl lg:text-center">
               Discover Your Destination
             </h1>
             <p className="font-normal text-sm text-center  font-sans text-white/70 ">
@@ -40,7 +40,7 @@ export default function Home() {
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
           Start Traveling Today
         </h2>
-        <h2 className="font-spartan xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Popular Locations
         </h2>
         <Carousel
@@ -93,7 +93,7 @@ export default function Home() {
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
-        <h2 className="font-spartan text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Explore the world
         </h2>
         <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
@@ -134,16 +134,16 @@ export default function Home() {
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
           Why Choose Us
         </h2>
-        <h2 className="font-spartan  xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans  xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           We Arrange the Best <br /> Tour Ever Possible
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 max-w-7xl mx-auto w-full">
           <WobbleCard
-            containerClassName="col-span-1 bg-no-repeat bg-contain bg-right  lg:col-span-2 h-full bg-pink-800 min-h-[450px] lg:min-h-[300px]"
-            className="bg-primary/10"
+            containerClassName="col-span-1  bg-no-repeat bg-contain bg-right  lg:col-span-2 h-full bg-pink-800 min-h-[450px] lg:min-h-[300px]"
+            className="bg-primary/10 bg-gradient-to-r from-slate-600 to-gray-600"
           >
-            <div className="max-w-xs">
-              <h2 className="text-left text-balance text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
+            <div className="max-w-xs ">
+              <h2 className="text-left text-balance  text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
                 Amazing Tour Plans
               </h2>
               <p className="mt-4 text-left  text-base/6 text-neutral-200">
@@ -152,7 +152,7 @@ export default function Home() {
               </p>
               <h2 className=" absolute right-4 z-10 bottom-2 bg-black/5 text-balance  flex flex- gap-1 text-xl lg:text-3xl font-semibold  text-white">
                 10k+{" "}
-                <span className="font-spartan text-base  font-normal">
+                <span className="font-openSans text-base  font-normal">
                   Tour <br /> Organized
                 </span>
               </h2>
@@ -165,7 +165,7 @@ export default function Home() {
               className="absolute -right-10  lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
             />
           </WobbleCard>
-          <WobbleCard containerClassName="col-span-1 min-h-[300px]">
+          <WobbleCard containerClassName="col-span-1 min-h-[300px]" className="bg-gradient-to-t from-cyan-700 to-teal-700">
             <h2 className="max-w-80  text-left text-balance text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Best Travel Guides
             </h2>
@@ -197,13 +197,13 @@ export default function Home() {
       </div>
       {/* Get Help */}
       <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
-        <div className="bg-accent-foreground p-8">
+        <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
           <h2 className="font-cursive text-xl ">
             Confused Get Help
           </h2>
           <div className="flex justify-between">
 
-          <h2 className="font-spartan py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
+          <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
             Get Help from Our Travel Agent
           </h2>
           <Button variant={"default"}>Explore Now</Button>

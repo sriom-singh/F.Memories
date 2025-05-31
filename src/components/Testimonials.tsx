@@ -8,7 +8,7 @@ export function Testimonials() {
            <h2 className="font-cursive text-xl md:text-3xl font-semibold">
           Travels
         </h2>
-        <h2 className="font-spartan xl:text-5xl text-3xl mb-8 lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans xl:text-5xl text-3xl mb-8 lg:text-4xl text-black font-semibold">
           What People Say
         </h2>
       <InfiniteMovingCards

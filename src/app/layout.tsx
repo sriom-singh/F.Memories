@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
-import { MonteCarlo, League_Spartan } from "next/font/google";
+import { MonteCarlo,Open_Sans } from "next/font/google";
 import "./globals.css";
 import { MainNavbar } from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const monteCarlo = MonteCarlo({
   variable: "--font-monte",
   subsets: ["latin"],
   weight:["400"]
 });
-
-const spartan = League_Spartan({
-  variable: "--font-spartan",
+const openSans  = Open_Sans ({
+  variable: "--font-openSans ",
   subsets: ["latin"],
+  weight:["400","300","500","600","700","800"]
 });
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,9 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${monteCarlo.variable} ${spartan.variable} antialiased`}>
+      <body className={` ${monteCarlo.variable} ${openSans.variable} antialiased`}>
         <MainNavbar />
         <div className="pt- bg-white">{children}</div>
+        <Footer/>
       </body>
     </html>
   );
