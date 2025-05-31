@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Testimonials } from "@/components/Testimonials";
+import { AnimatedReviews } from "@/components/AnimatedReviews";
 export default function Home() {
   return (
     <>
@@ -35,6 +37,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
       {/* Popular Locations */}
       <div className="max-w-7xl md:px-0 px-8 py-12 mx-auto">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
@@ -88,8 +91,9 @@ export default function Home() {
           </CarouselContent>
         </Carousel>
       </div>
+
       {/* Explore the world */}
-      <div className="max-w-7xl  py-12 mx-auto">
+      <div className="max-w-7xl lg:px-0 px-8 bg-primary/10 py-12 mx-auto">
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
@@ -129,6 +133,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Why choose us */}
       <div className="max-w-7xl  lg:px-0 px-8 py-12 mx-auto ">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
@@ -165,7 +170,10 @@ export default function Home() {
               className="absolute -right-10  lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
             />
           </WobbleCard>
-          <WobbleCard containerClassName="col-span-1 min-h-[300px]" className="bg-gradient-to-t from-cyan-700 to-teal-700">
+          <WobbleCard
+            containerClassName="col-span-1 min-h-[300px]"
+            className="bg-gradient-to-t from-cyan-700 to-teal-700"
+          >
             <h2 className="max-w-80  text-left text-balance text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
               Best Travel Guides
             </h2>
@@ -195,25 +203,27 @@ export default function Home() {
           </WobbleCard>
         </div>
       </div>
+
+
       {/* Get Help */}
       <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
-          <h2 className="font-cursive text-xl ">
-            Confused Get Help
-          </h2>
+          <h2 className="font-cursive text-xl ">Confused Get Help</h2>
           <div className="flex justify-between">
-
-          <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
-            Get Help from Our Travel Agent
-          </h2>
-          <Button variant={"default"}>Explore Now</Button>
+            <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
+              Get Help from Our Travel Agent
+            </h2>
+            <Button variant={"default"}>Explore Now</Button>
           </div>
-          <p className="text-sm opacity-80 py-2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. </p>
+          <p className="text-sm opacity-80 py-2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}
+          </p>
         </div>
       </div>
 
       {/* Testimonials */}
-      <Testimonials/>
+      <Testimonials />
+      
     </>
   );
 }

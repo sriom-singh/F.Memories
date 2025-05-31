@@ -1,20 +1,28 @@
 "use client";
 
+import { AnimatedReviews } from "./AnimatedReviews";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
+import Image from "next/image";
 
 export function Testimonials() {
   return (
-    <div className="h-[30rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-           <h2 className="font-cursive text-xl md:text-3xl font-semibold">
-          Travels
-        </h2>
-        <h2 className="font-openSans xl:text-5xl text-3xl mb-8 lg:text-4xl text-black font-semibold">
-          What People Say
-        </h2>
+    <div className="py-12  z-10 min-w-full rounded-md flex flex-col antialiased  dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <h2 className="font-cursive text-xl md:text-3xl font-semibold">
+        Travels
+      </h2>
+      <h2 className="font-openSans xl:text-5xl text-3xl  lg:text-4xl text-black font-semibold">
+        What People Say
+      </h2>
+      {/* <div className=" flex lg:px-0 md:mb-0  -mb-16 mx-auto ">
+        <div className="flex-1">
+          <AnimatedReviews  />
+        </div>
+      </div> */}
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
         speed="slow"
+        className=" py-16"
       />
     </div>
   );
