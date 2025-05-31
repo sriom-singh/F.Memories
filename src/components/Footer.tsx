@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
         <hr className="py-4" />
         <p className="text-black text-sm text-center ">
-          © 2025. All rights are reserved``
+          © 2025. All rights are reserved.
         </p>
       </div>
     </footer>

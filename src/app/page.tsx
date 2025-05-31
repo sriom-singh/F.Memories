@@ -29,7 +29,7 @@ export default function Home() {
               <br /> and frame it forever.
             </p>
             <Button
-              className="bg-black/10 border-primary  text-black font-normal md:w-52 w-32 py-6 mt-4 hover:bg-primary/80  rounded-full text-normal text-lg"
+              className="bg-black/10 border-primary px-4 text-black font-openSans text-primary md:w-52 w-36 md:text-lg py-6 mt-4 hover:bg-primary/80  rounded-full "
               variant="outline"
             >
               Explore Tours
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
+
       {/* Popular Locations */}
       <div className="max-w-7xl md:px-0 px-8 py-12 mx-auto">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
@@ -204,7 +204,6 @@ export default function Home() {
         </div>
       </div>
 
-
       {/* Get Help */}
       <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
@@ -223,7 +222,6 @@ export default function Home() {
 
       {/* Testimonials */}
       <Testimonials />
-      
     </>
   );
 }
