@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { MonteCarlo,Open_Sans } from "next/font/google";
+import { MonteCarlo,Open_Sans,Inter } from "next/font/google";
 import "./globals.css";
 import { MainNavbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,7 +9,7 @@ const monteCarlo = MonteCarlo({
   subsets: ["latin"],
   weight:["400"]
 });
-const openSans  = Open_Sans ({
+const openSans  = Inter ({
   variable: "--font-openSans ",
   subsets: ["latin"],
   weight:["400","300","500","600","700","800"]

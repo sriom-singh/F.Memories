@@ -40,9 +40,9 @@ export function MainNavbar() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems className="text-base text-black" items={navItems} />
+          <NavItems className="text-sm font-normal" items={navItems} />
           <div className="flex font-openSans items-center  gap-4">
-            <NavbarButton className="font-semibold">Login</NavbarButton>
+            <NavbarButton variant="secondary" className="font-normal  rounded-full border-[0.01px] text-white">Login</NavbarButton>
             <NavbarButton className="font-semibold" variant="gradient">
               Contact Us
             </NavbarButton>

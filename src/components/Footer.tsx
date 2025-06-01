@@ -16,8 +16,8 @@ const Footer = () => {
         <div className="sm:grid grid-cols-2 md:grid-cols-6 gap-4">
           <div className=" md:col-span-2 text-white p-4 ">
             <div className="flex flex-col gap-2">
-              <h1 className="font-openSans text-2xl pb-2 text-primary">
-                F.Memories
+              <h1 className="font-openSans text-2xl pb-4 text-primary font-semibold">
+           Framing Memories
               </h1>
               <p className="flex gap-2 items-center text-black text-sm">
                 <Landmark size={16} /> 13th Street. New York, NY 10011

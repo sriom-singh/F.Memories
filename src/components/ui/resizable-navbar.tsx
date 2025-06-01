@@ -236,8 +236,8 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
-      <span className="font-semibold text-primary text-base font-openSans   dark:text-white">
-        F.Memories
+      <span className="font-semibold t text-base font-openSans   dark:text-white">
+         F.Memories
       </span>
     </a>
   );

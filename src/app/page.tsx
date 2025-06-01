@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Testimonials } from "@/components/Testimonials";
 import { AnimatedReviews } from "@/components/AnimatedReviews";
+import { ArrowBigRight, ArrowRight, CircleUserRound, MapPin, Route, Users } from "lucide-react";
 export default function Home() {
   return (
     <>
@@ -28,12 +29,26 @@ export default function Home() {
               travel — you live the moment,
               <br /> and frame it forever.
             </p>
-            <Button
+            {/* <Button
               className="bg-black/10 border-primary px-4 text-black font-openSans text-primary md:w-52 w-36 md:text-lg py-6 mt-4 hover:bg-primary/80  rounded-full "
               variant="outline"
             >
               Explore Tours
-            </Button>
+            </Button> */}
+            <div className="relative h-12 md:w-80 w-64 my-6">
+              <input
+                type="search"
+                className="bg-white w-full h-full pl-10 pr-4 text-black text-sm rounded-full"
+                placeholder="Search Destinations"
+              />
+              <MapPin
+                className="absolute left-3 top-3.5 size-5 text-black/60 font-extralight
+"
+              />
+              <Button className="absolute right-2 top-2 size-5 text-black/60 font-extralight w-8 h-8 rounded-full">
+                <ArrowRight className="size-4" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -204,6 +219,30 @@ export default function Home() {
         </div>
       </div>
 
+      <div className="max-w-7xl  lg:px-0 px-8 py-6 mx-auto ">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4  text-black">
+          <div className="text-center mx-auto flex flex-col justify-end items-center">
+            <MapPin  size={45} className="my-4 text-primary"/>
+            <h6 className="text-3xl font-bold">10M</h6>
+            <small>Total Donations</small>
+          </div>
+          <div className="text-center mx-auto flex flex-col justify-end items-center">
+            <Route size={45} className="my-4 text-primary"/>
+            <h6 className="text-3xl font-bold">24k</h6>
+            <small>Campaigns Closed</small>
+          </div>
+          <div className="text-center mx-auto flex flex-col justify-end items-center">
+            <CircleUserRound size={45} className="my-4 text-primary font-extralight"/>
+            <h6 className="text-3xl font-bold">5k</h6>
+            <small>Happy Customers</small>
+          </div>
+          <div className="text-center mx-auto flex flex-col justify-end items-center">
+            <Users size={45} className="my-4 text-primary"/>
+            <h6 className="text-3xl font-bold">12k</h6>
+            <small>Our Volunteers</small>
+          </div>
+        </div>
+      </div>
       {/* Get Help */}
       <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
