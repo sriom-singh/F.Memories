@@ -54,7 +54,7 @@ export default function Home() {
       </div>
 
       {/* Popular Locations */}
-      <div className="max-w-7xl md:px-0 px-8 py-12 mx-auto">
+      <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-12 mx-auto">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
           Start Traveling Today
         </h2>
@@ -65,12 +65,12 @@ export default function Home() {
           opts={{
             align: "start",
           }}
-          className="my-8 "
+          className="md:my-8 my-4 "
         >
-          <div className="absolute -top-8 right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0 translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          <div className="absolute md:-top-8 md:inline hidden right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
           </div>
-          <div className="absolute -top-8 right-2 flex items-center justify-center">
+          <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
             <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
           </div>
           <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  border ">
@@ -104,11 +104,17 @@ export default function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
+           <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
         </Carousel>
       </div>
 
       {/* Explore the world */}
-      <div className="max-w-7xl lg:px-0 px-8 bg-primary/10 py-12 mx-auto">
+      <div className="max-w-7xl xl:px-0 md:px-4  px-8 bg-primary/10 py-12 mx-auto">
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
@@ -150,7 +156,7 @@ export default function Home() {
       </div>
 
       {/* Why choose us */}
-      <div className="max-w-7xl  lg:px-0 px-8 py-12 mx-auto ">
+      <div className="max-w-7xl  md:px-4 xl:px-0 px-8 py-12 mx-auto ">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
           Why Choose Us
         </h2>
@@ -218,8 +224,7 @@ export default function Home() {
           </WobbleCard>
         </div>
       </div>
-
-      <div className="max-w-7xl  lg:px-0 px-8 py-6 mx-auto ">
+      <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-6 mx-auto ">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4  text-black">
           <div className="text-center mx-auto flex flex-col justify-end items-center">
             <MapPin  size={45} className="my-4 text-primary"/>
@@ -243,8 +248,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Get Help */}
-      <div className="max-w-7xl text-white lg:px-0 px-8 py-12 mx-auto ">
+      <div className="max-w-7xl text-white md:px-4 xl:px-0 px-8 py-12 mx-auto ">
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
           <h2 className="font-cursive text-xl ">Confused Get Help</h2>
           <div className="flex justify-between">
