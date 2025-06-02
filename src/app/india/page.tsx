@@ -58,7 +58,7 @@ const AboutUs = () => {
           <hr className="my-4" /> */}
           <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-6 mx-auto">
             <h2 className="font-cursive text-primary text-xl md:text-2xl font-semibold">
-              India's
+              India&apos;s
             </h2>
             <h2 className="font-openSans xl:text-4xl text-3xl lg:text-2xl text-black font-semibold">
               Top Packages
