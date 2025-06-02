@@ -7,17 +7,17 @@ import {
   Phone,
   Twitter,
 } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-primary/20">
-      <div className="absolute top-0 w-screen h-full bg-white/ "></div>
-      <div className="max-w-7xl  px-4 md:px-0 bg py-12 z-50 mx-auto">
-        <div className="sm:grid grid-cols-2 md:grid-cols-6 gap-4">
-          <div className=" md:col-span-2 text-white p-4 ">
-            <div className="flex flex-col gap-2">
-              <h1 className="font-openSans text-2xl pb-4 text-primary font-semibold">
-           Framing Memories
+    <footer className="relative bg-primary/20 font-openSans">
+      <div className="max-w-7xl  px-4 md:px-0 bg py-12  z-50 mx-auto">
+        <div className="sm:grid grid-cols-2 md:grid-cols-6 text-black gap-4">
+          <div className=" md:col-span-2 text-black p-4 ">
+            <div className="flex flex-col  gap-2">
+              <h1 className="font-openSans cursor-pointer text-2xl pb-4 text-primary font-semibold">
+                <Link href={'/'}>Framing Memories</Link>
               </h1>
               <p className="flex gap-2 items-center text-black text-sm">
                 <Landmark size={16} /> 13th Street. New York, NY 10011
@@ -57,7 +57,9 @@ const Footer = () => {
           <div className="text-black p-4">
             <div className="flex flex-col gap-2">
               <h1 className="font-semibold pb-1">Useful Links</h1>
-              <a className="text-sm">About Us</a>
+              <Link href="/about-us" className="text-sm hover:underline ">
+                About Us
+              </Link>
               <a className="text-sm">Company Profile</a>
               <a className="text-sm">Team Members</a>
               <a className="text-sm">Support</a>
@@ -67,9 +69,21 @@ const Footer = () => {
           <div className="text-black p-4">
             <div className="flex flex-col  justify-center  gap-2">
               <h1 className="font-semibold pb-1">Legal</h1>
-              <a className="text-sm">Privacy Policy</a>
-              <a className="text-sm">Terms and Conditions</a>
-              <a className="text-sm">Cancellation Refund Policy</a>
+              <Link href="/privacy-policy" className="text-sm hover:underline ">
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-and-conditions"
+                className="text-sm hover:underline "
+              >
+                Terms and Conditions
+              </Link>
+              <Link
+                href="/cancellation-and-refund"
+                className="text-sm hover:underline "
+              >
+                Cancellation & Refund Policy
+              </Link>
             </div>
           </div>
         </div>

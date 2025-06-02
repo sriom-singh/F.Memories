@@ -11,11 +11,19 @@ import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Testimonials } from "@/components/Testimonials";
 import { AnimatedReviews } from "@/components/AnimatedReviews";
-import { ArrowBigRight, ArrowRight, CircleUserRound, MapPin, Route, Users } from "lucide-react";
+import {
+  ArrowBigRight,
+  ArrowRight,
+  CircleUserRound,
+  MapPin,
+  Route,
+  Users,
+} from "lucide-react";
+import PackageCard from "@/components/PackageCard";
 export default function Home() {
   return (
     <>
-      <div className=" mx-auto flex bg- flex-col justify-center ">
+      <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
         <div className="relative  mx-auto -mt-4">
           <img src="./hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
           <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
@@ -73,38 +81,17 @@ export default function Home() {
           <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
             <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
           </div>
-          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  border ">
+          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem
                 key={index}
                 className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
               >
-                <div className="p-1">
-                  <div className="max-w-xs w-full group/card">
-                    <div
-                      className={cn(
-                        " cursor-pointer overflow-hidden relative card h-96 shadow-xl  max-w-sm mx-auto backgroundImage flex flex-col justify-between p-4 px-6",
-                        "bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
-                      )}
-                    >
-                      <div className="absolute w-full h-full top-0 left-0 transition duration-300 group-hover/card:bg-black opacity-60"></div>
-
-                      <div className="text content h-full flex flex-col  justify-end">
-                        <h1 className="font-bold text-xl md:text-2xl text-gray-50 relative z-10">
-                          Detination
-                        </h1>
-                        <p className="font-normal text-sm text-gray-50 relative z-10 my-4">
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Minus, laboriosam mollitia doloribus
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <PackageCard />
               </CarouselItem>
             ))}
           </CarouselContent>
-           <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
+          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
             <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
           </div>
           <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
@@ -227,23 +214,34 @@ export default function Home() {
       <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-6 mx-auto ">
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4  text-black">
           <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <MapPin  size={45} className="my-4 text-primary"/>
-            <h6 className="text-3xl font-bold">10M</h6>
+            <MapPin size={45} className="my-4 text-primary" />
+            <h6 className="text-3xl animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-transactions)] before:content-[counter(num)] font-bold">
+              M
+            </h6>
             <small>Total Donations</small>
           </div>
           <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <Route size={45} className="my-4 text-primary"/>
-            <h6 className="text-3xl font-bold">24k</h6>
+            <Route size={45} className="my-4 text-primary" />
+            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-compaigns)] before:content-[counter(num)]">
+              k
+            </h6>
             <small>Campaigns Closed</small>
           </div>
           <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <CircleUserRound size={45} className="my-4 text-primary font-extralight"/>
-            <h6 className="text-3xl font-bold">5k</h6>
+            <CircleUserRound
+              size={45}
+              className="my-4 text-primary font-extralight"
+            />
+            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-customers)] before:content-[counter(num)]">
+              k
+            </h6>
             <small>Happy Customers</small>
           </div>
           <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <Users size={45} className="my-4 text-primary"/>
-            <h6 className="text-3xl font-bold">12k</h6>
+            <Users size={45} className="my-4 text-primary" />
+            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-volunteers)] before:content-[counter(num)]">
+              k
+            </h6>
             <small>Our Volunteers</small>
           </div>
         </div>

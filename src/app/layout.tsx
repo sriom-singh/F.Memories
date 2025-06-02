@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${monteCarlo.variable} ${openSans.variable} antialiased`}>
         <MainNavbar />
-        <div className="pt- bg-white">{children}</div>
+        <div className="font-openSans bg-white">{children}</div>
         <Footer/>
       </body>
     </html>

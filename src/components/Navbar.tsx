@@ -24,7 +24,7 @@ export function MainNavbar() {
     },
     {
       name: "India",
-      link: "#",
+      link: "india",
     },
     {
       name: "Global",
@@ -41,7 +41,7 @@ export function MainNavbar() {
         <NavBody>
           <NavbarLogo />
           <NavItems className="text-sm font-normal" items={navItems} />
-          <div className="flex font-openSans items-center  gap-4">
+          <div className="flex font-openSans items-center  gap-4 pr-2">
             <NavbarButton variant="secondary" className="font-normal  rounded-full border-[0.01px] text-white">Login</NavbarButton>
             <NavbarButton className="font-semibold" variant="gradient">
               Contact Us
@@ -68,7 +68,7 @@ export function MainNavbar() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                className="relative font-openSans text-neutral-600 dark:text-neutral-300"
               >
                 <span className="block">{item.name}</span>
               </a>

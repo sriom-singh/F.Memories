@@ -56,6 +56,44 @@
 }
 
 
+@property --num-transactions {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num-compaigns {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --num-customers {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+@property --num-volunteers {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@keyframes counter {
+  from {
+    --num-transactions: 0;
+    --num-compaigns: 0;
+    --num-customers: 0;
+    --num-volunteers: 0;
+  }
+  to {
+    --num-transactions: 10;
+    --num-compaigns: 25;
+    --num-customers: 10;
+    --num-volunteers: 15;
+  }
+}
+
 :root {
   --background: white;
   --foreground: #F69E79;
