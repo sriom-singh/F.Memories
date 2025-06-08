@@ -23,6 +23,7 @@ import PackageCard from "@/components/PackageCard";
 export default function Home() {
   return (
     <>
+
       <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
         <div className="relative  mx-auto -mt-4">
           <img src="./hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
@@ -265,6 +266,12 @@ export default function Home() {
 
       {/* Testimonials */}
       <Testimonials />
+      {/* <iframe
+        src="https://www.google.com/maps/d/u/1/embed?mid=1VrDPV_b7DohFlZudm5oVY7JslGypqHM&ehbc=2E312F&noprof=1"
+        className="w-[95vw] h-[80vh] text-white md:px-4 xl:px-0 px-8 py-12 mx-auto"
+      ></iframe> */}
+
+      {/* https://www.google.com/maps/d/u/0/edit?mid=1VrDPV_b7DohFlZudm5oVY7JslGypqHM&usp=sharing */}
     </>
   );
 }

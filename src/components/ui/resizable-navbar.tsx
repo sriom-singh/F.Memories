@@ -224,9 +224,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <IconX className="text-white dark:text-black" onClick={onClick} />
+    <IconX className="text-white  dark:text-black" onClick={onClick} />
   ) : (
-    <IconMenu2 className="text-white dark:text-" onClick={onClick} />
+    <IconMenu2 className="text-white  dark:text-" onClick={onClick} />
   );
 };
 
@@ -236,8 +236,9 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
-      <span className="font-semibold t text-base font-openSans   dark:text-white">
-         F.Memories
+      <img src={'./favicon.ico'} width={24} alt=" framing icon"/>
+      <span className="font-semibold text-shadow-sm text-shadow-black/10 text-base font-openSans   dark:text-white">
+         Framing Memories
       </span>
     </a>
   );
@@ -261,7 +262,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-4 py-2 rounded-md bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
   const variantStyles = {
     primary:

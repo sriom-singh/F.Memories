@@ -60,6 +60,7 @@ export function MainNavbar() {
           </MobileNavHeader>
 
           <MobileNavMenu
+          className="bg-white/95"
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
@@ -83,10 +84,10 @@ export function MainNavbar() {
               </NavbarButton>
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
+                variant="gradient"
                 className="w-full"
               >
-                Book a call
+                Contact Us
               </NavbarButton>
             </div>
           </MobileNavMenu>

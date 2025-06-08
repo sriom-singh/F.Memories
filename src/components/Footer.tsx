@@ -17,7 +17,10 @@ const Footer = () => {
           <div className=" md:col-span-2 text-black p-4 ">
             <div className="flex flex-col  gap-2">
               <h1 className="font-openSans cursor-pointer text-2xl pb-4 text-primary font-semibold">
-                <Link href={'/'}>Framing Memories</Link>
+                <Link href={'/'} className="flex items-center gap-1.5">
+                <img src={'./favicon.ico'} width={36}/>
+                Framing Memories
+                </Link>
               </h1>
               <p className="flex gap-2 items-center text-black text-sm">
                 <Landmark size={16} /> 13th Street. New York, NY 10011
