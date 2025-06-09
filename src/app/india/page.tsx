@@ -1,4 +1,7 @@
+"use client";
 import PackageCard from "@/components/PackageCard";
+import RangeSlider from "@/components/rangeSlider";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -7,9 +10,14 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Slider } from "@/components/ui/slider";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { Phone } from "lucide-react";
-const AboutUs = () => {
+
+const India = () => {
   return (
     <div>
       <div className=" mx-auto">
@@ -51,48 +59,57 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="relative"></div>
-        <div className=" mx-auto max-w-7xl py-10 py-16 text-black px-7">
-          {/* <h1 className="md:text-5xl text-4xl font-bold text-center">
-            Packages
-          </h1>
-          <hr className="my-4" /> */}
-          <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-6 mx-auto">
-            <h2 className="font-cursive text-primary text-xl md:text-2xl font-semibold">
-              India&apos;s
-            </h2>
-            <h2 className="font-openSans xl:text-4xl text-3xl lg:text-2xl text-black font-semibold">
-              Top Packages
-            </h2>
-            <Carousel
-              opts={{
-                align: "start",
-              }}
-              orientation="horizontal"
-              className="md:my-8  my-4 "
-            >
-              <div className="absolute md:-top-8 md:inline hidden right-12 flex items-center justify-center">
-                <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+
+        <div className=" mx-auto max-w-7xl px-10 py-16 md:px-4 xl:px-0  text-black px-7">
+          <div className="">
+            <h1 className="text-5xl text-center font-bold">Packages</h1>
+          </div>
+          <hr className="my-6" />
+          <div className=" w-full my-4 flex justify-center flex-wrap gap-4 mb-6">
+            <span className="border rounded-sm p-2 text-sm">Beaches</span>
+            <span className="border rounded-sm p-2 text-sm">Mountains</span>
+            <span className="border rounded-sm p-2 text-sm"> Parks & zoos</span>
+            <span className="border rounded-sm p-2 text-sm"> Dining & Restaurants</span>
+            <span className="border rounded-sm p-2 text-sm">Adventure & theme parks</span>
+          </div>
+          <div className="flex gap-4 md:flex-row flex-col ">
+            {/*-------------Filter --------------*/}
+            <div className="md:w-[32rem] p-4 py-6 bg-primary/10 shadow-xl shadow-black/20 ">
+              <h2 className="text-lg  font-bold">Filters</h2>
+              <hr className="my-6" />
+              <div>
+                <h2 className="font-semibold text-sm">Indian Locations</h2>
+                <select className="bg-white w-full p-3 my-2 rounded-sm">
+                  <option>Select</option>
+                  <option>Manali</option>
+                  <option>Kashmir</option>
+                  <option>Manali</option>
+                  <option>Manali</option>
+                </select>
               </div>
-              <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
-                <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+              <hr className="my-6" />
+              <div className="flex flex-col gap-4">
+                <RangeSlider
+                  label={"Budget"}
+                  min={5000}
+                  max={20000}
+                  steps={100}
+                />
+                <RangeSlider label={"Nights"} min={1} max={7} steps={1} />
               </div>
-              <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4   ">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <CarouselItem
-                    key={index}
-                    className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
-                  >
-                    <PackageCard/>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
-                <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+              <hr className="my-6" />
+
+              <div className="flex justify-end">
+                <Button className="mt-2 w-full">Apply</Button>
               </div>
-              <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
-                <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-              </div>
-            </Carousel>
+            </div>
+
+            {/*----------------- Packages --------------------*/}
+            <div className="flex flex-wrap gap-4 justify-center items-center">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <PackageCard key={index} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -100,4 +117,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default India;

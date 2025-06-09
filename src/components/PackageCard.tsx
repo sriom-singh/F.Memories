@@ -4,15 +4,15 @@ import { Button } from "./ui/button";
 const PackageCard = () => {
   return (
     <div className="">
-      <div className="max-w-xs w-full group/card">
+      <div className="max-w-[19rem] w-full group/card">
         <div className=" border rounded-sm">
           <div className="relative">
             <img src={"/photo-beach.avif"} className="h-1/2 w-full object-cover" />
             <span className="bg-primary text-white absolute top-1 left-1 text-xs rounded-sm p-1">
               20% off
             </span>
-            <span className=" bg-black/50 border-[0.2px] shadow- text-white absolute bottom-1 right-1 text-xs rounded-sm p-1">
-              4.5⭐sm
+            <span className=" bg-black/50 shadow- text-white absolute bottom-1 right-1 text-xs rounded-sm p-1">
+              4.5⭐
             </span>
           </div>
 

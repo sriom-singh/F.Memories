@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { getPackages } from "@/actions/package";
 
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
@@ -20,10 +21,21 @@ import {
   Users,
 } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
-export default function Home() {
+import { getServerSession } from "next-auth/next";
+
+async function getUser() {
+  const session = await getServerSession();
+  return session;
+}
+export default async function Home() {
+  // const Packages = await getPackages();
+  // console.log(Packages);
+  const session = await getUser();
+  console.log(session);
+  
   return (
     <>
-
+    
       <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
         <div className="relative  mx-auto -mt-4">
           <img src="./hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
@@ -61,7 +73,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+     
       {/* Popular Locations */}
       <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-12 mx-auto">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">

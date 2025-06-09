@@ -79,6 +79,16 @@
   inherits: false;
 }
 
+input[type="range"]:focus {
+  outline: none;
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: #053a5f;
+
+}
+
 @keyframes counter {
   from {
     --num-transactions: 0;

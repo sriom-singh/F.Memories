@@ -19,10 +19,9 @@ export const metadata: Metadata = {
   title: "Framing Memories",
   description:
     "Framing Memories crafts immersive journeys so you don’t just travel you live the moment,and frame it forever.",
-  icons:{
-    icon:"./favicon-32x32.png"
-  }
-
+  icons: {
+    icon: "./favicon-32x32.png",
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +35,7 @@ export default function RootLayout({
         className={` ${monteCarlo.variable} ${openSans.variable} antialiased`}
       >
         <MainNavbar />
-        <div className="font-openSans bg-white">{children}</div>
+        <div className="font-openSans bg-white"> {children}</div>
         {/* Floating Whatsapp Button */}
         <a
           href="https://wa.me/ 919910583811"

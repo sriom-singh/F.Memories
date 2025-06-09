@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
 
-export function MainNavbar() {
+export  function MainNavbar() {
   const navItems = [
     {
       name: "Home",
@@ -42,7 +42,12 @@ export function MainNavbar() {
           <NavbarLogo />
           <NavItems className="text-sm font-normal" items={navItems} />
           <div className="flex font-openSans items-center  gap-4 pr-2">
-            <NavbarButton variant="secondary" className="font-normal  rounded-full border-[0.01px] text-white">Login</NavbarButton>
+            <NavbarButton
+              variant="secondary"
+              className="font-normal  rounded-full border-[0.01px] text-white"
+            >
+              Login
+            </NavbarButton>
             <NavbarButton className="font-semibold" variant="gradient">
               Contact Us
             </NavbarButton>
@@ -60,7 +65,7 @@ export function MainNavbar() {
           </MobileNavHeader>
 
           <MobileNavMenu
-          className="bg-white/95"
+            className="bg-white/95"
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
@@ -76,7 +81,9 @@ export function MainNavbar() {
             ))}
             <div className="flex w-full flex-col gap-4">
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                }}
                 variant="primary"
                 className="w-full"
               >
