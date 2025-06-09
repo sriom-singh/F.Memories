@@ -10,9 +10,15 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
-export  function MainNavbar() {
+import { useSession } from "next-auth/react";
+
+export function MainNavbar() {
+  const [showMenu, setShowMenu] = useState(false);
+  const { data: session, status } = useSession();
   const navItems = [
     {
       name: "Home",
@@ -31,23 +37,73 @@ export  function MainNavbar() {
       link: "#",
     },
   ];
-
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
+  // Close when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(event.target as Node)
+      ) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   return (
     <div className="relative w-full z-[1000]">
       <Navbar className="py-2 ">
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
+
           <NavItems className="text-sm font-normal" items={navItems} />
           <div className="flex font-openSans items-center  gap-4 pr-2">
-            <NavbarButton
-              variant="secondary"
-              className="font-normal  rounded-full border-[0.01px] text-white"
-            >
-              Login
-            </NavbarButton>
+            {status !== "authenticated" && (
+              <NavbarButton
+                variant="secondary"
+                className="font-normal  rounded-full border-[0.01px] text-white"
+                onClick={() => signIn()}
+              >
+                Login
+              </NavbarButton>
+            )}
+            {status == "authenticated" && (
+              <NavbarButton
+                variant="secondary"
+                className="font-normal flex  rounded-full p-0 text-white"
+              >
+                <div
+                  className="relative"
+                  ref={wrapperRef}
+                  onMouseEnter={() => setShowMenu(true)}
+                  onMouseLeave={() => setShowMenu(false)}
+                >
+                  <img
+                    src={"favicon.ico"}
+                    className="size-8"
+                    onClick={() => setShowMenu((prev) => !prev)} // toggle on click
+                  />
+
+                  {showMenu && (
+                    <div className="absolute top-1 -right-4 rounded-sm  pt-10 w-40  z-50">
+                      <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
+                        <li className="border-b py-2 cursor-pointer">
+                          Profile
+                        </li>
+                        <li className="border-b py-2 cursor-pointer">Logout</li>
+                        <li className="py-2 cursor-pointer">My Bookings</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </NavbarButton>
+            )}
             <NavbarButton className="font-semibold" variant="gradient">
               Contact Us
             </NavbarButton>
@@ -58,6 +114,7 @@ export  function MainNavbar() {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
+
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -69,6 +126,7 @@ export  function MainNavbar() {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
+            
             {navItems.map((item, idx) => (
               <a
                 key={`mobile-link-${idx}`}
@@ -80,15 +138,50 @@ export  function MainNavbar() {
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              <NavbarButton
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                }}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton>
+              {status !== "authenticated" && (
+                <NavbarButton
+                  variant="secondary"
+                  className="font-normal  rounded-full border-[0.01px] text-white"
+                  onClick={() => signIn()}
+                >
+                  Login
+                </NavbarButton>
+              )}
+              {status == "authenticated" && (
+                <NavbarButton
+                  variant="secondary"
+                  className="font-normal flex  rounded-full p-0 text-white"
+                >
+                  <div
+                    className="relative flex items-center  w-full gap-2"
+                    ref={wrapperRef}
+                    onMouseEnter={() => setShowMenu(true)}
+                    onMouseLeave={() => setShowMenu(false)}
+                  >
+                    <img
+                      src={"favicon.ico"}
+                      className="size-8"
+                      onClick={() => setShowMenu((prev) => !prev)} // toggle on click
+                    />
+                    <span className="bg-red text-black text-base">
+                      {session.user?.email}
+                    </span>
+                    {showMenu && (
+                      <div className="absolute top-2  rounded-sm  pt-10 w-40  z-50">
+                        <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
+                          <li className="border-b py-2 cursor-pointer">
+                            Profile
+                          </li>
+                          <li className="border-b py-2 cursor-pointer">
+                            Logout
+                          </li>
+                          <li className="py-2 cursor-pointer">My Bookings</li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </NavbarButton>
+              )}
               <NavbarButton
                 onClick={() => setIsMobileMenuOpen(false)}
                 variant="gradient"

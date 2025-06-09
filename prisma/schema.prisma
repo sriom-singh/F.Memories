@@ -16,8 +16,10 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  name      String
+  name      String?
+  password  String
   phone     Int?
+  isAdmin Boolean @default(false)
   packages  Buys[]
   joinedOn  DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -47,6 +49,6 @@ model Buys {
   userId      Int
   purchasedAt DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
+  numOfTraveler Int @default(1)
   @@id([packageId, userId])
 }
