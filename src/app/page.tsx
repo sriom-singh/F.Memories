@@ -21,17 +21,11 @@ import {
   Users,
 } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
-import { getServerSession } from "next-auth/next";
 
-async function getUser() {
-  const session = await getServerSession();
-  return session;
-}
+
 export default async function Home() {
   // const Packages = await getPackages();
   // console.log(Packages);
-  const session = await getUser();
-  console.log(session);
   
   return (
     <>
