@@ -66,20 +66,25 @@ const India = () => {
           </div>
           <hr className="my-6" />
           <div className=" w-full my-4 flex justify-center flex-wrap gap-4 mb-6">
-            <span className="border rounded-sm p-2 text-sm">Beaches</span>
-            <span className="border rounded-sm p-2 text-sm">Mountains</span>
-            <span className="border rounded-sm p-2 text-sm"> Parks & zoos</span>
-            <span className="border rounded-sm p-2 text-sm"> Dining & Restaurants</span>
-            <span className="border rounded-sm p-2 text-sm">Adventure & theme parks</span>
+            <span className="border hover:bg-primary/70 rounded-sm p-2 text-sm">Beaches</span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">Mountains</span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm"> Parks & zoos</span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">
+              {" "}
+              Dining & Restaurants
+            </span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">
+              Adventure & theme parks
+            </span>
           </div>
-          <div className="flex gap-4 md:flex-row flex-col ">
+          <div className="flex gap-6 py-6 md:flex-row flex-col ">
             {/*-------------Filter --------------*/}
-            <div className="md:w-[32rem] p-4 py-6 bg-primary/10 shadow-xl shadow-black/20 ">
-              <h2 className="text-lg  font-bold">Filters</h2>
+            <div className="md:w-[32rem] max-h-fit p-4 py-6 bg-primary/5 shadow-xl shadow-black/20 ">
+              <h2 className="text-xl  font-bold">Filters</h2>
               <hr className="my-6" />
               <div>
-                <h2 className="font-semibold text-sm">Indian Locations</h2>
-                <select className="bg-white w-full p-3 my-2 rounded-sm">
+                <h2 className="font-semibold ">Indian Locations</h2>
+                <select className="bg-white w-full p-2 my-2 rounded-sm">
                   <option>Select</option>
                   <option>Manali</option>
                   <option>Kashmir</option>
@@ -97,18 +102,34 @@ const India = () => {
                 />
                 <RangeSlider label={"Nights"} min={1} max={7} steps={1} />
               </div>
-              <hr className="my-6" />
-
+              <div className="flex flex-col gap-4 my-4">
+                <h2 className="font-semibold text">Availibity</h2>
+                <div className="flex gap-2">
+                  <div>
+                    <Label htmlFor="from">From</Label>
+                    <input id="from" type="date" className="border text-xs p-2 mt-1" />
+                  </div>
+                  <div>
+                    <Label htmlFor="endDate">End</Label>
+                    <input id="endDate" type="date" className="border p-2 text-xs mt-1" />
+                  </div>
+                </div>
+              </div>
               <div className="flex justify-end">
                 <Button className="mt-2 w-full">Apply</Button>
               </div>
             </div>
 
             {/*----------------- Packages --------------------*/}
-            <div className="flex flex-wrap gap-4 justify-center items-center">
-              {Array.from({ length: 6 }).map((_, index) => (
-                <PackageCard key={index} />
-              ))}
+            <div className="">
+              <h2 className="text-3xl pb-8">
+                Showing <b>7</b> results
+              </h2>
+              <div className="flex flex-wrap gap-4 justify- items-center">
+                {Array.from({ length: 6 }).map((_, index) => (
+                  <PackageCard key={index} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

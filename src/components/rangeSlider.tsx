@@ -12,7 +12,7 @@ const RangeSlider = ({ label,min,max,steps }: any) => {
   return (
     <div className="my-2">
       <div className="flex items-center w-full">
-        <h2 className="font-semibold text-sm">{label}:</h2>
+        <h2 className="font-semibold text-base">{label}:</h2>
         <p className="text-xs px-2">{minValue} - <span>{maxValue}</span></p>
       </div>
       <div className="">
