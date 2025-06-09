@@ -236,7 +236,7 @@ export const NavbarLogo = () => {
       href="#"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
-      <img src={'./favicon.ico'} width={24} alt=" framing icon"/>
+      <img src={'/favicon.ico'} width={24} alt=" framing icon"/>
       <span className="font-semibold text-shadow-sm text-shadow-black/10 text-base font-openSans   dark:text-white">
          Framing Memories
       </span>

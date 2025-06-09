@@ -34,16 +34,16 @@ const Footer = () => {
               </p>
               <div className=" flex gap-4 items-center py-4">
                 <a className="text-sky-500  p-0.5  rounded-sm">
-                  <img width={30} src={"./icons/facebook.png"} />
+                  <img width={30} src={"/icons/facebook.png"} />
                 </a>
                 <a className="text-primary p-0.5  rounded-sm">
-                  <img width={30} src={"./icons/twitter.png"} />
+                  <img width={30} src={"/icons/twitter.png"} />
                 </a>
                 <a className="text-blue-500  p-0.5  rounded-sm">
-                  <img width={30} src={"./icons/linkedin.png"} />
+                  <img width={30} src={"/icons/linkedin.png"} />
                 </a>
                 <a className="text-blue-700 p-0.5  rounded-sm">
-                  <img width={30} src={"./icons/instagram.png"} />
+                  <img width={30} src={"/icons/instagram.png"} />
                 </a>
               </div>
             </div>

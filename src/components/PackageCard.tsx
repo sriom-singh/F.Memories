@@ -1,13 +1,15 @@
+"use client"
 import React from "react";
 import { Button } from "./ui/button";
-
+import { useRouter } from "next/navigation";
 const PackageCard = () => {
+  const router = useRouter()
   return (
     <div className="">
       <div className="max-w-[19rem] w-full group/card">
         <div className=" border rounded-sm">
           <div className="relative">
-            <img src={"/photo-beach.avif"} className="h-1/2 w-full object-cover" />
+            <img src={"/photo-beach.avif"} onClick={()=>router.push('/india/abc-tour')} className="h-1/2 w-full cursor-pointer object-cover" />
             <span className="bg-primary text-white absolute top-1 left-1 text-xs rounded-sm p-1">
               20% off
             </span>
@@ -31,7 +33,7 @@ const PackageCard = () => {
               </p>
             </div>
             <div className="flex justify-between my-2">
-              <Button variant={"outline"}>View Detail</Button>
+              <Button className="cursor-pointer" variant={"outline"} onClick={()=>router.push('/india/abc-tour')}>View Detail</Button>
               <Button variant={"default"}>Get a Callback</Button>
             </div>
           </div>

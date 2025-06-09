@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Framing Memories crafts immersive journeys so you don’t just travel you live the moment,and frame it forever.",
   icons: {
-    icon: "./favicon-32x32.png",
+    icon: "/favicon-32x32.png",
   },
 };
 

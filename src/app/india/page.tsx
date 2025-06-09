@@ -23,7 +23,7 @@ const India = () => {
       <div className=" mx-auto">
         <div className="relative h-[38rem] w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
           <img
-            src="./india-gate.jpg"
+            src="/india-gate.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
           {/* <img className="h-96 w-dvw object-cover " src="https://images.unsplash.com/photo-1612278675615-7b093b07772d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/> */}
@@ -62,7 +62,7 @@ const India = () => {
 
         <div className=" mx-auto max-w-7xl px-10 py-16 md:px-4 xl:px-0  text-black px-7">
           <div className="">
-            <h1 className="text-5xl text-center font-bold">Packages</h1>
+            <h1 className="text-5xl text-center font-bold font-openSans">Packages</h1>
           </div>
           <hr className="my-6" />
           <div className=" w-full my-4 flex justify-center flex-wrap gap-4 mb-6">
