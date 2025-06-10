@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 const PackageCard = () => {
   const router = useRouter()
   return (
@@ -9,7 +10,7 @@ const PackageCard = () => {
       <div className="max-w-[19rem] w-full group/card">
         <div className=" border rounded-sm">
           <div className="relative">
-            <img src={"/photo-beach.avif"} onClick={()=>router.push('/india/abc-tour')} className="h-1/2 w-full cursor-pointer object-cover" />
+            <Image alt="beach" height={100} width={100} src={"/photo-beach.avif"} onClick={()=>router.push('/india/abc-tour')} className="h-1/2 w-full cursor-pointer object-cover" />
             <span className="bg-primary text-white absolute top-1 left-1 text-xs rounded-sm p-1">
               20% off
             </span>
@@ -34,7 +35,7 @@ const PackageCard = () => {
             </div>
             <div className="flex justify-between my-2">
               <Button className="cursor-pointer" variant={"outline"} onClick={()=>router.push('/india/abc-tour')}>View Detail</Button>
-              <Button variant={"default"}>Get a Callback</Button>
+              <Button className="cursor-pointer" variant={"default"}>Get a Callback</Button>
             </div>
           </div>
         </div>

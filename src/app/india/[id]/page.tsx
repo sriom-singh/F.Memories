@@ -17,13 +17,17 @@ import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { CalendarCheck, MapPin, Phone, Star } from "lucide-react";
+import Image from "next/image";
 
 const page = () => {
   return (
     <div className="font-openSans">
       <div className=" mx-auto">
         <div className="relative h-[38rem] w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
-          <img
+          <Image
+          alt="Mountain"
+          width={1000}
+          height={1000}
             src="/mountain-region.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
@@ -127,7 +131,7 @@ const page = () => {
                 ></textarea>
               </div>
               <div className="flex justify-end">
-                <Button className="mt-2 w-full">Submit</Button>
+                <Button className="mt-2 w-full cursor-pointer">Submit</Button>
               </div>
             </div>
           </div>

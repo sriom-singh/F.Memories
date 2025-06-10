@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 
 export async function POST(req: Request) {
   const body = await req.json();
-  const { email, password, isAdmin = false } = body;
+  const { email, password,name,phone, isAdmin = false } = body;
 
   if (!email || !password) {
     return NextResponse.json(
@@ -27,7 +27,9 @@ export async function POST(req: Request) {
       data: {
         email,
         password: hashedPassword,
+        name,
         isAdmin,
+        phone
       },
     });
 

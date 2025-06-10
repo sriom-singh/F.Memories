@@ -1,11 +1,11 @@
+import Image from "next/image";
 
 const AboutUs = () => {
   return (
     <div>
       <div className=" mx-auto font-openSans">
         <div className="relative h-96 w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
-          <img src="./photo-beach.avif" className="w-[100vw] object-cover opacity-60 h-96 " />
-          {/* <img className="h-96 w-dvw object-cover " src="https://images.unsplash.com/photo-1612278675615-7b093b07772d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/> */}
+          <Image width={1000} height={1000} alt="beach" src="/photo-beach.avif" className="w-[100vw] object-cover opacity-60 h-96 " />
           <h2 className="md:text-6xl text-white absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
             About Us
           </h2>

@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
             id: user.id.toString(),
             email: user.email,
             isAdmin: user.isAdmin,
-            name:user?.name
+            name: user?.name,
           };
         } catch (error) {
           throw error;
@@ -68,13 +68,13 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
-  pages:{
-    signIn:"/login",
-    error:"/login"
+  pages: {
+    signIn: "/login",
+    error: "/login",
   },
   session: {
     strategy: "jwt",
-    maxAge:30*24*60*60
+    maxAge: 30 * 24 * 60 * 60,
   },
-  secret:process.env.NEXTAUTH_SECRET
+  secret: process.env.NEXTAUTH_SECRET,
 };

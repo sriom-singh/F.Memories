@@ -1,22 +1,51 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { BackgroundLines } from "@/components/ui/background-lines";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-  IconBrandOnlyfans,
-} from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { signIn, useSession } from "next-auth/react";
 
 export default function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Checks if user is already Login
+  const { data: session, status } = useSession();
+  if (status === "authenticated") {
+    redirect("/");
+  }
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+
+    try {
+      // Register user
+      setLoading(true);
+      // Log the user in
+      const result = await signIn("credentials", {
+        email: formData.email,
+        password: formData.password,
+        callbackUrl: "/",
+      });
+
+      if (result?.ok && result?.url) {
+        router.push(result.url);
+      } else {
+        console.error("Login failed", result?.error);
+      }
+    } catch (error) {
+      console.error("login failed", error);
+    }
+    setLoading(true);
   };
   const router = useRouter();
 
@@ -27,7 +56,13 @@ export default function SignupFormDemo() {
         style={{ boxShadow: "0 0px 6px 2px rgba(0, 0, 0, 0.1)" }}
         className="shadow-input m-auto rounded-md  w-full max-w-md  bg-white z-40 p-4 md:rounded-2xl md:p-8 dark:bg-black"
       >
-        <img src={"/apple-touch-icon.png"} className="w-16 mx-auto pb-2" />
+        <Image
+          width={100}
+          height={100}
+          alt="favivon"
+          src={"/apple-touch-icon.png"}
+          className="w-16 mx-auto pb-2"
+        />
         <h2 className="text-xl text-center font-bold text-neutral-800 dark:text-neutral-200">
           Welcome to Framing Memories
         </h2>
@@ -41,18 +76,28 @@ export default function SignupFormDemo() {
             <Label htmlFor="email">Email Address*</Label>
             <Input
               id="email"
+              required
               placeholder="projectmayhem@fc.com"
               type="email"
               className="text-black"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="password">Password*</Label>
             <Input
               id="password"
+              required
               placeholder="••••••••"
               type="password"
               className="text-black"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
             />
           </LabelInputContainer>
           <p className="text-xs mb-4 text-center">
@@ -65,8 +110,8 @@ export default function SignupFormDemo() {
             </span>
           </p>
 
-          <Button className="w-full" type="submit">
-            Login &rarr;
+          <Button className="w-full cursor-pointer" type="submit">
+            {loading ? "Logging in..." : " Login ->"}
             <BottomGradient />
           </Button>
         </form>

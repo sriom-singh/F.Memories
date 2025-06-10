@@ -16,17 +16,22 @@ import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { Phone } from "lucide-react";
+import Image from "next/image";
 
-const India = () => {
+
+
+const India = async() => {
   return (
     <div>
       <div className=" mx-auto">
         <div className="relative h-[38rem] w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
-          <img
+          <Image
+          alt="India Gate"
+          width={1000}
+          height={1000}
             src="/india-gate.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
-          {/* <img className="h-96 w-dvw object-cover " src="https://images.unsplash.com/photo-1612278675615-7b093b07772d?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/> */}
           <h2 className="md:text-6xl text-white absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
             INDIA
           </h2>
@@ -116,7 +121,7 @@ const India = () => {
                 </div>
               </div>
               <div className="flex justify-end">
-                <Button className="mt-2 w-full">Apply</Button>
+                <Button className="mt-2 w-full cursor-pointer">Apply</Button>
               </div>
             </div>
 

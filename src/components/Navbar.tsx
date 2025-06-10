@@ -10,11 +10,13 @@ import {
   MobileNavToggle,
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { useSession } from "next-auth/react";
+import Link from "next/link";
+import Image from "next/image";
 
 export function MainNavbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -84,8 +86,11 @@ export function MainNavbar() {
                   onMouseEnter={() => setShowMenu(true)}
                   onMouseLeave={() => setShowMenu(false)}
                 >
-                  <img
-                    src={"favicon.ico"}
+                  <Image
+                    alt="favicon"
+                    height={30}
+                    width={30}
+                    src={"/favicon.ico"}
                     className="size-8"
                     onClick={() => setShowMenu((prev) => !prev)} // toggle on click
                   />
@@ -96,7 +101,12 @@ export function MainNavbar() {
                         <li className="border-b py-2 cursor-pointer">
                           Profile
                         </li>
-                        <li className="border-b py-2 cursor-pointer">Logout</li>
+                        <li
+                          className="border-b py-2 cursor-pointer"
+                          onClick={() => signOut()}
+                        >
+                          Logout
+                        </li>
                         <li className="py-2 cursor-pointer">My Bookings</li>
                       </ul>
                     </div>
@@ -126,16 +136,15 @@ export function MainNavbar() {
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
-            
             {navItems.map((item, idx) => (
-              <a
+              <Link
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="relative font-openSans text-neutral-600 dark:text-neutral-300"
               >
                 <span className="block">{item.name}</span>
-              </a>
+              </Link>
             ))}
             <div className="flex w-full flex-col gap-4">
               {status !== "authenticated" && (
@@ -158,7 +167,10 @@ export function MainNavbar() {
                     onMouseEnter={() => setShowMenu(true)}
                     onMouseLeave={() => setShowMenu(false)}
                   >
-                    <img
+                    <Image
+                      alt="favicon"
+                      height={30}
+                      width={30}
                       src={"favicon.ico"}
                       className="size-8"
                       onClick={() => setShowMenu((prev) => !prev)} // toggle on click
@@ -172,9 +184,13 @@ export function MainNavbar() {
                           <li className="border-b py-2 cursor-pointer">
                             Profile
                           </li>
-                          <li className="border-b py-2 cursor-pointer">
+                          <li
+                            className="border-b py-2 cursor-pointer"
+                            onClick={() => signOut()}
+                          >
                             Logout
                           </li>
+
                           <li className="py-2 cursor-pointer">My Bookings</li>
                         </ul>
                       </div>

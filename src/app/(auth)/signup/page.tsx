@@ -3,12 +3,17 @@ import React, { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
+import { signIn,useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function SignupFormDemo() {
+  const {data:session,status} = useSession();
+  if(status==='authenticated'){
+    redirect('/')
+  }
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -27,6 +32,8 @@ export default function SignupFormDemo() {
       password: formData.password,
       phone: formData.phone,
     };
+    console.log(newUser);
+    
 
     try {
       // Register user
@@ -37,6 +44,7 @@ export default function SignupFormDemo() {
         redirect: false,
         email: newUser.email,
         password: newUser.password,
+        name:newUser.name,
         callbackUrl: "/",
       });
 
@@ -57,7 +65,7 @@ export default function SignupFormDemo() {
         style={{ boxShadow: "0 0px 6px 2px rgba(0, 0, 0, 0.1)" }}
         className="shadow-input m-auto   w-full max-w-md rounded-md bg-white z-40 p-4 md:rounded-2xl md:p-8 dark:bg-black"
       >
-        <img src={"/apple-touch-icon.png"} className="w-16 mx-auto pb-2" />
+        <Image width={100} height={100} alt="favivon" src={"/apple-touch-icon.png"} className="w-16 mx-auto pb-2" />
         <h2 className="text-xl text-center font-bold text-neutral-800 dark:text-neutral-200">
           Welcome to Framing Memories
         </h2>
@@ -73,6 +81,7 @@ export default function SignupFormDemo() {
                 id="firstname"
                 className="text-black"
                 placeholder="Tyler"
+                required
                 value={formData.firstname}
                 onChange={(e) =>
                   setFormData({ ...formData, firstname: e.target.value })
@@ -86,6 +95,7 @@ export default function SignupFormDemo() {
                 id="lastname"
                 className="text-black"
                 placeholder="Durden"
+                required
                 type="text"
                 value={formData.lastname}
                 onChange={(e) =>
@@ -100,6 +110,7 @@ export default function SignupFormDemo() {
               id="email"
               placeholder="projectmayhem@fc.com"
               type="email"
+              required
               className="text-black"
               value={formData.email}
               onChange={(e) =>
@@ -113,6 +124,7 @@ export default function SignupFormDemo() {
               id="password"
               placeholder="••••••••"
               type="password"
+              required
               className="text-black"
               value={formData.password}
               onChange={(e) =>
@@ -121,9 +133,9 @@ export default function SignupFormDemo() {
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
-            <Label htmlFor="twitterpassword">Phone Number</Label>
+            <Label htmlFor="phone">Phone Number</Label>
             <Input
-              id="twitterpassword"
+              id="phone"
               placeholder="123 456 789"
               type="number"
               className="text-black"
@@ -142,7 +154,7 @@ export default function SignupFormDemo() {
               Login
             </span>
           </p>
-          <Button className="w-full" type="submit">
+          <Button className="w-full cursor-pointer" type="submit">
             Sign up &rarr;
             <BottomGradient />
           </Button>

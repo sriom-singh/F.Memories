@@ -21,18 +21,19 @@ import {
   Users,
 } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
+import Image from "next/image";
 
 
 export default async function Home() {
   // const Packages = await getPackages();
   // console.log(Packages);
-  
+
   return (
     <>
     
       <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
         <div className="relative  mx-auto -mt-4">
-          <img src="./hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
+          <Image width={1000} height={1000} alt="hero" src="/hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
           <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
 
           <div className="flex md:items-center absolute inset-0  items-center  font-openSans flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
@@ -60,7 +61,7 @@ export default async function Home() {
                 className="absolute left-3 top-3.5 size-5 text-black/60 font-extralight
 "
               />
-              <Button className="absolute right-2 top-2 size-5 text-black/60 font-extralight w-8 h-8 rounded-full">
+              <Button className="absolute right-2 cursor-pointer top-2 size-5 text-black/60 font-extralight w-8 h-8 rounded-full">
                 <ArrowRight className="size-4" />
               </Button>
             </div>
@@ -117,7 +118,8 @@ export default async function Home() {
         </h2>
         <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
           <div className="flex flex-col justify-center gap-2 items-center">
-            <img src={"./icons/destination.png"} className="size-20" />
+            <Image   width={100}
+            height={100} alt="destination icon" src={"/icons/destination.png"} className="size-20" />
             <h3 className="text-black text-xl font-semibold text-center">
               Most Popular Destination
             </h3>
@@ -127,7 +129,8 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex flex-col justify-center gap-2 items-center">
-            <img src={"./icons/tour-package.png"} className="size-20" />
+            <Image   width={100}
+            height={100} alt="tour-icon" src={"/icons/tour-package.png"} className="size-20" />
             <h3 className="text-black text-xl font-semibold text-center">
               Budget Friendly Packages
             </h3>
@@ -137,7 +140,7 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex flex-col justify-center gap-2 items-center">
-            <img src={"./icons/beach.png"} className="size-20" />
+            <Image width={100} height={100} alt="beach icon" src={"/icons/beach.png"} className="size-20" />
             <h3 className="text-black text-xl font-semibold text-center">
               Satisfaction Guaranteed
             </h3>
@@ -177,11 +180,11 @@ export default async function Home() {
                 </span>
               </h2>
             </div>
-            <img
+            <Image 
+            alt="planning icon"
               src="/planning2.png"
               width={500}
               height={500}
-              alt="linear demo image"
               className="absolute -right-10  lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
             />
           </WobbleCard>
@@ -210,9 +213,11 @@ export default async function Home() {
                 pariatur quis consequuntur debitis mollitia .
               </p>
             </div>
-            <img
+            <Image
+            width={200}
+            height={200}
               src="/pricing.png"
-              alt="linear demo image"
+              alt="pricing"
               className="absolute -right-10  size-80 md:size-96 lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
             />
           </WobbleCard>
@@ -262,7 +267,7 @@ export default async function Home() {
             <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
               Get Help from Our Travel Agent
             </h2>
-            <Button variant={"default"}>Explore Now</Button>
+            <Button variant={"default"} className="cursor-pointer">Explore Now</Button>
           </div>
           <p className="text-sm opacity-80 py-2">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}

@@ -7,6 +7,7 @@ import {
   Phone,
   Twitter,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -18,7 +19,7 @@ const Footer = () => {
             <div className="flex flex-col  gap-2">
               <h1 className="font-openSans cursor-pointer text-2xl pb-4 text-primary font-semibold">
                 <Link href={'/'} className="flex items-center gap-1.5">
-                <img src={'./favicon.ico'} width={36}/>
+                <Image alt="favicon" height={36} src={'/favicon.ico'} width={36}/>
                 Framing Memories
                 </Link>
               </h1>
@@ -34,16 +35,16 @@ const Footer = () => {
               </p>
               <div className=" flex gap-4 items-center py-4">
                 <a className="text-sky-500  p-0.5  rounded-sm">
-                  <img width={30} src={"/icons/facebook.png"} />
+                  <Image alt="facebook" height={30} width={30} src={"/icons/facebook.png"} />
                 </a>
                 <a className="text-primary p-0.5  rounded-sm">
-                  <img width={30} src={"/icons/twitter.png"} />
+                  <Image alt="twitter" height={30} width={30} src={"/icons/twitter.png"} />
                 </a>
                 <a className="text-blue-500  p-0.5  rounded-sm">
-                  <img width={30} src={"/icons/linkedin.png"} />
+                  <Image alt="Linkedin" height={30}  width={30} src={"/icons/linkedin.png"} />
                 </a>
                 <a className="text-blue-700 p-0.5  rounded-sm">
-                  <img width={30} src={"/icons/instagram.png"} />
+                  <Image alt="Instagram" height={30} width={30} src={"/icons/instagram.png"} />
                 </a>
               </div>
             </div>
