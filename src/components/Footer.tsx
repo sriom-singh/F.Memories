@@ -1,3 +1,4 @@
+"use client";
 import {
   Facebook,
   Instagram,
@@ -9,8 +10,12 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import { usePathname } from "next/navigation";
 const Footer = () => {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
   return (
     <footer className="relative bg-primary/20 font-openSans">
       <div className="max-w-7xl  px-4 md:px-0 bg py-12  z-50 mx-auto">
@@ -18,9 +23,14 @@ const Footer = () => {
           <div className=" md:col-span-2 text-black p-4 ">
             <div className="flex flex-col  gap-2">
               <h1 className="font-openSans cursor-pointer text-2xl pb-4 text-primary font-semibold">
-                <Link href={'/'} className="flex items-center gap-1.5">
-                <Image alt="favicon" height={36} src={'/favicon.ico'} width={36}/>
-                Framing Memories
+                <Link href={"/"} className="flex items-center gap-1.5">
+                  <Image
+                    alt="favicon"
+                    height={36}
+                    src={"/favicon.ico"}
+                    width={36}
+                  />
+                  Framing Memories
                 </Link>
               </h1>
               <p className="flex gap-2 items-center text-black text-sm">
@@ -35,16 +45,36 @@ const Footer = () => {
               </p>
               <div className=" flex gap-4 items-center py-4">
                 <a className="text-sky-500  p-0.5  rounded-sm">
-                  <Image alt="facebook" height={30} width={30} src={"/icons/facebook.png"} />
+                  <Image
+                    alt="facebook"
+                    height={30}
+                    width={30}
+                    src={"/icons/facebook.png"}
+                  />
                 </a>
                 <a className="text-primary p-0.5  rounded-sm">
-                  <Image alt="twitter" height={30} width={30} src={"/icons/twitter.png"} />
+                  <Image
+                    alt="twitter"
+                    height={30}
+                    width={30}
+                    src={"/icons/twitter.png"}
+                  />
                 </a>
                 <a className="text-blue-500  p-0.5  rounded-sm">
-                  <Image alt="Linkedin" height={30}  width={30} src={"/icons/linkedin.png"} />
+                  <Image
+                    alt="Linkedin"
+                    height={30}
+                    width={30}
+                    src={"/icons/linkedin.png"}
+                  />
                 </a>
                 <a className="text-blue-700 p-0.5  rounded-sm">
-                  <Image alt="Instagram" height={30} width={30} src={"/icons/instagram.png"} />
+                  <Image
+                    alt="Instagram"
+                    height={30}
+                    width={30}
+                    src={"/icons/instagram.png"}
+                  />
                 </a>
               </div>
             </div>

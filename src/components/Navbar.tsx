@@ -13,13 +13,17 @@ import {
 import { signIn, signOut } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
 
 export function MainNavbar() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
   const [showMenu, setShowMenu] = useState(false);
   const { data: session, status } = useSession();
   const navItems = [
