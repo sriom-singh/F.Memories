@@ -9,6 +9,7 @@ import { SidebarHeader, SidebarTrigger } from "@/components/ui/sidebar";
 import { Chart } from "../components/Chart";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { CreatePackage } from "../components/CreatePackageSheet";
 
 const page = () => {
   const session: any = useSession();
@@ -33,9 +34,10 @@ const page = () => {
             />
             <h1 className="text-base font-medium">Package</h1>
             <div className="ml-auto flex items-center gap-2">
-              <Button size={"sm"} className="text-xs">
+              {/* <Button size={"sm"} className="text-xs">
                 Create Package
-              </Button>
+              </Button> */}
+              <CreatePackage />
             </div>
           </div>
         </header>
