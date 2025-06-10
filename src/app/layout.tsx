@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper"; // Create this component
+import { Toaster } from "@/components/ui/sonner";
 
 const monteCarlo = MonteCarlo({
   variable: "--font-monte",
@@ -68,6 +69,7 @@ export default async function RootLayout({
               </svg>
             </div>
           </a>
+          <Toaster  position="bottom-right" richColors    />
           <Footer />
         </SessionProviderWrapper>
       </body>

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "ts-node prisma/seed.ts",
-     "buildCommand": "npx prisma generate && next build"
+    "buildCommand": "npx prisma generate && next build"
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
@@ -32,9 +32,11 @@
     "multi-range-slider-react": "^2.0.7",
     "next": "15.3.2",
     "next-auth": "^4.24.11",
+    "next-themes": "^0.4.6",
     "react": "^18.3.1",
     "react-day-picker": "^9.7.0",
     "react-dom": "^18.3.1",
+    "sonner": "^2.0.5",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {

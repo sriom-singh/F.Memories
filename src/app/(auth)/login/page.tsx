@@ -9,6 +9,7 @@ import { redirect, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { signIn, useSession } from "next-auth/react";
+import { toast } from "sonner";
 
 export default function SignupFormDemo() {
   // Checks if user is already Login
@@ -26,7 +27,10 @@ export default function SignupFormDemo() {
   });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    // if (formData.password.length > 6) {
+    //   toast.warning("Password must contain minimum 6 characters.");
+    //   return;
+    // }
     try {
       // Register user
       setLoading(true);
@@ -34,23 +38,30 @@ export default function SignupFormDemo() {
       const result = await signIn("credentials", {
         email: formData.email,
         password: formData.password,
-        callbackUrl: "/",
+        // callbackUrl: "/",
+        redirect: false,
       });
+      if (result?.error) {
+        // Show error toast
+        toast.error(result.error); // e.g. "Invalid password"
+      } else {
+        // Redirect or success message
+        toast.success("Login successful!");
+        redirect("/");
+      }
 
       if (result?.ok && result?.url) {
         router.push(result.url);
-      } else {
-        console.error("Login failed", result?.error);
       }
     } catch (error) {
       console.error("login failed", error);
     }
-    setLoading(true);
+    setLoading(false);
   };
   const router = useRouter();
 
   return (
-    <div className="py-24 px-6 pt-30 min-h-[100vh]  relative bg-[url('/login-bg.jpg')] bg-cover bg-top-right font-openSans bg-transparent">
+    <div className="py-24 px-6 md:px-0 pt-30 min-h-[100vh]  relative bg-[url('/login-bg.jpg')] bg-cover bg-top-right font-openSans bg-transparent">
       <div className="absolute top-0 h-40 md:w-full bg-gradient-to-b from-black/30  to-transparent z-[1]"></div>
       <div
         style={{ boxShadow: "0 0px 6px 2px rgba(0, 0, 0, 0.1)" }}

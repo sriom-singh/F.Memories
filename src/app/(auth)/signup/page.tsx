@@ -8,6 +8,7 @@ import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export default function SignupFormDemo() {
   const { data: session, status } = useSession();
@@ -39,29 +40,40 @@ export default function SignupFormDemo() {
     try {
       // Register user
       await axios.post("/api/register", newUser);
-
       // Log the user in
       const result = await signIn("credentials", {
         redirect: false,
         email: newUser.email,
         password: newUser.password,
         name: newUser.name,
-        callbackUrl: "/",
       });
-
+      if (result?.error) {
+        // Show error toast
+        toast.error(result.error); // e.g. "Invalid password"
+      } else {
+        // Redirect or success message
+        toast.success("Signup successful!");
+        redirect("/");
+      }
       if (result?.ok && result?.url) {
         router.push(result.url);
       } else {
         console.error("Login failed", result?.error);
       }
     } catch (error) {
-      console.error("Registration or login failed", error);
+      if (axios.isAxiosError(error)) {
+        const message = error.response?.data?.message || "Something went wrong";
+
+        toast.error(message); // e.g. "User already exists" or "Email and password are required"
+      } else {
+        toast.error("Unexpected error occurred");
+      }
     }
     setLoading(false);
   };
 
   return (
-    <div className="py-24 w-full px-6 min-h-[100vh] relative bg-[url('/login-bg.jpg')] bg-cover bg-center font-openSans bg-transparent">
+    <div className="py-24 w-full px-6 md:px-0  min-h-[100vh] relative bg-[url('/login-bg.jpg')] bg-cover bg-center font-openSans bg-transparent">
       <div className="absolute top-0 h-40 md:w-full bg-gradient-to-b from-black/30  to-transparent z-[1]"></div>
       <div
         style={{ boxShadow: "0 0px 6px 2px rgba(0, 0, 0, 0.1)" }}
@@ -162,7 +174,11 @@ export default function SignupFormDemo() {
               Login
             </span>
           </p>
-          <Button disabled={loading} className="w-full cursor-pointer" type="submit">
+          <Button
+            disabled={loading}
+            className="w-full cursor-pointer"
+            type="submit"
+          >
             {loading ? "Signing up..." : "Sign Up ->"}
             <BottomGradient />
           </Button>

@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import { toast } from "sonner";
 
 export function MainNavbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -103,11 +104,15 @@ export function MainNavbar() {
                         </li>
                         <li
                           className="border-b py-2 cursor-pointer"
-                          onClick={() => signOut()}
+                          onClick={() => {
+                            signOut();
+                          }}
                         >
                           Logout
                         </li>
-                        <li className="py-2 cursor-pointer">My Bookings</li>
+                        <li className="py-2 cursor-pointer" onClick={() => {}}>
+                          My Bookings
+                        </li>
                       </ul>
                     </div>
                   )}
@@ -159,7 +164,7 @@ export function MainNavbar() {
               {status == "authenticated" && (
                 <NavbarButton
                   variant="secondary"
-                  className="font-normal flex  rounded-full p-0 text-white"
+                  className="font-normal flex  rounded-full p-0 "
                 >
                   <div
                     className="relative flex items-center  w-full gap-2"
@@ -171,7 +176,7 @@ export function MainNavbar() {
                       alt="favicon"
                       height={30}
                       width={30}
-                      src={"favicon.ico"}
+                      src={"/favicon.ico"}
                       className="size-8"
                       onClick={() => setShowMenu((prev) => !prev)} // toggle on click
                     />
@@ -186,7 +191,10 @@ export function MainNavbar() {
                           </li>
                           <li
                             className="border-b py-2 cursor-pointer"
-                            onClick={() => signOut()}
+                            onClick={() => {
+                              signOut();
+                              toast.success("Logout success!");
+                            }}
                           >
                             Logout
                           </li>
@@ -198,8 +206,11 @@ export function MainNavbar() {
                   </div>
                 </NavbarButton>
               )}
+
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                }}
                 variant="gradient"
                 className="w-full"
               >
