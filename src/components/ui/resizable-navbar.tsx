@@ -235,7 +235,7 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a
+    <Link
       href="/"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white"
     >
@@ -243,7 +243,7 @@ export const NavbarLogo = () => {
       <span className="font-semibold text-shadow-sm text-shadow-black/10 text-base font-openSans   dark:text-white">
         Framing Memories
       </span>
-    </a>
+    </Link>
   );
 };
 
