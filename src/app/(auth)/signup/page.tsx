@@ -33,9 +33,8 @@ export default function SignupFormDemo() {
       name: `${formData.firstname} ${formData.lastname}`,
       email: formData.email,
       password: formData.password,
-      phone: formData.phone,
+      phone: Number.parseInt(formData.phone),
     };
-    console.log(newUser);
 
     try {
       // Register user
@@ -65,8 +64,6 @@ export default function SignupFormDemo() {
         const message = error.response?.data?.message || "Something went wrong";
 
         toast.error(message); // e.g. "User already exists" or "Email and password are required"
-      } else {
-        toast.error("Unexpected error occurred");
       }
     }
     setLoading(false);
