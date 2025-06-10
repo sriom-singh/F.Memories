@@ -6,14 +6,16 @@ import { cn } from "@/lib/utils";
 import { redirect, useRouter } from "next/navigation";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
-import { signIn,useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 
 export default function SignupFormDemo() {
-  const {data:session,status} = useSession();
-  if(status==='authenticated'){
-    redirect('/')
+  const { data: session, status } = useSession();
+  if (status === "authenticated") {
+    redirect("/");
   }
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -25,7 +27,7 @@ export default function SignupFormDemo() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setLoading(true);
     const newUser = {
       name: `${formData.firstname} ${formData.lastname}`,
       email: formData.email,
@@ -33,7 +35,6 @@ export default function SignupFormDemo() {
       phone: formData.phone,
     };
     console.log(newUser);
-    
 
     try {
       // Register user
@@ -44,7 +45,7 @@ export default function SignupFormDemo() {
         redirect: false,
         email: newUser.email,
         password: newUser.password,
-        name:newUser.name,
+        name: newUser.name,
         callbackUrl: "/",
       });
 
@@ -56,6 +57,7 @@ export default function SignupFormDemo() {
     } catch (error) {
       console.error("Registration or login failed", error);
     }
+    setLoading(false);
   };
 
   return (
@@ -65,7 +67,13 @@ export default function SignupFormDemo() {
         style={{ boxShadow: "0 0px 6px 2px rgba(0, 0, 0, 0.1)" }}
         className="shadow-input m-auto   w-full max-w-md rounded-md bg-white z-40 p-4 md:rounded-2xl md:p-8 dark:bg-black"
       >
-        <Image width={100} height={100} alt="favivon" src={"/apple-touch-icon.png"} className="w-16 mx-auto pb-2" />
+        <Image
+          width={100}
+          height={100}
+          alt="favivon"
+          src={"/apple-touch-icon.png"}
+          className="w-16 mx-auto pb-2"
+        />
         <h2 className="text-xl text-center font-bold text-neutral-800 dark:text-neutral-200">
           Welcome to Framing Memories
         </h2>
@@ -154,8 +162,8 @@ export default function SignupFormDemo() {
               Login
             </span>
           </p>
-          <Button className="w-full cursor-pointer" type="submit">
-            Sign up &rarr;
+          <Button disabled={loading} className="w-full cursor-pointer" type="submit">
+            {loading ? "Signing up..." : "Sign Up ->"}
             <BottomGradient />
           </Button>
         </form>

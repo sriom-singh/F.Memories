@@ -110,7 +110,11 @@ export default function SignupFormDemo() {
             </span>
           </p>
 
-          <Button className="w-full cursor-pointer" type="submit">
+          <Button
+            disabled={loading}
+            className="w-full cursor-pointer"
+            type="submit"
+          >
             {loading ? "Logging in..." : " Login ->"}
             <BottomGradient />
           </Button>
