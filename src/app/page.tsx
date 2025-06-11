@@ -23,17 +23,20 @@ import {
 import PackageCard from "@/components/PackageCard";
 import Image from "next/image";
 
-
 export default async function Home() {
-  // const Packages = await getPackages();
-  // console.log(Packages);
+  const Packages = await getPackages(1, 10);
 
   return (
     <>
-    
       <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
         <div className="relative  mx-auto -mt-4">
-          <Image width={1000} height={1000} alt="hero" src="/hero.jpg" className="w-[100vw] h-[110vh] object-cover" />
+          <Image
+            width={1000}
+            height={1000}
+            alt="hero"
+            src="/hero.jpg"
+            className="w-[100vw] h-[110vh] object-cover"
+          />
           <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
 
           <div className="flex md:items-center absolute inset-0  items-center  font-openSans flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
@@ -68,7 +71,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-     
+
       {/* Popular Locations */}
       <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-12 mx-auto">
         <h2 className="font-cursive text-xl md:text-2xl font-semibold">
@@ -90,12 +93,18 @@ export default async function Home() {
             <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
           </div>
           <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Packages.map((packages, index) => (
               <CarouselItem
                 key={index}
                 className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
               >
-                <PackageCard />
+                <PackageCard
+                  name={packages.name}
+                  imageLink={packages.imageLink}
+                  key={index}
+                  mrp={packages.mrp}
+                  id={packages.id}
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -118,8 +127,13 @@ export default async function Home() {
         </h2>
         <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
           <div className="flex flex-col justify-center gap-2 items-center">
-            <Image   width={100}
-            height={100} alt="destination icon" src={"/icons/destination.png"} className="size-20" />
+            <Image
+              width={100}
+              height={100}
+              alt="destination icon"
+              src={"/icons/destination.png"}
+              className="size-20"
+            />
             <h3 className="text-black text-xl font-semibold text-center">
               Most Popular Destination
             </h3>
@@ -129,8 +143,13 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex flex-col justify-center gap-2 items-center">
-            <Image   width={100}
-            height={100} alt="tour-icon" src={"/icons/tour-package.png"} className="size-20" />
+            <Image
+              width={100}
+              height={100}
+              alt="tour-icon"
+              src={"/icons/tour-package.png"}
+              className="size-20"
+            />
             <h3 className="text-black text-xl font-semibold text-center">
               Budget Friendly Packages
             </h3>
@@ -140,7 +159,13 @@ export default async function Home() {
             </p>
           </div>
           <div className="flex flex-col justify-center gap-2 items-center">
-            <Image width={100} height={100} alt="beach icon" src={"/icons/beach.png"} className="size-20" />
+            <Image
+              width={100}
+              height={100}
+              alt="beach icon"
+              src={"/icons/beach.png"}
+              className="size-20"
+            />
             <h3 className="text-black text-xl font-semibold text-center">
               Satisfaction Guaranteed
             </h3>
@@ -180,8 +205,8 @@ export default async function Home() {
                 </span>
               </h2>
             </div>
-            <Image 
-            alt="planning icon"
+            <Image
+              alt="planning icon"
               src="/planning2.png"
               width={500}
               height={500}
@@ -214,8 +239,8 @@ export default async function Home() {
               </p>
             </div>
             <Image
-            width={200}
-            height={200}
+              width={200}
+              height={200}
               src="/pricing.png"
               alt="pricing"
               className="absolute -right-10  size-80 md:size-96 lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
@@ -267,7 +292,9 @@ export default async function Home() {
             <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
               Get Help from Our Travel Agent
             </h2>
-            <Button variant={"default"} className="cursor-pointer">Explore Now</Button>
+            <Button variant={"default"} className="cursor-pointer">
+              Explore Now
+            </Button>
           </div>
           <p className="text-sm opacity-80 py-2">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}

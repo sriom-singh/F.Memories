@@ -2,17 +2,40 @@
 
 import prisma from "../../prisma/client";
 // Get all packages
-export async function getPackages(page: number = 1) {
-  // const pageSize = 20;
+export async function getPackages(page: number = 1,pageSize:number=Infinity) {
+
   // const skip = (page - 1) * pageSize;
 
   return await prisma.package.findMany({
     // skip,
-    // take: pageSize,
+    ...(pageSize !== Infinity && { take: pageSize }),
     orderBy: {
       updatedAt: "desc",
     },
   });
+}
+
+export async function getPackageById(id: number) {
+  if (isNaN(id) || !id) {
+    return "Error";
+  }
+
+  try {
+    const pack = await prisma.package.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (!pack) {
+      return "Not Found";
+    }
+
+    return pack;
+  } catch (error) {
+    console.error("Error fetching package:", error);
+    return "Error";
+  }
 }
 // Define a proper type for the package input (update according to your schema)
 
@@ -32,7 +55,62 @@ export async function createPackage(pkg: any) {
     });
     return "Package Created!";
   } catch (error: any) {
-    console.error("Failed to create package:", error);
-    return `Error creating package: ${error.message || "Unknown error"}`;
+    return "Error";
   }
+}
+export async function getFilteredPackages({
+  minPrice,
+  maxPrice,
+  place,
+  startDate,
+  endDate,
+  duration,
+}: {
+  minPrice?: number;
+  maxPrice?: number;
+  place?: string;
+  startDate?: string;
+  endDate?: string;
+  duration?: string;
+}) {
+  console.log(minPrice, maxPrice, place, startDate, endDate, duration);
+
+  const packages = await prisma.package.findMany({
+    where: {
+      ...(minPrice !== 0 &&
+        maxPrice !== 0 && {
+          mrp: {
+            gte: minPrice,
+            lte: maxPrice,
+          },
+        }),
+
+      ...(place && {
+        place: {
+          contains: place,
+          mode: "insensitive",
+        },
+      }),
+      ...(duration && {
+        duration: {
+          contains: duration,
+          mode: "insensitive",
+        },
+      }),
+
+      ...(startDate && {
+        startsOn: {
+          gte: new Date(startDate),
+        },
+      }),
+
+      ...(endDate && {
+        endsOn: {
+          lte: new Date(endDate),
+        },
+      }),
+    },
+  });
+
+  return packages;
 }

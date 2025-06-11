@@ -7,14 +7,13 @@ const PackageCard = ({ name, place, imageLink, mrp, id }: any) => {
   const router = useRouter();
   return (
     <div className="">
-      <div className="max-w-[19rem] w-full group/card">
+      <div className=" min-w-[14rem] w-full group/card">
         <div className=" border rounded-sm">
           <div className="relative">
             <img
               alt="beach"
               onError={(e) => {
                 e.currentTarget.src = "/fallback.jpeg"; // fallback image
-                console.log("Invalid image URL");
               }}
               src={imageLink || "/photo-beach.avif"}
               onClick={() => router.push("/india/"+id||"abc")}
@@ -29,7 +28,7 @@ const PackageCard = ({ name, place, imageLink, mrp, id }: any) => {
           </div>
 
           <div className="text content text-black p-2 px-4 flex flex-col  justify-end">
-            <h1 className="font-semibold text-black text-xl  relative z-10">
+            <h1 className="font-semibold text-black text-lg md:text-xl  relative z-10">
               {name || "Best of Delhi"}
             </h1>
             <h1 className="font- text-black text-xs text-primary relative z-10">
@@ -42,9 +41,9 @@ const PackageCard = ({ name, place, imageLink, mrp, id }: any) => {
                 INR {mrp + 2000 || "24,670"}
               </p>
             </div>
-            <div className="flex justify-between my-2 gap-2">
+            <div className="flex justify-between xl:flex-row flex-col my-2 gap-2">
               <Button
-                className="cursor-pointer"
+                className="cursor-pointer flex-1"
                 variant={"outline"}
                 size={"sm"}
                 onClick={() => router.push("/india/" + id)}
@@ -52,7 +51,7 @@ const PackageCard = ({ name, place, imageLink, mrp, id }: any) => {
                 View Detail
               </Button>
               <Button
-                className="cursor-pointer "
+                className="cursor-pointer flex-1"
                 size={"sm"}
                 variant={"default"}
               >

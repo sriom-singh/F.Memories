@@ -34,11 +34,11 @@ export function MainNavbar() {
     },
     {
       name: "About",
-      link: "about-us",
+      link: "/about-us",
     },
     {
       name: "India",
-      link: "india",
+      link: "/india",
     },
     {
       name: "Global",
