@@ -12,13 +12,9 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { notFound } from "next/navigation";
 
-type Pageprops = {
-  params: {
-    id: string;
-  };
-};
 
-const page = async ({ params }: Pageprops) => {
+
+const page = async ({ params }: any) => {
   const id = Number.parseInt(params.id);
 
   if (!/^\d+$/.test(params.id)) {
