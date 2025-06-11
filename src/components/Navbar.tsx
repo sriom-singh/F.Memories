@@ -26,9 +26,7 @@ export function MainNavbar() {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  if (pathname.startsWith("/admin")) {
-    return null;
-  }
+
   const navItems = [
     {
       name: "Home",
@@ -62,6 +60,9 @@ export function MainNavbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
   return (
     <div className="relative w-full z-[1000]">
       <Navbar className="py-2 ">
