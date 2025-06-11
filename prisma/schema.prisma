@@ -18,8 +18,8 @@ model User {
   email     String   @unique
   name      String?
   password  String
-  phone     Int?
-  isAdmin Boolean @default(false)
+  phone     BigInt?
+  isAdmin   Boolean  @default(false)
   packages  Buys[]
   joinedOn  DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -33,7 +33,7 @@ model Package {
   imageLink    String?
   mrp          Float
   currentPrice Float?
-  duration     String
+  duration     String //3D/4N ,4D/5N
   place        String
   startsOn     DateTime
   endsOn       DateTime
@@ -43,12 +43,13 @@ model Package {
 }
 
 model Buys {
-  package     Package  @relation(fields: [packageId], references: [id])
-  user        User     @relation(fields: [userId], references: [id])
-  packageId   Int
-  userId      Int
-  purchasedAt DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  numOfTraveler Int @default(1)
+  package       Package  @relation(fields: [packageId], references: [id])
+  user          User     @relation(fields: [userId], references: [id])
+  packageId     Int
+  userId        Int
+  purchasedAt   DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  numOfTraveler Int      @default(1)
+
   @@id([packageId, userId])
 }

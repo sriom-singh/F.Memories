@@ -1,4 +1,4 @@
-"use client";
+import { getPackages } from "@/actions/package";
 import PackageCard from "@/components/PackageCard";
 import RangeSlider from "@/components/rangeSlider";
 import { Badge } from "@/components/ui/badge";
@@ -15,20 +15,28 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
+import { Packages } from "@/types/types";
 import { Phone } from "lucide-react";
 import Image from "next/image";
 
+async function getData(): Promise<Packages[]> {
+  // Fetch data from your API here.
+  const packages: any = await getPackages();
+  return packages;
+}
 
+const India = async () => {
+  const data = await getData();
+  console.log(data);
 
-const India = async() => {
   return (
     <div>
       <div className=" mx-auto">
         <div className="relative h-[38rem] w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
           <Image
-          alt="India Gate"
-          width={1000}
-          height={1000}
+            alt="India Gate"
+            width={1000}
+            height={1000}
             src="/india-gate.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
@@ -67,13 +75,22 @@ const India = async() => {
 
         <div className=" mx-auto max-w-7xl px-10 py-16 md:px-4 xl:px-0  text-black px-7">
           <div className="">
-            <h1 className="text-5xl text-center font-bold font-openSans">Packages</h1>
+            <h1 className="text-5xl text-center font-bold font-openSans">
+              Packages
+            </h1>
           </div>
           <hr className="my-6" />
           <div className=" w-full my-4 flex justify-center flex-wrap gap-4 mb-6">
-            <span className="border hover:bg-primary/70 rounded-sm p-2 text-sm">Beaches</span>
-            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">Mountains</span>
-            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm"> Parks & zoos</span>
+            <span className="border hover:bg-primary/70 rounded-sm p-2 text-sm">
+              Beaches
+            </span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">
+              Mountains
+            </span>
+            <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">
+              {" "}
+              Parks & zoos
+            </span>
             <span className="border hover:bg-primary/70  rounded-sm p-2 text-sm">
               {" "}
               Dining & Restaurants
@@ -112,11 +129,19 @@ const India = async() => {
                 <div className="flex gap-2">
                   <div>
                     <Label htmlFor="from">From</Label>
-                    <input id="from" type="date" className="border text-xs p-2 mt-1" />
+                    <input
+                      id="from"
+                      type="date"
+                      className="border text-xs p-2 mt-1"
+                    />
                   </div>
                   <div>
                     <Label htmlFor="endDate">End</Label>
-                    <input id="endDate" type="date" className="border p-2 text-xs mt-1" />
+                    <input
+                      id="endDate"
+                      type="date"
+                      className="border p-2 text-xs mt-1"
+                    />
                   </div>
                 </div>
               </div>
@@ -128,12 +153,19 @@ const India = async() => {
             {/*----------------- Packages --------------------*/}
             <div className="">
               <h2 className="text-3xl pb-8">
-                Showing <b>7</b> results
+                Showing <b>{data.length}</b> results
               </h2>
               <div className="flex flex-wrap gap-4 justify- items-center">
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <PackageCard key={index} />
-                ))}
+                {data &&
+                  data.map((data, index) => (
+                    <PackageCard
+                      name={data.name}
+                      imageLink={data.imageLink}
+                      key={index}
+                      mrp={data.mrp}
+                      id={data.id}
+                    />
+                  ))}
               </div>
             </div>
           </div>

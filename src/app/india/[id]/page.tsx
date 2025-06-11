@@ -25,9 +25,9 @@ const page = () => {
       <div className=" mx-auto">
         <div className="relative h-[38rem] w-full bg-blend-multiply bg-opacity-60  bg-black bg-right-bottom">
           <Image
-          alt="Mountain"
-          width={1000}
-          height={1000}
+            alt="Mountain"
+            width={1000}
+            height={1000}
             src="/mountain-region.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
@@ -137,12 +137,12 @@ const page = () => {
           </div>
 
           <div>
-              <h2 className="font-cursive text-primary md:text-center text-xl md:text-2xl font-semibold">
-          Explore 
-        </h2>
-        <h2 className="font-openSans md:text-center mb-2 xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
-          Gallery
-        </h2>
+            <h2 className="font-cursive text-primary md:text-center text-xl md:text-2xl font-semibold">
+              Explore
+            </h2>
+            <h2 className="font-openSans md:text-center mb-2 xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+              Gallery
+            </h2>
             <p className="mb-8 md:text-center md:w-2/3 mx-auto">
               Each image tells a unique story, inviting us into a world of
               emotion, beauty, and complexity. Get ready to be moved, inspired,

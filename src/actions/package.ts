@@ -1,13 +1,20 @@
-'use server';
+"use server";
 
 import prisma from "../../prisma/client";
 // Get all packages
-export async function getPackages() {
-  return await prisma.package.findMany();
+export async function getPackages(page: number = 1) {
+  // const pageSize = 20;
+  // const skip = (page - 1) * pageSize;
+
+  return await prisma.package.findMany({
+    // skip,
+    // take: pageSize,
+    orderBy: {
+      updatedAt: "desc",
+    },
+  });
 }
-
 // Define a proper type for the package input (update according to your schema)
-
 
 // Create a new package
 export async function createPackage(pkg: any) {

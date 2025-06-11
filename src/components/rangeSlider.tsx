@@ -1,3 +1,4 @@
+"use client"
 import { Slider } from "./ui/slider";
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import MultiRangeSlider from "multi-range-slider-react";
