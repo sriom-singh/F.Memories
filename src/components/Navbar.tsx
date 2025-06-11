@@ -20,12 +20,15 @@ import Image from "next/image";
 import { toast } from "sonner";
 
 export function MainNavbar() {
+  const { data: session, status } = useSession();
   const pathname = usePathname();
+  const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   if (pathname.startsWith("/admin")) {
     return null;
   }
-  const [showMenu, setShowMenu] = useState(false);
-  const { data: session, status } = useSession();
   const navItems = [
     {
       name: "Home",
@@ -44,9 +47,6 @@ export function MainNavbar() {
       link: "#",
     },
   ];
-  const router = useRouter();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   // Close when clicking outside
   useEffect(() => {
