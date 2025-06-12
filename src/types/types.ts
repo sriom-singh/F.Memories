@@ -1,5 +1,5 @@
 export type Packages = {
-  id: string;
+  id: number;
   mrp: number;
   name: string;
   description: string;

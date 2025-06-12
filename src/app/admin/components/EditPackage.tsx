@@ -1,5 +1,5 @@
 "use client";
-import { createPackage } from "@/actions/package";
+import { createPackage, editPackages, getPackageById } from "@/actions/package";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,12 +14,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Textarea } from "@/components/ui/textarea";
+import { Packages } from "@/types/types";
+import { Edit } from "lucide-react";
 import { redirect } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export function CreatePackage() {
+export function EditPackage({ id }: { id: number }) {
   const [packages, setPackages] = useState({
+    id,
     name: "",
     description: "",
     imageLink: "",
@@ -37,6 +40,7 @@ export function CreatePackage() {
     setLoading(true);
 
     const newPackage = {
+      id,
       name: packages.name,
       description: packages.description,
       mrp: parseFloat(packages.mrp),
@@ -48,8 +52,10 @@ export function CreatePackage() {
     };
 
     try {
-      const res = await createPackage(newPackage);
-      toast.success(res);
+      const res = await editPackages(newPackage);
+      toast.success(res, {
+        description: "Please refresh the page to see changes.",
+      });
     } catch (error) {
       console.error(error);
       toast.error("Error creating package.");
@@ -57,13 +63,39 @@ export function CreatePackage() {
       setLoading(false);
     }
   };
+  const formatDate = (date: string | Date) => {
+    return new Date(date).toISOString().split("T")[0];
+  };
+
+  const getPackage = async () => {
+    const pack: any = await getPackageById(id);
+    if (pack === "Error" || pack === "Not Found") {
+      toast.error(pack);
+      return;
+    }
+
+    setPackages({
+      id,
+      name: pack.name,
+      description: pack.description,
+      imageLink: pack.imageLink,
+      mrp: pack.mrp,
+      days: pack.duration[0],
+      nights: pack.duration[pack.duration.length - 2],
+      place: pack.place,
+      startsOn: formatDate(pack.startsOn),
+      endsOn: formatDate(pack.endsOn),
+    });
+  };
+
+  useEffect(() => {
+    getPackage();
+  }, [id]);
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <Button className="text-xs" >
-          Create Package
-        </Button>
+      <SheetTrigger className="w-full flex items-center gap-1 text-xs p-1.5 py-2 mb-1.5  bg-white shadow-md rounded-sm">
+        <Edit size={14} /> Edit
       </SheetTrigger>
       <SheetContent className="min-w-[350px] shadow-md text-black max-h-screen overflow-y-scroll">
         <SheetHeader>
@@ -202,7 +234,7 @@ export function CreatePackage() {
               }
             />
           </div>
-          <Button type="submit">{loading ? "Creating..." : "Create"}</Button>
+          <Button type="submit">{loading ? "Saving..." : "Save"}</Button>
         </form>
         <SheetFooter>
           <SheetClose asChild>

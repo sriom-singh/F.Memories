@@ -9,6 +9,9 @@ import {
 import { Packages } from "@/types/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Delete, DeleteIcon, Edit, EllipsisVertical } from "lucide-react";
+import { EditPackage } from "../EditPackage";
+import DeletePackage from "../DeletePackage";
+
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -83,21 +86,8 @@ export const columns: ColumnDef<Packages>[] = [
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-full p-2" align="end">
-              <Button
-                size={"sm"}
-                className="flex items-center w-full mb-2 text-xs"
-                variant={"secondary"}
-              >
-                <Edit size={16} />
-                Edit
-              </Button>
-              <Button
-                size={"sm"}
-                className="flex items-center w-full text-xs"
-                variant={"destructive"}
-              >
-                <DeleteIcon size={16} /> Delete
-              </Button>
+              <EditPackage id={row.original.id} />
+              <DeletePackage id={row.original.id}/ >
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

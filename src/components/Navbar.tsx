@@ -42,7 +42,7 @@ export function MainNavbar() {
     },
     {
       name: "Global",
-      link: "#",
+      link: "/global",
     },
   ];
 

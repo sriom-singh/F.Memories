@@ -18,7 +18,7 @@ const page = () => {
           </div>
 
           <div className=" gap-4 justify-between mx-auto mt-12 sm:mt-16">
-            <div className="grid grid-cols-3 gap-4 px-8 text-center md:px-0 md:grid-cols-3">
+            <div className="grid grid-rows-3 gap-4 px-8 text-center md:px-0 md:grid-cols-3">
               <div className="overflow-hidden border bg-white rounded-xl">
                 <div className="p-4 ">
                   <svg

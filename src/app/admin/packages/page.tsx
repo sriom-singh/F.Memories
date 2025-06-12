@@ -44,7 +44,7 @@ const page = () => {
         </header>
         <div className="flex px-6 gap-4 py-4 ">
           <div className=" mx-auto  lg:px-6">
-            <PackageTable/>
+            <PackageTable />
           </div>
         </div>
       </div>

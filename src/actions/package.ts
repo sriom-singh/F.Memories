@@ -1,9 +1,12 @@
 "use server";
 
+import { Packages } from "@/types/types";
 import prisma from "../../prisma/client";
 // Get all packages
-export async function getPackages(page: number = 1,pageSize:number=Infinity) {
-
+export async function getPackages(
+  page: number = 1,
+  pageSize: number = Infinity
+) {
   // const skip = (page - 1) * pageSize;
 
   return await prisma.package.findMany({
@@ -58,6 +61,7 @@ export async function createPackage(pkg: any) {
     return "Error";
   }
 }
+
 export async function getFilteredPackages({
   minPrice,
   maxPrice,
@@ -113,4 +117,47 @@ export async function getFilteredPackages({
   });
 
   return packages;
+}
+
+export async function editPackages(packages: any) {
+  const { id } = packages;
+  if (!id) return "Id is required.";
+  try {
+    const isValid = await prisma.package.findUnique({ where: { id } });
+    if (!isValid) return "Package not found.";
+
+    const update = await prisma.package.update({
+      where: {
+        id,
+      },
+      data: {
+        ...packages,
+      },
+    });
+    return "Package Updated";
+  } catch (error) {
+    console.log(error);
+    return "Server error";
+  }
+}
+
+export async function deletePackages(id: number) {
+  if (!id) return "Id is required.";
+  try {
+    await prisma.package.delete({
+      where: {
+        id,
+      },
+    });
+    const res = await getPackageById(id);
+    if (res === "Not Found") {
+      return "Package Deleted";
+    }
+    else{
+      return "Not deletable"
+    }
+  } catch (error) {
+    console.log(error);
+    return "Error";
+  }
 }
