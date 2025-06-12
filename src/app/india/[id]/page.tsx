@@ -144,6 +144,7 @@ const page = async ({ params }: any) => {
             </p>
             <CardsStack />
           </div>
+  
         </div>
       </div>
     </div>

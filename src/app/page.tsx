@@ -8,12 +8,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Testimonials } from "@/components/Testimonials";
-import { AnimatedReviews } from "@/components/AnimatedReviews";
 import {
-  ArrowBigRight,
   ArrowRight,
   CircleUserRound,
   MapPin,
@@ -22,6 +19,9 @@ import {
 } from "lucide-react";
 import PackageCard from "@/components/PackageCard";
 import Image from "next/image";
+import Faq from "@/components/FAQ";
+import { Section } from "@/components/Section";
+import Stats from "@/components/Stats";
 
 export default async function Home() {
   const Packages = await getPackages(1, 10);
@@ -71,54 +71,8 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
-      {/* Popular Locations */}
-      <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-12 mx-auto">
-        <h2 className="font-cursive text-xl md:text-2xl font-semibold">
-          Start Traveling Today
-        </h2>
-        <h2 className="font-openSans xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
-          Popular Locations
-        </h2>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="md:my-8 my-4 "
-        >
-          <div className="absolute md:-top-8 md:inline hidden right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {Packages.map((packages, index) => (
-              <CarouselItem
-                key={index}
-                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
-              >
-                <PackageCard
-                  name={packages.name}
-                  imageLink={packages.imageLink}
-                  key={index}
-                  mrp={packages.mrp}
-                  id={packages.id}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-        </Carousel>
-      </div>
-
       {/* Explore the world */}
-      <div className="max-w-7xl xl:px-0 md:px-4  px-8 bg-primary/10 py-12 mx-auto">
+      <Section>
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
@@ -175,16 +129,63 @@ export default async function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </Section>
+      {/* Popular Locations */}
+      <Section>
+        <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
+          Start Traveling Today
+        </h2>
+        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+          Popular Locations
+        </h2>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="md:mt-8 mt-4 "
+        >
+          <div className="absolute md:-top-8 md:inline hidden right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
+            {Packages.map((packages, index) => (
+              <CarouselItem
+                key={index}
+                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
+              >
+                <PackageCard
+                  name={packages.name}
+                  imageLink={packages.imageLink}
+                  key={index}
+                  mrp={packages.mrp}
+                  id={packages.id}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+        </Carousel>
+      </Section>
 
       {/* Why choose us */}
-      <div className="max-w-7xl  md:px-4 xl:px-0 px-8 py-12 mx-auto ">
-        <h2 className="font-cursive text-xl md:text-2xl font-semibold">
+
+      <Section>
+        <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Why Choose Us
         </h2>
-        <h2 className="font-openSans  xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           We Arrange the Best <br /> Tour Ever Possible
         </h2>
+        <Stats />
+
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 max-w-7xl mx-auto w-full">
           <WobbleCard
             containerClassName="col-span-1  bg-no-repeat bg-contain bg-right  lg:col-span-2 h-full bg-pink-800 min-h-[450px] lg:min-h-[300px]"
@@ -247,8 +248,10 @@ export default async function Home() {
             />
           </WobbleCard>
         </div>
-      </div>
-      <div className="max-w-7xl md:px-4 xl:px-0 px-8 py-6 mx-auto ">
+      </Section>
+
+      {/* Stats */}
+      {/* <Section >
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-4  text-black">
           <div className="text-center mx-auto flex flex-col justify-end items-center">
             <MapPin size={45} className="my-4 text-primary" />
@@ -282,10 +285,20 @@ export default async function Home() {
             <small>Our Volunteers</small>
           </div>
         </div>
-      </div>
+      </Section> */}
+
+      {/* Testimonials */}
+      <Section>
+        <Testimonials />
+      </Section>
+      {/* FAQ */}
+      <Section>
+        <Faq />
+      </Section>
+
 
       {/* Get Help */}
-      <div className="max-w-7xl text-white md:px-4 xl:px-0 px-8 py-12 mx-auto ">
+      <Section>
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
           <h2 className="font-cursive text-xl ">Confused Get Help</h2>
           <div className="flex justify-between">
@@ -300,16 +313,7 @@ export default async function Home() {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}
           </p>
         </div>
-      </div>
-
-      {/* Testimonials */}
-      <Testimonials />
-      {/* <iframe
-        src="https://www.google.com/maps/d/u/1/embed?mid=1VrDPV_b7DohFlZudm5oVY7JslGypqHM&ehbc=2E312F&noprof=1"
-        className="w-[95vw] h-[80vh] text-white md:px-4 xl:px-0 px-8 py-12 mx-auto"
-      ></iframe> */}
-
-      {/* https://www.google.com/maps/d/u/0/edit?mid=1VrDPV_b7DohFlZudm5oVY7JslGypqHM&usp=sharing */}
+      </Section>
     </>
   );
 }

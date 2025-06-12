@@ -124,7 +124,13 @@ export function MainNavbar() {
                 </div>
               </NavbarButton>
             )}
-            <NavbarButton className="font-semibold" variant="gradient">
+            <NavbarButton
+              className="font-semibold"
+              variant="gradient"
+              onClick={() => {
+                router.push("/contact-us");
+              }}
+            >
               Contact Us
             </NavbarButton>
           </div>
@@ -215,6 +221,7 @@ export function MainNavbar() {
               <NavbarButton
                 onClick={() => {
                   setIsMobileMenuOpen(false);
+                  router.push("/contact-us");
                 }}
                 variant="gradient"
                 className="w-full"

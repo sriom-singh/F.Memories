@@ -45,14 +45,12 @@ const PackageCard = ({ name, place, imageLink, mrp, id }: any) => {
               <Button
                 className="cursor-pointer flex-1"
                 variant={"outline"}
-                size={"sm"}
                 onClick={() => router.push("/india/" + id)}
               >
                 View Detail
               </Button>
               <Button
                 className="cursor-pointer flex-1"
-                size={"sm"}
                 variant={"default"}
               >
                 Get a Callback

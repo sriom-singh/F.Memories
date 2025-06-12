@@ -54,7 +54,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-@property --num-transactions {
+@property --num-experience {
   syntax: "<integer>";
   initial-value: 0;
   inherits: false;
@@ -90,17 +90,17 @@ input[type="range"]::-moz-range-track {
 
 @keyframes counter {
   from {
-    --num-transactions: 0;
+    --num-experience: 0;
     --num-compaigns: 0;
     --num-customers: 0;
     --num-volunteers: 0;
   }
 
   to {
-    --num-transactions: 10;
-    --num-compaigns: 25;
-    --num-customers: 10;
-    --num-volunteers: 15;
+    --num-experience: 10;
+    --num-compaigns: 2500;
+    --num-customers: 98;
+    --num-volunteers: 25;
   }
 }
 
