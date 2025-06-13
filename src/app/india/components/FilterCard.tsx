@@ -82,7 +82,7 @@ const FilterCard = ({
   }, [packages]);
 
   return (
-    <Card className="w-1/4 max-h-fit bg-primary/5 shadow-xl">
+    <Card className="xl:w-1/4 md:w-[35%] max-h-fit bg-primary/5 shadow-xl">
       <CardHeader>
         <CardTitle>
           <h2 className="text-xl font-bold">Filters</h2>
@@ -144,26 +144,26 @@ const FilterCard = ({
           </div>
         </div>
         <h2 className="font-semibold my-2 mt-4">Avaibility</h2>
-        <div className="flex gap-2 ">
-          <div>
-            <Label className="opacity-70">From</Label>
-            <input
-              type="date"
-              className="border bg-white p-2 text-xs mt-1"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-          </div>
-          <div>
-            <Label className="opacity-70">End</Label>
-            <input
-              type="date"
-              className="border bg-white p-2 text-xs mt-1"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
-          </div>
-        </div>
+       <div className="flex gap-2 w-full">
+  <div className="flex-1 min-w-0">
+    <Label className="opacity-70">From</Label>
+    <input
+      type="date"
+      className="border bg-white p-2 w-full text-xs mt-1"
+      value={startDate}
+      onChange={(e) => setStartDate(e.target.value)}
+    />
+  </div>
+  <div className="flex-1 min-w-0">
+    <Label className="opacity-70">End</Label>
+    <input
+      type="date"
+      className="border bg-white p-2 w-full text-xs mt-1"
+      value={endDate}
+      onChange={(e) => setEndDate(e.target.value)}
+    />
+  </div>
+</div>
         <Button className="w-full mt-4 cursor-pointer" onClick={handleFilter}>
           Apply
         </Button>
