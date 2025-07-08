@@ -9,6 +9,7 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
+  navItemsGroup,
 } from "@/components/ui/resizable-navbar";
 import { signIn, signOut } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
@@ -18,6 +19,8 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
+import DropdownButton from "./dropdownButton";
+import MobileDropdownButton from "./MobileDropdown";
 
 export function MainNavbar() {
   const { data: session, status } = useSession();
@@ -36,14 +39,7 @@ export function MainNavbar() {
       name: "About",
       link: "/about-us",
     },
-    {
-      name: "India",
-      link: "/india",
-    },
-    {
-      name: "Global",
-      link: "/global",
-    },
+
   ];
 
   // Close when clicking outside
@@ -71,6 +67,7 @@ export function MainNavbar() {
           <NavbarLogo />
 
           <NavItems className="text-sm font-normal" items={navItems} />
+
           <div className="flex font-openSans items-center  gap-4 pr-2">
             {status !== "authenticated" && (
               <NavbarButton
@@ -115,7 +112,7 @@ export function MainNavbar() {
                         >
                           Logout
                         </li>
-                        <li className="py-2 cursor-pointer" onClick={() => {}}>
+                        <li className="py-2 cursor-pointer" onClick={() => { }}>
                           My Bookings
                         </li>
                       </ul>
@@ -148,7 +145,7 @@ export function MainNavbar() {
           </MobileNavHeader>
 
           <MobileNavMenu
-            className="bg-white/95"
+            className="bg-white/95 p-2 py-2 min-w-full"
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
           >
@@ -157,11 +154,16 @@ export function MainNavbar() {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative font-openSans text-neutral-600 dark:text-neutral-300"
+                className="relative font-openSans text-neutral-600 px-4 py-2 active:bg-primary/70 min-w-full dark:text-neutral-300"
               >
                 <span className="block">{item.name}</span>
               </Link>
             ))}
+            {navItemsGroup.map((item, idx) => (
+              <MobileDropdownButton title={item.title} key={`dropdown-${idx}`} link={item.link} places={item.places} />
+            ))}
+
+
             <div className="flex w-full flex-col gap-4">
               {status !== "authenticated" && (
                 <NavbarButton

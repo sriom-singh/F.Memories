@@ -37,7 +37,7 @@ const India = () => {
             src="/global.jpg"
             className="w-[100vw] object-cover opacity-60 h-[38rem] "
           />
-          <h2 className="md:text-6xl text-white absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
+          <h2 className="md:text-6xl tracking-tight absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
             GLOBAL
           </h2>
           <div className="absolute -bottom-8 bg-white shadow-md  w-full translate flex justify-center  p-6  z-[50]">
@@ -70,9 +70,9 @@ const India = () => {
         </div>
         <div className="relative"></div>
 
-        <div className=" mx-auto max-w-7xl px-10 py-16 md:px-4 xl:px-0  text-black px-7">
+        <div className=" mx-auto max-w-7xl py-16 md:px-4 xl:px-0  text-black px-7">
           <div className="">
-            <h1 className="text-5xl text-center font-bold font-openSans">
+            <h1 className="text-5xl text-center font-bold font-openSans tracking-tight">
               Packages
             </h1>
           </div>

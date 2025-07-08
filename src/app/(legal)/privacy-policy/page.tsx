@@ -13,7 +13,7 @@ const page = () => {
           src="/legal.jpg"
           className="w-[100vw] object-cover opacity-60 h-96 "
         />
-        <h2 className="md:text-6xl text-white absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
+        <h2 className="md:text-6xl tracking-tight absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
           Privacy and Policy
         </h2>
       </div>

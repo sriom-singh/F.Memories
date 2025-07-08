@@ -22,9 +22,11 @@ import Image from "next/image";
 import Faq from "@/components/FAQ";
 import { Section } from "@/components/Section";
 import Stats from "@/components/Stats";
+import { Packages } from "@/types/types";
+import GridLayout from "@/components/GridLayout";
 
 export default async function Home() {
-  const Packages = await getPackages(1, 10);
+  const packages: Packages[] = await getPackages(1, 10);
 
   return (
     <>
@@ -76,9 +78,10 @@ export default async function Home() {
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Lets Travel Now
         </h2>
-        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+        <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Explore the world
         </h2>
+
         <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
           <div className="flex flex-col justify-center gap-2 items-center">
             <Image
@@ -129,39 +132,76 @@ export default async function Home() {
             </p>
           </div>
         </div>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="md:mt-16 mt-4 "
+        >
+          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
+            {packages.map((pack: Packages, index) => (
+              <CarouselItem
+                key={index}
+                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
+              >
+                <PackageCard
+                  name={pack.name}
+                  imageLink={pack.imageLink}
+                  key={index}
+                  mrp={pack.mrp}
+                  id={pack.id}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+        </Carousel>
+        
       </Section>
-      {/* Popular Locations */}
+      {/* Incredible India  */}
       <Section>
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Start Traveling Today
         </h2>
-        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
-          Popular Locations
+        <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+          Incredible India
         </h2>
+        <GridLayout/>
         <Carousel
           opts={{
             align: "start",
           }}
           className="md:mt-8 mt-4 "
         >
-          <div className="absolute md:-top-8 md:inline hidden right-12 flex items-center justify-center">
+          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
             <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
           </div>
-          <div className="absolute md:-top-8  md:inline hidden  right-2 flex items-center justify-center">
+          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
             <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
           </div>
           <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {Packages.map((packages, index) => (
+            {packages.map((pack: Packages, index) => (
               <CarouselItem
                 key={index}
                 className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
               >
                 <PackageCard
-                  name={packages.name}
-                  imageLink={packages.imageLink}
+                  name={pack.name}
+                  imageLink={pack.imageLink}
                   key={index}
-                  mrp={packages.mrp}
-                  id={packages.id}
+                  mrp={pack.mrp}
+                  id={pack.id}
                 />
               </CarouselItem>
             ))}
@@ -174,15 +214,58 @@ export default async function Home() {
           </div>
         </Carousel>
       </Section>
-
+  {/* Popular Locations */}
+      <Section>
+        <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
+          Start Traveling Today
+        </h2>
+        <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+          Popular Locations
+        </h2>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="md:mt-8 mt-4 "
+        >
+          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
+            {packages.map((pack: Packages, index) => (
+              <CarouselItem
+                key={index}
+                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
+              >
+                <PackageCard
+                  name={pack.name}
+                  imageLink={pack.imageLink}
+                  key={index}
+                  mrp={pack.mrp}
+                  id={pack.id}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
+            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
+          </div>
+          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
+            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
+          </div>
+        </Carousel>
+      </Section>
       {/* Why choose us */}
 
       <Section>
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Why Choose Us
         </h2>
-        <h2 className="font-openSans text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
-          We Arrange the Best <br /> Tour Ever Possible
+        <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
+          Our Achievements
         </h2>
         <Stats />
 
@@ -302,7 +385,7 @@ export default async function Home() {
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
           <h2 className="font-cursive text-xl ">Confused Get Help</h2>
           <div className="flex justify-between">
-            <h2 className="font-openSans py-1 xl:text-5xl text-3xl lg:text-4xl  font-semibold">
+            <h2 className="font-openSans py-1 xl:text-5xl tracking-tight text-3xl lg:text-4xl  font-semibold">
               Get Help from Our Travel Agent
             </h2>
             <Button variant={"default"} className="cursor-pointer">

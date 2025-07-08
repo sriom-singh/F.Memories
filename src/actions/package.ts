@@ -83,11 +83,11 @@ export async function getFilteredPackages({
     where: {
       ...(minPrice !== 0 &&
         maxPrice !== 0 && {
-          mrp: {
-            gte: minPrice,
-            lte: maxPrice,
-          },
-        }),
+        mrp: {
+          gte: minPrice,
+          lte: maxPrice,
+        },
+      }),
 
       ...(place && {
         place: {
@@ -153,7 +153,7 @@ export async function deletePackages(id: number) {
     if (res === "Not Found") {
       return "Package Deleted";
     }
-    else{
+    else {
       return "Not deletable"
     }
   } catch (error) {

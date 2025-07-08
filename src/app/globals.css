@@ -99,7 +99,7 @@ input[type="range"]::-moz-range-track {
   to {
     --num-experience: 10;
     --num-compaigns: 2500;
-    --num-customers: 98;
+    --num-customers: 99;
     --num-volunteers: 25;
   }
 }

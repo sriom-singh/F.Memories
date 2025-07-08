@@ -47,7 +47,7 @@ const page = () => {
               <div className="overflow-hidden border bg-white rounded-xl">
                 <div className="p-4">
                   <svg
-                    className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
+                    className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400 text"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"

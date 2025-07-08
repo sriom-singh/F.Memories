@@ -14,7 +14,7 @@ const Faq = () => {
           <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
             Need Help?
           </h2>
-          <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl tracking-tight font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
             Frequently Asked Questions
           </h2>
           <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">

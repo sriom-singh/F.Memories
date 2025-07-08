@@ -30,10 +30,10 @@ const Stats = () => {
                       </svg>
                       <div className="ml-4">
                         <h4 className="text-4xl font-bold text-gray-900 animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-experience)] before:content-[counter(num)]">
-                          +
+                          k+
                         </h4>
                         <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
-                          Years in business
+                          Happy Guests
                         </p>
                       </div>
                     </div>
@@ -62,7 +62,7 @@ const Stats = () => {
                           +
                         </h4>
                         <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
-                          Team members
+                          Groups Tours
                         </p>
                       </div>
                     </div>
@@ -89,7 +89,7 @@ const Stats = () => {
                       <div className="ml-4">
                         <h4 className="text-4xl font-bold text-gray-900 animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-compaigns)] before:content-[counter(num)]"></h4>
                         <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
-                          Compaigns Closed
+                          Successfull Tours 
                         </p>
                       </div>
                     </div>
@@ -118,7 +118,7 @@ const Stats = () => {
                           %
                         </h4>
                         <p className="mt-1.5 text-lg font-medium leading-tight text-gray-500">
-                          Customer success
+                          Visa success rate
                         </p>
                       </div>
                     </div>

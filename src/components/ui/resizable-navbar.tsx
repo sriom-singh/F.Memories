@@ -12,6 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import React, { useRef, useState } from "react";
+import DropdownButton from "../dropdownButton";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -80,9 +81,9 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible }
-            )
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible }
+          )
           : child
       )}
     </motion.div>
@@ -116,7 +117,74 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     </motion.div>
   );
 };
+//  nav items grops
+export const navItemsGroup = [
+  {
+    title: "India",
+    link: "/india",
+    places: [
+      {
+        title: "Delhi",
+        link: "/india/delhi",
+        places: [
+          {
+            title: "Delhi",
+            link: "/india/delhi"
+          },
+          {
+            title: "Mumbai",
+            link: "/india/mumbai"
+          },
+          {
+            title: "Bangalore",
+            link: "/india/bangalore"
+          }
+        ]
 
+      },
+      {
+        title: "Mumbai",
+        link: "/india/mumbai"
+      },
+      {
+        title: "Bangalore",
+        link: "/india/bangalore"
+      }
+    ]
+  },
+  {
+    title: "Global",
+    link: "/global",
+    places: [
+      {
+        title: "New York",
+        link: "/global/new-york"
+      },
+      {
+        title: "London",
+        link: "/global/london"
+      },
+      {
+        title: "Tokyo",
+        link: "/global/tokyo",
+        places: [
+      {
+        title: "New York",
+        link: "/global/new-york"
+      },
+      {
+        title: "London",
+        link: "/global/london"
+      },
+      {
+        title: "Tokyo",
+        link: "/global/tokyo"
+      }
+    ]
+      }
+    ]
+  },
+];
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
@@ -144,6 +212,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           )}
           <span className="relative z-20 text-white/80">{item.name}</span>
         </Link>
+      ))}
+      {navItemsGroup.map((item, idx) => (
+        <DropdownButton title={item.title} key={`dropdown-${idx}`} link={item.link} places={item.places} />
       ))}
     </motion.div>
   );
@@ -208,7 +279,7 @@ export const MobileNavMenu = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-2 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
             className
           )}
         >
@@ -261,9 +332,9 @@ export const NavbarButton = ({
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
 } & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+    | React.ComponentPropsWithoutRef<"a">
+    | React.ComponentPropsWithoutRef<"button">
+  )) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 

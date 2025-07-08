@@ -7,6 +7,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import SessionProviderWrapper from "@/components/SessionProviderWrapper"; // Create this component
 import { Toaster } from "@/components/ui/sonner";
+import { WelcomeModal } from "@/components/queryDialog";
 
 const monteCarlo = MonteCarlo({
   variable: "--font-monte",
@@ -42,10 +43,12 @@ export default async function RootLayout({
       >
         <SessionProviderWrapper session={session}>
           <MainNavbar />
+          <WelcomeModal />
+          {/* Main content area */}
           <div className="font-openSans bg-white"> {children}</div>
           {/* Floating Whatsapp Button */}
           <a
-            href="https://wa.me/ 919910583811"
+            href="https://wa.me/9910583811"
             target="_blank"
             rel="noreferrer noopener"
             className="fixed bottom-4 right-4 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25d366]"
@@ -69,7 +72,7 @@ export default async function RootLayout({
               </svg>
             </div>
           </a>
-          <Toaster  position="bottom-right" richColors    />
+          <Toaster position="bottom-right" richColors />
           <Footer />
         </SessionProviderWrapper>
       </body>
