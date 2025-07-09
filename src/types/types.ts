@@ -13,3 +13,10 @@ export type DropdownButtonProps = {
     link: string;
     places?: DropdownButtonProps[];
 };
+
+export type FamousPlaces = {
+  name: string;
+  description: string;
+  image: string;
+  place: string;
+};

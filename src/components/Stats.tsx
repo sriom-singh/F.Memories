@@ -1,9 +1,9 @@
 import React from "react";
-import { Section } from "./Section";
+import { Section } from "./layout/Section";
 
 const Stats = () => {
   return (
-    <section className="py-4">
+    <section className="p-4 ">
               {/* <div className="text-center">
                 <h4 className="text-xl font-medium text-gray-900">
                   Numbers tell the hard works we’ve done in last 6 years
@@ -11,7 +11,7 @@ const Stats = () => {
               </div> */}
 
               <div className="grid grid-cols-1 gap-6 px-6 mt-8 sm:px-0 lg:mt-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-12">
-                <div className="overflow-hidden bg-white  -gray-200 rounded-lg">
+                <div className="overflow-hidden border bg-white  -gray-200 rounded-lg">
                   <div className="px-4 py-6">
                     <div className="flex items-start">
                       <svg
@@ -40,7 +40,7 @@ const Stats = () => {
                   </div>
                 </div>
 
-                <div className=" bg-white  rounded-lg">
+                <div className=" bg-white border rounded-lg">
                   <div className="px-4 py-6">
                     <div className="flex items-start">
                       <svg
@@ -69,7 +69,7 @@ const Stats = () => {
                   </div>
                 </div>
 
-                <div className="overflow-hidden bg-white  -gray-200 rounded-lg">
+                <div className="overflow-hidden border bg-white  -gray-200 rounded-lg">
                   <div className="px-4 py-6">
                     <div className="flex items-start">
                       <svg
@@ -96,7 +96,7 @@ const Stats = () => {
                   </div>
                 </div>
 
-                <div className="overflow-hidden bg-white  -gray-200 rounded-lg">
+                <div className="overflow-hidden border bg-white  -gray-200 rounded-lg">
                   <div className="px-4 py-6">
                     <div className="flex items-start">
                       <svg

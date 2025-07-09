@@ -1,29 +1,98 @@
 import { getPackages } from "@/actions/package";
 
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import { WobbleCard } from "@/components/ui/wobble-card";
 import { Testimonials } from "@/components/Testimonials";
 import {
   ArrowRight,
-  CircleUserRound,
   MapPin,
-  Route,
-  Users,
 } from "lucide-react";
-import PackageCard from "@/components/PackageCard";
 import Image from "next/image";
 import Faq from "@/components/FAQ";
-import { Section } from "@/components/Section";
+import { Section } from "@/components/layout/Section";
 import Stats from "@/components/Stats";
 import { Packages } from "@/types/types";
-import GridLayout from "@/components/GridLayout";
+import GridLayout from "@/components/layout/GridLayout";
+import CorouselLayout from "@/components/layout/CorouselLayout";
+
+const indiaFamousPlaces = [
+  {
+    name: "The Taj Mahal",
+    image: "https://cdn.pixabay.com/photo/2022/06/13/21/06/taj-mahal-7260693_1280.jpg",
+    description: "The Taj Mahal is a renowned white marble mausoleum located in Agra, India, commissioned by Mughal emperor Shah Jahan in memory of his wife, Mumtaz Mahal.",
+    place: "Agra"
+  },
+  {
+    name: "Qutub Minar",
+    image: "https://cdn.pixabay.com/photo/2017/03/19/08/01/qutub-minar-2155776_1280.jpg",
+    description: "Qutub Minar is a UNESCO World Heritage Site in Delhi. It's a towering minaret that represents Indo-Islamic architecture from the 12th century.",
+    place: "Delhi"
+  },
+  {
+    name: "Gateway of India",
+    image: "https://media.gettyimages.com/id/459431043/photo/big-monument.jpg?s=612x612&w=0&k=20&c=S2yW0bJu6D2ez5wYZPpzHBr6xdUlA9v0lL5RIswfuZQ=",
+    description: "The Gateway of India is a monumental arch overlooking the Arabian Sea in Mumbai. It was built during the 20th century to commemorate King George V's visit.",
+    place: "Mumbai"
+  },
+  {
+    name: "Hawa Mahal",
+    image: "https://media.gettyimages.com/id/932393156/photo/palace-of-the-winds-at-dusk-jaipur-india.jpg?s=612x612&w=0&k=20&c=8lrLXBQFtWo6h8s2X5qcCQq0BKtgoVAA4a41uo4KhEY=",
+    description: "Hawa Mahal, or the 'Palace of Winds', is a pink sandstone structure in Jaipur known for its lattice windows designed for royal women to observe street festivals.",
+    place: "Jaipur"
+  },
+  {
+    name: "Charminar",
+    image: "https://media.gettyimages.com/id/175804012/photo/hyderabad-blues.jpg?s=612x612&w=0&k=20&c=gS8eQVRxorkiyeAvf9nTStwfgLFbcAaBtupdgBWr_sc=",
+    description: "Charminar is a historic mosque and landmark in Hyderabad, built in 1591. It is known for its distinctive four minarets and Islamic architecture.",
+    place: "Hyderabad"
+  },
+  {
+    name: "Golden Temple",
+    image: "https://media.gettyimages.com/id/159386488/photo/the-golden-temple-amritsar-india.jpg?s=612x612&w=0&k=20&c=9dtM5H270QaHd0wyPBwrJ_1MPOE9_opiAUZAXiHcRpE=",
+    description: "The Golden Temple, also known as Harmandir Sahib, is a central religious place of the Sikhs in Amritsar, famous for its golden architecture and spiritual significance.",
+    place: "Amritsar"
+  }
+];
+const globalFamousPlaces = [
+  {
+    name: "Eiffel Tower",
+    image: "https://images.unsplash.com/photo-1583265266785-aab9e443ee68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGVpZmZlbCUyMHRvd2VyfGVufDB8MHwwfHx8MA%3D%3D",
+    description: "The Eiffel Tower is an iconic iron lattice tower in Paris, France. It was completed in 1889 as the entrance arch to the 1889 World's Fair.",
+    place: "Paris"
+  },
+  {
+    name: "Statue of Liberty",
+    image: "https://images.unsplash.com/photo-1590858148182-ad4bdfa495fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFN0YXR1ZSUyMG9mJTIwTGliZXJ0eXxlbnwwfDB8MHx8fDA%3D",
+    description: "A symbol of freedom, the Statue of Liberty is a gift from France to the United States, located on Liberty Island in New York Harbor.",
+    place: "New York City"
+  },
+  {
+    name: "Great Wall of China",
+    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JlYXQlMjB3YWxsJTIwb2YlMjBjaGluYXxlbnwwfDB8MHx8fDA%3D",
+    description: "The Great Wall of China is a historic series of fortifications stretching over 13,000 miles, built to protect Chinese states against invasions.",
+    place: "China"
+  },
+  {
+    name: "Colosseum",
+    image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q29sb3NzZXVtfGVufDB8MHwwfHx8MA%3D%3D",
+    description: "The Colosseum is a vast ancient amphitheater in Rome, Italy, known for hosting gladiator contests and public spectacles.",
+    place: "Rome"
+  },
+  {
+    name: "Christ the Redeemer",
+    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
+    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
+    place: "Rio de Janeiro"
+  },
+  {
+    name: "Sydney Opera House",
+    image: "https://images.unsplash.com/photo-1540448051910-09cfadd5df61?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3lkbmV5JTIwT3BlcmElMjBIb3VzZXxlbnwwfDB8MHx8fDA%3D",
+    description: "The Sydney Opera House is a world-renowned architectural masterpiece and performing arts venue located in Sydney, Australia.",
+    place: "Sydney"
+  }
+];
+
 
 export default async function Home() {
   const packages: Packages[] = await getPackages(1, 10);
@@ -71,8 +140,11 @@ export default async function Home() {
               </Button>
             </div>
           </div>
+
         </div>
       </div>
+
+
       {/* Explore the world */}
       <Section>
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
@@ -81,8 +153,9 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Explore the world
         </h2>
-
-        <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
+        <GridLayout famousPlaces={globalFamousPlaces} />
+        <CorouselLayout packages={packages} />
+        {/* <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
           <div className="flex flex-col justify-center gap-2 items-center">
             <Image
               width={100}
@@ -131,43 +204,9 @@ export default async function Home() {
               cumque velit eius nisi non cum!
             </p>
           </div>
-        </div>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="md:mt-16 mt-4 "
-        >
-          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {packages.map((pack: Packages, index) => (
-              <CarouselItem
-                key={index}
-                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
-              >
-                <PackageCard
-                  name={pack.name}
-                  imageLink={pack.imageLink}
-                  key={index}
-                  mrp={pack.mrp}
-                  id={pack.id}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-        </Carousel>
-        
+        </div> */}
+
+
       </Section>
       {/* Incredible India  */}
       <Section>
@@ -177,44 +216,11 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Incredible India
         </h2>
-        <GridLayout/>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="md:mt-8 mt-4 "
-        >
-          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {packages.map((pack: Packages, index) => (
-              <CarouselItem
-                key={index}
-                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
-              >
-                <PackageCard
-                  name={pack.name}
-                  imageLink={pack.imageLink}
-                  key={index}
-                  mrp={pack.mrp}
-                  id={pack.id}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-        </Carousel>
+        <GridLayout famousPlaces={indiaFamousPlaces} />
+
+        <CorouselLayout packages={packages} />
       </Section>
-  {/* Popular Locations */}
+      {/* Popular Locations */}
       <Section>
         <h2 className="font-cursive text-center text-xl md:text-2xl font-semibold">
           Start Traveling Today
@@ -222,41 +228,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Popular Locations
         </h2>
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="md:mt-8 mt-4 "
-        >
-          <div className="absolute md:-top-8 md:inline  right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute md:-top-8  md:inline  right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-          <CarouselContent className="md:basis-1/3 sm:basis-1/2 lg:basis-1/4  ">
-            {packages.map((pack: Packages, index) => (
-              <CarouselItem
-                key={index}
-                className=" md:basis-1/3 sm:basis-1/2 mx-auto lg:basis-1/4"
-              >
-                <PackageCard
-                  name={pack.name}
-                  imageLink={pack.imageLink}
-                  key={index}
-                  mrp={pack.mrp}
-                  id={pack.id}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="absolute md:hidden  -bottom-14 right-12 flex items-center justify-center">
-            <CarouselPrevious className="relative left-0  translate-x-0 shadow-sm hover:translate-x-0 hover:bg-primary/90" />
-          </div>
-          <div className="absolute -bottom-14 md:hidden right-2 flex items-center justify-center">
-            <CarouselNext className="relative right-0 translate-x-0 hover:translate-x-0 shadow-sm  hover:bg-primary/90" />
-          </div>
-        </Carousel>
+        <CorouselLayout packages={packages} />
       </Section>
       {/* Why choose us */}
 
@@ -267,6 +239,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Our Achievements
         </h2>
+        
         <Stats />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 max-w-7xl mx-auto w-full">
@@ -331,44 +304,10 @@ export default async function Home() {
             />
           </WobbleCard>
         </div>
+
       </Section>
 
-      {/* Stats */}
-      {/* <Section >
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4  text-black">
-          <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <MapPin size={45} className="my-4 text-primary" />
-            <h6 className="text-3xl animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-transactions)] before:content-[counter(num)] font-bold">
-              M
-            </h6>
-            <small>Total Donations</small>
-          </div>
-          <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <Route size={45} className="my-4 text-primary" />
-            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-compaigns)] before:content-[counter(num)]">
-              k
-            </h6>
-            <small>Campaigns Closed</small>
-          </div>
-          <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <CircleUserRound
-              size={45}
-              className="my-4 text-primary font-extralight"
-            />
-            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-customers)] before:content-[counter(num)]">
-              k
-            </h6>
-            <small>Happy Customers</small>
-          </div>
-          <div className="text-center mx-auto flex flex-col justify-end items-center">
-            <Users size={45} className="my-4 text-primary" />
-            <h6 className="text-3xl font-bold animate-[counter_2s_ease-out_forwards] tabular-nums [counter-set:_num_var(--num-volunteers)] before:content-[counter(num)]">
-              k
-            </h6>
-            <small>Our Volunteers</small>
-          </div>
-        </div>
-      </Section> */}
+
 
       {/* Testimonials */}
       <Section>

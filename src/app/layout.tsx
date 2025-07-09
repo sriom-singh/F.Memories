@@ -5,7 +5,7 @@ import { MainNavbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import SessionProviderWrapper from "@/components/SessionProviderWrapper"; // Create this component
+import SessionProviderWrapper from "@/components/layout/SessionProviderWrapper"; // Create this component
 import { Toaster } from "@/components/ui/sonner";
 import { WelcomeModal } from "@/components/queryDialog";
 
