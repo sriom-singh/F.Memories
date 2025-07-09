@@ -1,4 +1,4 @@
-import { Section } from "@/components/Section";
+import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
