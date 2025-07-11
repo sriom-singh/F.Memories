@@ -1,86 +1,116 @@
-"use client"
-import React from 'react'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '../ui/carousel'
-import Autoplay from 'embla-carousel-autoplay'
-import { FamousPlaces } from '@/types/types';
+"use client";
+
+import React from 'react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from '../ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import { Destination } from '@/types/types';
 import { Button } from '../ui/button';
 
+const GridLayout = ({
+  famousPlaces,
+  coverImage
+}: {
+  famousPlaces: Destination[];
+  coverImage: { imageLink: string; name: string }[];
+}) => {
+  return (
+    <div className="max-w-screen-xl mx-auto py-10 lg:py-14 relative">
+      <div className="grid grid-cols-1 sm:grid-cols-12 gap-2">
 
+        {/* Cover Image Carousel: Only visible on lg+ */}
+        <Carousel
+          plugins={[Autoplay({ delay: 5000 })]}
+        
+          className="sm:col-span-4  max-w-[410px] max-h-[550px] shadow-lg transition duration-500 ease-in-out hidden md:block"
+        >
+          <CarouselPrevious className="absolute left-6 top-1/2 z-10 bg-white/80 text-black" />
+          <CarouselContent>
+            {coverImage.map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="relative  cursor-pointer overflow-hidden w-full text-white min-h-[550px] max-w-[500px]"
+              >
+                <a href="#">
+                  <div
+                    className="bg-cover bg-center min-h-full text-center overflow-hidden"
+                    style={{ backgroundImage: `url('${item.imageLink}')` }}
+                    title={item.name}
+                  ></div>
+                </a>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselNext className="absolute right-6 top-1/2 z-10 bg-white/80 text-black" />
+        </Carousel>
 
+        {/* Grid (desktop) & Carousel (mobile) for Famous Places */}
+        <div className="md:col-span-8 col-span-12 w-full">
 
+          {/* Mobile carousel (hidden on lg+) */}
+          <div className="block md:hidden min-w-full">
+            <Carousel plugins={[Autoplay({ delay: 4000 })]}>
+              <CarouselContent className=' min-w-full flex flex-row flex-nowrap'>
+                {famousPlaces.map((item, index) => (
+                  <CarouselItem key={index} className='basis-1/2 flex-shrink w-full'>
+                    <div className="relative rounded-lg overflow-hidden shadow-lg">
+                      <div
+                        className="h-72 bg-cover bg-center"
+                        style={{ backgroundImage: `url('${item.imageLink}')` }}
+                        title={item.name}
+                      ></div>
+                      <div className="absolute inset-0  bg-black/40 flex flex-col justify-end p-4">
+                        <p className="text-white text-lg font-bold ">{item.name}</p>
+                        <p className="text-white text-sm">{item.description}</p>
+                        <Button size="sm" className="mt-4 text-xs px-4 py-2">
+                          View Package
+                        </Button>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2 top-1/2 z-10 bg-white/80 text-black" />
+              <CarouselNext className="right-2 top-1/2 z-10 bg-white/80 text-black" />
+            </Carousel>
+          </div>
 
-const GridLayout = ({ famousPlaces }: { famousPlaces: FamousPlaces[] }) => {
-
-    return (
-        <div className="max-w-screen-xl mx-auto py-10 lg:py-14 relative">
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-5">
-
-                <Carousel plugins={[Autoplay({ delay: 2000 })]} className="sm:col-span-5 w-full max-h-[500px] shadow-lg transition duration-500 ease-in-out  rounded-lg lg:rounded-l ">
-                    <CarouselPrevious className='absolute left-6 top-1/2 z-10 ' />
-                    <CarouselContent >
-                        {famousPlaces.map((item, index) => (
-                            <CarouselItem key={index} className='relative cursor-pointer rounded overflow-hidden w-full text-white min-h-[500px] '>
-                                <div className='absolute top-0 overflow-hidden h-full w-full my-auto bg-black/30 ' />
-
-                                <a href="#">
-                                    <div
-                                        className="bg-cover bg-center min-h-full text-center rounded-md overflow-hidden"
-                                        style={{ backgroundImage: `url('${item.image}')` }}
-                                        title={item.name}
-                                    ></div>
-                                </a>
-                                <div className="mt-3 px-4 pb-3 w-full bg-black/10 backdrop-blur-[1px] absolute bottom-0 rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
-                                    <div>
-                                        <a
-                                            href="#"
-                                            className="text-xs text-primary uppercase font-medium hover:text-gray-900 transition duration-500 ease-in-out"
-                                        >
-                                            {item.place}
-                                        </a>
-                                        <a
-                                            href="#"
-                                            className="block text-gray-100 font-bold text-2xl mb-2 transition duration-500 ease-in-out"
-                                        >
-                                            {item.name}
-                                        </a>
-                                        {/* <p className="text-gray-300 text-base mt-2">{item.description}</p> */}
-                                    </div>
-                                </div>
-                            </CarouselItem>
-                        ))}
-
-                    </CarouselContent>
-                    <CarouselNext className='absolute right-6 top-1/2 z-10 ' />
-
-
-                </Carousel>
-
-                <div className="sm:col-span-7 grid grid-cols-2 lg:grid-cols-3 gap-4">
-                    {famousPlaces.slice(0, 6).map((item, index) => (
-                        <div key={index} className="shadow-lg cursor-pointer relative hover:border transition duration-500 ease-in-out  rounded-lg lg:rounded-l">
-                            <a href="#">
-                                <div className="h-full bg-cover text-center overflow-hidden"
-
-                                    style={{
-                                        backgroundImage: `url('${item.image}')`
-                                    }}
-                                    title={item.name}>
-                                </div>
-                            </a>
-                            <div className='absolute flex justify-center   top-0 overflow-hidden h-full w-full my-auto bg-black/40 '>
-                                    <p className='mt-4 text-white font-semibold'>{item.place}</p>
-                                <a href="#"
-                                    className="text-gray-100 top-1/2 absolute hidden md:block w-full  z-10 text-center line-clamp-2  overflow-hidden font-light px-4 my-2  transition duration-500 ease-in-out">{item.description.slice(0,35)}...</a>
-                            <Button size={"sm"} className='absolute bottom-4 text-xs p-2'>View Pacakge</Button>
-                            </div>
-                        </div>
-                    ))}
-
+          {/* Desktop grid layout */}
+          <div className="hidden md:grid grid-cols-4 lg:grid-cols-4 gap-4 h-full">
+            {famousPlaces.slice(0, 8).map((item, index) => (
+              <div
+                key={index}
+                className="shadow-lg cursor-pointer relative h-full transition duration-500  ease-in-out rounded-lg"
+              >
+                <a href="#">
+                  <div
+                    className="bg-cover w-full h-full bg-center"
+                    style={{
+                      backgroundImage: `url('${item.imageLink}')`
+                    }}
+                    title={item.name}
+                  ></div>
+                </a>
+                <div className="absolute flex flex-col justify-end gap-2 top-0  h-full w-full bg-black/30 p-4">
+                  <p className="text-white font-bold text-center pb-4 ">{item.name}</p>
+                  <p className="text-white text-sm text-center">{item.description}</p>
+                  <Button size="sm" className="mt-2 w-full text-xs px-4 py-2">
+                    View <span className='hidden lg:inline'>Package</span> 
+                  </Button>
                 </div>
-
-            </div>
+              </div>
+            ))}
+          </div>
         </div>
-    )
-}
 
-export default GridLayout
+      </div>
+    </div>
+  );
+};
+
+export default GridLayout;

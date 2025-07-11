@@ -90,8 +90,133 @@ const globalFamousPlaces = [
     image: "https://images.unsplash.com/photo-1540448051910-09cfadd5df61?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3lkbmV5JTIwT3BlcmElMjBIb3VzZXxlbnwwfDB8MHx8fDA%3D",
     description: "The Sydney Opera House is a world-renowned architectural masterpiece and performing arts venue located in Sydney, Australia.",
     place: "Sydney"
+  },
+  {
+    name: "Christ the Redeemer",
+    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
+    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
+    place: "Rio de Janeiro"
+  },
+  {
+    name: "Christ the Redeemer",
+    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
+    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
+    place: "Rio de Janeiro"
+  },
+];
+const globalDestinations = [
+  {
+    name: "Singapore",
+    description: "Here is filled with diverse cultures & cities",
+    imageLink: "/images/singapore.jpg"
+  },
+  {
+    name: "Japan",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/japan.jpg"
+  },
+  {
+    name: "Vietnam",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/vietnam.jpg"
+  },
+  {
+    name: "Bhutan",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/bhutan.jpg"
+  },
+  {
+    name: "France",
+    description: "Indulge in the art, culture, and cuisine",
+    imageLink: "/images/france.jpg"
+  },
+  {
+    name: "USA",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/usa.jpg"
+  },
+  {
+    name: "Switzerland",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/switzerland.jpg"
+  },
+  {
+    name: "World",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/world.jpg"
   }
 ];
+const globalCoverImage=[
+ {
+    imageLink: "/images/world-3.jpg",
+    name: "World"
+  },
+   {
+    imageLink: "/images/dubai-2.jpg",
+    name: "Dubai"
+  },
+  {
+    imageLink:"https://images.herzindagi.info/image/2020/Dec/Tips-To-Bring-Back-Most-Meaningful-Travel-Souvenirssss.jpg",
+    "name": "Travel World"
+  }
+]
+const indianCoverImage=[
+ {
+    imageLink: "https://images.unsplash.com/photo-1706191464656-98c8e689b5c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fGluZGlhJTIwdHJhdmVsfGVufDB8fDB8fHww",
+    name: "Taj Mahal"
+  },
+  {
+    imageLink:"https://plus.unsplash.com/premium_photo-1697730412369-ced5770cc1d3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Minaret"
+  },
+   {
+    imageLink: "/images/travel-india.jpg",
+    name: "Travel India"
+  },
+]
+const indianDestinations = [
+  {
+    name: "Kashmir",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/kashmir.jpg"
+  },
+  {
+    name: "Ladakh",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/ladakh.jpg"
+  },
+  {
+    name: "Himachal Pradesh",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/himachal.jpg"
+  },
+  {
+    name: "Kerala",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/kerala.jpg"
+  },
+  {
+    name: "Maharashtra",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/maharashtra.jpg"
+  },
+  {
+    name: "Karnataka",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/karnataka.jpg"
+  },
+  {
+    name: "Rajasthan",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/rajasthan.jpg"
+  },
+  {
+    name: "India",
+    description: "Experience the ancient history & beaches",
+    imageLink: "/images/india.jpg"
+  }
+];
+
 
 
 export default async function Home() {
@@ -99,50 +224,42 @@ export default async function Home() {
 
   return (
     <>
-      <div className=" mx-auto flex bg- flex-col font-openSans justify-center ">
-        <div className="relative  mx-auto -mt-4">
-          <Image
-            width={1000}
-            height={1000}
-            alt="hero"
-            src="/hero.jpg"
-            className="w-[100vw] h-[110vh] object-cover"
+      <div className="relative mx-auto">
+  <Image
+    width={1920}
+    height={1080}
+    alt="hero"
+    src="/hero.jpg"
+    className="w-full h-[100vh] object-cover"
+  />
+  <div className="absolute inset-0 bg-gray-950 opacity-70 "></div>
+
+  <div className="absolute inset-0 flex items-center justify-center px-4">
+    <div className="text-center text-white max-w-3xl">
+      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+        Frame Your Holidays
+      </h1>
+      <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed">
+        Framing Memories crafts immersive journeys so you don’t just travel — you live the moment, and frame it forever.
+      </p>
+
+      <div className="mt-8 flex justify-center items-center">
+        <div className="relative w-full max-w-md h-12">
+          <input
+            type="search"
+            className="w-full h-full pl-10 pr-12 rounded-full bg-white/50 text-black text-sm"
+            placeholder="Search Destinations"
           />
-          <div className="absolute inset-0 bg-gray-900 opacity-70 rounded-md"></div>
-
-          <div className="flex md:items-center absolute inset-0  items-center  font-openSans flex-col  gap-4 px-7 lg:mt-0 justify-center  my-auto min-h-1/2  lg:h-full flex-1 ">
-            <h1 className="lg:text-7xl text-center  font-openSans text-white  md:text-6xl text-5xl lg:text-center">
-              Discover Your Destination
-            </h1>
-            <p className="font-normal text-sm text-center  font-sans text-white/70 ">
-              Framing Memories crafts immersive journeys so you don’t just
-              travel — you live the moment,
-              <br /> and frame it forever.
-            </p>
-            {/* <Button
-              className="bg-black/10 border-primary px-4 text-black font-openSans text-primary md:w-52 w-36 md:text-lg py-6 mt-4 hover:bg-primary/80  rounded-full "
-              variant="outline"
-            >
-              Explore Tours
-            </Button> */}
-            <div className="relative h-12 md:w-80 w-64 my-6">
-              <input
-                type="search"
-                className="bg-white w-full h-full pl-10 pr-4 text-black text-sm rounded-full"
-                placeholder="Search Destinations"
-              />
-              <MapPin
-                className="absolute left-3 top-3.5 size-5 text-black/60 font-extralight
-"
-              />
-              <Button className="absolute right-2 cursor-pointer top-2 size-5 text-black/60 font-extralight w-8 h-8 rounded-full">
-                <ArrowRight className="size-4" />
-              </Button>
-            </div>
-          </div>
-
+          <MapPin className="absolute left-3 top-3.5 size-5 text-black/50" />
+          <Button className="absolute right-2 top-2 w-8 h-8 p-0 rounded-full bg-gray-200 hover:bg-gray-300">
+            <ArrowRight className="size-4 -ml-1 text-black" />
+          </Button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
 
 
       {/* Explore the world */}
@@ -153,7 +270,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Explore the world
         </h2>
-        <GridLayout famousPlaces={globalFamousPlaces} />
+        <GridLayout famousPlaces={globalDestinations} coverImage={globalCoverImage} />
         <CorouselLayout packages={packages} />
         {/* <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
           <div className="flex flex-col justify-center gap-2 items-center">
@@ -216,7 +333,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Incredible India
         </h2>
-        <GridLayout famousPlaces={indiaFamousPlaces} />
+        <GridLayout famousPlaces={indianDestinations} coverImage={indianCoverImage} />
 
         <CorouselLayout packages={packages} />
       </Section>
@@ -239,7 +356,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Our Achievements
         </h2>
-        
+
         <Stats />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 mt-10 gap-4 max-w-7xl mx-auto w-full">

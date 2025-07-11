@@ -14,9 +14,8 @@ export type DropdownButtonProps = {
     places?: DropdownButtonProps[];
 };
 
-export type FamousPlaces = {
+export type Destination = {
   name: string;
   description: string;
-  image: string;
-  place: string;
+  imageLink: string;
 };
