@@ -28,7 +28,7 @@ export function WelcomeModal() {
     function handleSubmit(event: React.FormEvent) {
         event.preventDefault()
 
-        const text = "*Name:* John\n*Email:* john@example.com\n*Phone:* 1234567890"
+        const text = `*Name:* ${data.name} \n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Destination:* ${data.destination}\n*Traveler Count:* ${data.travelerCount}\n*Message:* ${data.message}`
         const url = `https://wa.me/919910583811?text=${encodeURIComponent(text)}`
         window.open(url, '_blank')
     }

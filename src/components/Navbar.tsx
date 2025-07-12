@@ -21,14 +21,17 @@ import Image from "next/image";
 import { toast } from "sonner";
 import DropdownButton from "./dropdownButton";
 import MobileDropdownButton from "./MobileDropdown";
+import ProfileCard from "./ProfileCard";
 
 export function MainNavbar() {
   const { data: session, status } = useSession();
+  
   const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const navItems = [
     {
@@ -101,8 +104,9 @@ export function MainNavbar() {
                   {showMenu && (
                     <div className="absolute top-1 -right-4 rounded-sm  pt-10 w-40  z-50">
                       <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
-                        <li className="border-b py-2 cursor-pointer">
-                          Profile
+                        <li className="border-b py-2  z-50 cursor-pointer">
+                          <span onClick={() => setIsProfileOpen(true)}>Profile</span>
+
                         </li>
                         <li
                           className="border-b py-2 cursor-pointer"
@@ -119,6 +123,14 @@ export function MainNavbar() {
                     </div>
                   )}
                 </div>
+                {status === "authenticated" && (
+                  <ProfileCard
+                    user={session?.user}
+                    open={isProfileOpen}
+                    onOpenChange={setIsProfileOpen}
+                  />
+                )}
+
               </NavbarButton>
             )}
             <NavbarButton
@@ -200,7 +212,7 @@ export function MainNavbar() {
                       <div className="absolute top-2  rounded-sm  pt-10 w-40  z-50">
                         <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
                           <li className="border-b py-2 cursor-pointer">
-                            Profile
+                          <span onClick={() => setIsProfileOpen(true)}>Profile</span>
                           </li>
                           <li
                             className="border-b py-2 cursor-pointer"
