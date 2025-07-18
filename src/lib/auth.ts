@@ -47,6 +47,7 @@ export const authOptions: NextAuthOptions = {
             email: user.email,
             isAdmin: user.isAdmin,
             name: user?.name,
+            phone: user?.phone !== null && user?.phone !== undefined ? Number(user.phone) : null,
           };
         } catch (error) {
           throw error;
@@ -59,15 +60,16 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.isAdmin = user.isAdmin; 
+        token.isAdmin = user.isAdmin;
+        token.phone = user?.phone
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
-            session.user.isAdmin = token.isAdmin as boolean; 
-
+        session.user.isAdmin = token.isAdmin as boolean;
+        session.user.phone = token.phone as number
       }
       return session;
     },

@@ -6,9 +6,11 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { IconBrandWhatsapp } from '@tabler/icons-react'
+import axios from 'axios'
 
 export function WelcomeModal() {
     const [open, setOpen] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
     const [data, setData] = React.useState({
         name: '',
         email: '',
@@ -25,12 +27,27 @@ export function WelcomeModal() {
         }, 4000)
     }, [])
 
-    function handleSubmit(event: React.FormEvent) {
+    async function handleSubmit(event: React.FormEvent) {
         event.preventDefault()
+        try {
+            setLoading(true)
+            const res = await axios.post('/api/mails', {
+                name: data.name,
+                email: data.email,
+                subject: "Package Query",
+                message: `*Name:* ${data.name} \n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Destination:* ${data.destination}\n*Traveler Count:* ${data.travelerCount}\n*Message:* ${data.message}`
+            })
+        }
+        catch (e) {
+            console.log(e);
 
+        }
+        finally {
+            setLoading(false)
+        }
         const text = `*Name:* ${data.name} \n*Email:* ${data.email}\n*Phone:* ${data.phone}\n*Destination:* ${data.destination}\n*Traveler Count:* ${data.travelerCount}\n*Message:* ${data.message}`
         const url = `https://wa.me/919910583811?text=${encodeURIComponent(text)}`
-        window.open(url, '_blank')
+        // window.open(url, '_blank')
     }
 
     return (
@@ -61,8 +78,8 @@ export function WelcomeModal() {
                             placeholder='Your Message' rows={3}
                             className='w-full p-2 border border-gray-300 rounded-md'
                         ></textarea>
-                        <Button type='submit' className='w-full rounded-sm'>Submit</Button>
-                        <Button variant={'outline'} onClick={() => window.open("https://wa.me/919910583811?text=Hello%20I%20am%20interested%20in%20your%20services")} className='w-full flex items-center justify-center border-green-500 text-green-500 rounded-sm hover:bg-green-300/50 '>Contact on <IconBrandWhatsapp className='ml-2 mr-1 size-5' /> Whatsapp</Button>
+                        <Button type='submit' className='w-full rounded-sm'>{loading?"Sending...":"Submit"}</Button>
+                        {/* <Button variant={'outline'} onClick={() => window.open("https://wa.me/919910583811?text=Hello%20I%20am%20interested%20in%20your%20services")} className='w-full flex items-center justify-center border-green-500 text-green-500 rounded-sm hover:bg-green-300/50 '>Contact on <IconBrandWhatsapp className='ml-2 mr-1 size-5' /> Whatsapp</Button> */}
 
                     </form>
                 </DialogHeader>

@@ -45,6 +45,7 @@ export default function SignupFormDemo() {
         email: newUser.email,
         password: newUser.password,
         name: newUser.name,
+        phone: newUser.phone || null
       });
       if (result?.error) {
         // Show error toast

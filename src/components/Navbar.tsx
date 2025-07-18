@@ -25,6 +25,7 @@ import ProfileCard from "./ProfileCard";
 
 export function MainNavbar() {
   const { data: session, status } = useSession();
+  console.log(session);
   
   const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
