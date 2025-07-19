@@ -39,7 +39,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${monteCarlo.variable} ${openSans.variable} antialiased`}
+        className={`${monteCarlo.variable} ${openSans.variable} antialiased`}
       >
         <SessionProviderWrapper session={session}>
           <MainNavbar />

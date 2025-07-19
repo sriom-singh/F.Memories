@@ -144,14 +144,14 @@ const Footer = () => {
               </h1>
               <div className="text-base leading-relaxed pb-2 text-gray-600 mt-7">
                 <p className="flex gap-2 items-center text-black text-">
-                  <Landmark size={16} /> 13th Street. New York, NY 10011
+                  <Landmark size={16} /> V-32/2, Arvind Nagar, Delhi-110053
                 </p>
                 <p className="flex gap-2 pt-2 items-center text-black ">
                   <Phone size={16} />
                   +91-9910583811
                 </p>
                 <p className="flex gap-2 py-2 items-center text-black ">
-                  <Mail size={16} /> framing.memoriess@gmail.com
+                  <Mail size={16} /> infoframingmemoriess@gmail.com
                 </p>
               </div>
 

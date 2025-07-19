@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div className="bg-gradient-to-b from-black/25 via-white to-white">
       <Section className="pt-28">
-        <div className="px-4 mx-auto sm:px-6 py-4 lg:px-8 max-w-7xl">
+        <div className="px-4 mt-4 mx-auto sm:px-6 py-4 lg:px-8 max-w-7xl">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
               Contact us
@@ -18,11 +18,11 @@ const page = () => {
           </div>
 
           <div className=" gap-4 justify-between mx-auto mt-12 sm:mt-16">
-            <div className="grid grid-rows-3 gap-4 px-8 text-center md:px-0 md:grid-cols-3">
-              <div className="overflow-hidden border bg-white rounded-xl">
+            <div className="grid  gap-4 px-8 text-center md:px-0 md:grid-cols-3">
+              <div className="overflow-hidden py-2 bg-white/80 rounded-xl">
                 <div className="p-4 ">
                   <svg
-                    className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
+                    className="flex-shrink-0 w-10 h-10 mx-auto text-primary"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -38,16 +38,16 @@ const page = () => {
                   <p className=" mt-2 text-lg font-medium text-gray-900">
                     +91-9910583811
                   </p>
-                  <p className="mt-1 text-lg font-medium text-gray-900">
+                  {/* <p className="mt-1 text-lg font-medium text-gray-900">
                     +91-9910583811
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
-              <div className="overflow-hidden border bg-white rounded-xl">
+              <div className="overflow-hidden  bg-white/80 rounded-xl">
                 <div className="p-4">
                   <svg
-                    className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400 text"
+                    className="flex-shrink-0 w-10 h-10 mx-auto text-primary text-gray-400 text"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -61,18 +61,18 @@ const page = () => {
                     />
                   </svg>
                   <p className="mt-2 text-lg font-medium text-gray-900">
-                    framing.memoriess@gmail.com
+                    infoframingmemoriess@gmail.com
                   </p>
-                  <p className="mt-1 text-lg font-medium text-gray-900">
+                  {/* <p className="mt-1 text-lg font-medium text-gray-900">
                     hr@example.com
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
-              <div className="overflow-hidden border bg-white rounded-xl">
+              <div className="overflow-hidden bg-white/80 rounded-xl">
                 <div className="p-4">
                   <svg
-                    className="flex-shrink-0 w-10 h-10 mx-auto text-gray-400"
+                    className="flex-shrink-0 w-10 h-10 mx-auto text-primary "
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -92,13 +92,13 @@ const page = () => {
                     />
                   </svg>
                   <p className="mt-2 text-lg font-medium leading-relaxed text-gray-900">
-                    8502 Preston Rd. Ingle, Maine 98380, USA
+                    V-32/2, Arvind Nagar, Delhi-110053
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 mx-auto overflow-hidden max-w-3xl shadow-sm border-[0.2px] bg-white rounded-xl">
+            <div className=" mx-auto mt-12 overflow-hidden max-w-3xl shadow-sm border-[0.2px] bg-white rounded-xl">
               <div className="px-6 py-12 sm:p-12">
                 <h3 className="text-3xl font-semibold text-center text-gray-900">
                   Send us a message
