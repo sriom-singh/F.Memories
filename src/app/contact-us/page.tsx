@@ -1,8 +1,55 @@
+"use client";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { toast } from "sonner";
 
 const page = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setFeedback(null);
+
+    try {
+      const res = await axios.post('/api/mails', {
+        name: form.name,
+        email: form.email,
+        subject: "Contact ",
+        message: `
+                <strong>Name:</strong> ${form.name}<br/>
+                <strong>Email:</strong> ${form.email}<br/>
+                <strong>Phone:</strong> ${form.phone}<br/>
+                <strong>Address:</strong> ${form.address}<br/>
+                <strong>Message:</strong><br/>${form.message.replace(/\n/g, "<br/>")}
+               `
+      })
+      if (res.status === 200) {
+        toast("Thanks for Contacting us! We will reach to you shortly");
+        setFeedback("Message sent successfully!");
+        setForm({ name: "", email: "", phone: "", address: "", message: "" });
+      } else {
+        setFeedback(res.data?.error || "Failed to send message.");
+      }
+    } catch (error: any) {
+      setFeedback(error?.response?.data?.error || "Failed to send message.");
+    }
+    setLoading(false);
+  };
   return (
     <div className="bg-gradient-to-b from-black/25 via-white to-white">
       <Section className="pt-28">
@@ -104,105 +151,87 @@ const page = () => {
                   Send us a message
                 </h3>
 
-                <form action="#" method="POST" className="mt-14">
+                <form onSubmit={handleSubmit} className="mt-14">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                     <div>
-                      <label
-                        htmlFor=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Your name
-                      </label>
+                      <label className="text-base font-medium text-gray-900">Your name</label>
                       <div className="mt-2.5 relative">
                         <input
                           type="text"
-                          name=""
-                          id=""
+                          name="name"
+                          value={form.name}
+                          onChange={handleChange}
+                          required
                           placeholder="Enter your full name"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                         />
                       </div>
                     </div>
-
                     <div>
-                      <label
-                        htmlFor=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Email address
-                      </label>
+                      <label className="text-base font-medium text-gray-900">Email address</label>
                       <div className="mt-2.5 relative">
                         <input
                           type="email"
-                          name=""
-                          id=""
-                          placeholder="Enter your full name"
+                          name="email"
+                          value={form.email}
+                          onChange={handleChange}
+                          required
+                          placeholder="Enter your email"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                         />
                       </div>
                     </div>
-
                     <div>
-                      <label
-                        htmlFor=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Phone number
-                      </label>
+                      <label className="text-base font-medium text-gray-900">Phone number</label>
                       <div className="mt-2.5 relative">
                         <input
                           type="tel"
-                          name=""
-                          id=""
-                          placeholder="Enter your full name"
+                          name="phone"
+                          value={form.phone}
+                          onChange={handleChange}
+                          placeholder="Enter your phone number"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                         />
                       </div>
                     </div>
-
                     <div>
-                      <label
-                        htmlFor=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Address
-                      </label>
+                      <label className="text-base font-medium text-gray-900">Address</label>
                       <div className="mt-2.5 relative">
                         <input
                           type="text"
-                          name=""
-                          id=""
-                          placeholder="Enter your address "
+                          name="address"
+                          value={form.address}
+                          onChange={handleChange}
+                          placeholder="Enter your address"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                         />
                       </div>
                     </div>
-
                     <div className="sm:col-span-2">
-                      <label
-                        htmlFor=""
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Message
-                      </label>
+                      <label className="text-base font-medium text-gray-900">Message</label>
                       <div className="mt-2.5 relative">
                         <textarea
-                          name=""
-                          id=""
-                          placeholder=""
+                          name="message"
+                          value={form.message}
+                          onChange={handleChange}
+                          required
+                          placeholder="Your message"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-blue-600 caret-blue-600"
                           rows={4}
                         ></textarea>
                       </div>
                     </div>
-
                     <div className="sm:col-span-2">
                       <Button
                         type="submit"
                         className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200"
+                        disabled={loading}
                       >
-                        Send
+                        {loading ? "Sending..." : "Send"}
                       </Button>
+                      {feedback && (
+                        <div className="mt-2 text-center text-sm text-green-600">{feedback}</div>
+                      )}
                     </div>
                   </div>
                 </form>

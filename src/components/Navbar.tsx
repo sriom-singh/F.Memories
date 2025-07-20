@@ -22,11 +22,12 @@ import { toast } from "sonner";
 import DropdownButton from "./dropdownButton";
 import MobileDropdownButton from "./MobileDropdown";
 import ProfileCard from "./ProfileCard";
+import { LogOut, User } from "lucide-react";
 
 export function MainNavbar() {
   const { data: session, status } = useSession();
   console.log(session);
-  
+
   const pathname = usePathname();
   const [showMenu, setShowMenu] = useState(false);
   const router = useRouter();
@@ -104,22 +105,23 @@ export function MainNavbar() {
 
                   {showMenu && (
                     <div className="absolute top-1 -right-4 rounded-sm  pt-10 w-40  z-50">
-                      <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
-                        <li className="border-b py-2  z-50 cursor-pointer">
+                      <ul className="text-black bg-white p-3 w-full h-full text-start shadow-dm flex flex-col gap-2">
+                        <li className="border-b py-2 gap-1 flex items-center z-50 cursor-pointer">
+                          <User size={14} className="text-primary" />
                           <span onClick={() => setIsProfileOpen(true)}>Profile</span>
 
                         </li>
                         <li
-                          className="border-b py-2 cursor-pointer"
+                          className="border-b py-2 gap-1 flex items-center cursor-pointer"
                           onClick={() => {
                             signOut();
                           }}
                         >
-                          Logout
+                          <LogOut className="text-red-500" size={12} />  Logout
                         </li>
-                        <li className="py-2 cursor-pointer" onClick={() => { }}>
+                        {/* <li className="py-2 cursor-pointer" onClick={() => { }}>
                           My Bookings
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   )}
@@ -213,7 +215,7 @@ export function MainNavbar() {
                       <div className="absolute top-2  rounded-sm  pt-10 w-40  z-50">
                         <ul className="text-black bg-white p-4 w-full h-full text-start shadow-dm flex flex-col gap-2">
                           <li className="border-b py-2 cursor-pointer">
-                          <span onClick={() => setIsProfileOpen(true)}>Profile</span>
+                            <span onClick={() => setIsProfileOpen(true)}>Profile</span>
                           </li>
                           <li
                             className="border-b py-2 cursor-pointer"

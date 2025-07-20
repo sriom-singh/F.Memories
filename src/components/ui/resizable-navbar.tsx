@@ -124,31 +124,87 @@ export const navItemsGroup = [
     link: "/india",
     places: [
       {
-        title: "Delhi",
+        title: "North India",
         link: "/india/delhi",
         places: [
           {
-            title: "Delhi",
-            link: "/india/delhi"
+            title: "Kashmir",
+            link: "/india/kashmir"
           },
           {
-            title: "Mumbai",
-            link: "/india/mumbai"
+            title: "Ladakh",
+            link: "/india/ladakh"
           },
           {
-            title: "Bangalore",
-            link: "/india/bangalore"
+            title: "Uttarakhand",
+            link: "/india/uttarakhand"
           }
         ]
 
       },
       {
-        title: "Mumbai",
-        link: "/india/mumbai"
+        title: "South India",
+        link: "/india/mumbai",
+        places: [
+          {
+            title: "Kerala",
+            link: "/india/kerala"
+          },
+          {
+            title: "Karnataka",
+            link: "/india/karnataka"
+          }
+        ]
       },
       {
-        title: "Bangalore",
-        link: "/india/bangalore"
+        title: "East & North East India",
+        link: "/india/bangalore",
+        places: [
+          {
+            title: "Meghalaya",
+            link: "/india/meghalaya"
+          },
+          {
+            title: "Sikkim",
+            link: "/india/sikkim"
+          }
+        ]
+      },
+      {
+        title: "West & South West India",
+        link: "/india/bangalore",
+        places: [
+          {
+            title: "Rajasthan",
+            link: "/india/rajasthan"
+          },
+          {
+            title: "Maharashtra",
+            link: "/india/maharashtra"
+          },
+          {
+            title: "Gujarat",
+            link: "/india/gujarat"
+          },
+          {
+            title: "Goa",
+            link: "/india/goa"
+          }
+        ]
+      }, {
+        title: "Andaman",
+        link: "/india/bangalore",
+        places: [
+          {
+            title: "Simple Andaman",
+            link: "/india/simple-andaman"
+          },
+          {
+            title: "Unlimited Andaman",
+            link: "/india/unlimited-andaman"
+          },
+
+        ]
       }
     ]
   },
@@ -157,30 +213,105 @@ export const navItemsGroup = [
     link: "/global",
     places: [
       {
-        title: "New York",
-        link: "/global/new-york"
-      },
-      {
-        title: "London",
-        link: "/global/london"
-      },
-      {
-        title: "Tokyo",
-        link: "/global/tokyo",
+        title: "Africa",
+        link: "/global/africa",
         places: [
-      {
-        title: "New York",
-        link: "/global/new-york"
+          {
+            title: "Egypt",
+            link: "/global/egypt"
+          }
+        ]
       },
       {
-        title: "London",
-        link: "/global/london"
+        title: "America",
+        link: "/global/america",
+        places: [
+          {
+            title: "USA",
+            link: "/global/usa"
+          },
+          {
+            title: "California",
+            link: "/global/california"
+          },
+          {
+            title: "New York",
+            link: "/global/new-york"
+          },
+          {
+            title: "Florida",
+            link: "/global/florida"
+          },
+          {
+            title: "Canada",
+            link: "/global/canada"
+          }
+        ]
       },
       {
-        title: "Tokyo",
-        link: "/global/tokyo"
-      }
-    ]
+        title: "Asia",
+        link: "/global/asia",
+        places: [
+          {
+            title: "Nepal",
+            link: "/global/nepal"
+          },
+          {
+            title: "Bhutan",
+            link: "/global/bhutan"
+          },
+          {
+            title: "Japan",
+            link: "/global/japan"
+          },
+          {
+            title: "Thailand",
+            link: "/global/thailand"
+          },
+          {
+            title: "Vietnam",
+            link: "/global/vietnam"
+          }
+        ]
+      },
+      {
+        title: "Europe",
+        link: "/global/asia",
+        places: [
+          {
+            title: "Greece",
+            link: "/global/greece"
+          },
+          {
+            title: "Italy",
+            link: "/global/italy"
+          },
+          {
+            title: "France",
+            link: "/global/france"
+          },
+          {
+            title: "Switzerland",
+            link: "/global/switzerland"
+          }
+        ]
+      },
+      {
+        title: "Middle East",
+        link: "/global/middle-east",
+        places: [
+          {
+            title: "Dubai",
+            link: "/global/greece"
+          },
+          {
+            title: "Turkey",
+            link: "/global/turkey"
+          }
+        ]
+      }, {
+        title: "South East Asia",
+        link: "/south-east-asia",
       }
     ]
   },

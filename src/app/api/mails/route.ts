@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(req: Request) {
     const body = await req.json();
 
-    const { name, email, message, subject } = body;
+    const { name, email, message, subject,html } = body;
     if (!name || !email) {
         return NextResponse.json({
             msg: "Email and Name is required",
@@ -26,9 +26,8 @@ export async function POST(req: Request) {
         from: email || process.env.MAIL_ID,
         to: process.env.MAIL_ID,
         replyTo: email,            // user email for reply
-
+        html: html || message, // use html instead of text
         subject: subject,
-        text: message,
     };
 
     try {
