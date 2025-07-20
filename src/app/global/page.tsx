@@ -18,8 +18,6 @@ const India = () => {
   useEffect(() => {
     const fetchData = async () => {
       const data: any = await getPackages(); // You must update getPackages to accept filters
-      console.log(data);
-
       setPackages(data);
       setFilteredPackages(data);
     };

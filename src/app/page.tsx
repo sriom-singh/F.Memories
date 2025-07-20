@@ -108,51 +108,51 @@ const globalDestinations = [
   {
     name: "Singapore",
     description: "Here is filled with diverse cultures & cities",
-    imageLink: "singapore.jpg"
+    imageLink: "Singapore.jpg"
   },
   {
     name: "Japan",
     description: "Experience the ancient history & beaches",
-    imageLink: "japan.jpg"
+    imageLink: "Japan.jpg"
   },
   {
     name: "Vietnam",
     description: "Experience the ancient history & beaches",
-    imageLink: "vietnam.jpg"
+    imageLink: "Vietnam.jpg"
   },
   {
     name: "Bhutan",
     description: "Experience the ancient history & beaches",
-    imageLink: "bhutan.jpg"
+    imageLink: "Bhutan.jpg"
   },
   {
     name: "France",
     description: "Indulge in the art, culture, and cuisine",
-    imageLink: "france.jpg"
+    imageLink: "France.jpg"
   },
   {
     name: "USA",
     description: "Experience the ancient history & beaches",
-    imageLink: "usa.jpg"
+    imageLink: "USA.jpg"
   },
   {
     name: "Switzerland",
     description: "Experience the ancient history & beaches",
-    imageLink: "switzerland.jpg"
+    imageLink: "Switzerland.jpg"
   },
   {
     name: "World",
     description: "Experience the ancient history & beaches",
-    imageLink: "world.jpg"
+    imageLink: "World.jpg"
   }
 ];
 const globalCoverImage=[
  {
-    imageLink: "world-3.jpg",
+    imageLink: "World-3.jpg",
     name: "World"
   },
    {
-    imageLink: "dubai-2.jpg",
+    imageLink: "Dubai-2.jpg",
     name: "Dubai"
   },
   {
@@ -178,42 +178,42 @@ const indianDestinations = [
   {
     name: "Kashmir",
     description: "Experience the ancient history & beaches",
-    imageLink: "kashmir.jpg"
+    imageLink: "Kashmir.jpg"
   },
   {
     name: "Ladakh",
     description: "Experience the ancient history & beaches",
-    imageLink: "ladakh.jpg"
+    imageLink: "Ladakh.jpg"
   },
   {
     name: "Himachal Pradesh",
     description: "Experience the ancient history & beaches",
-    imageLink: "himachal.jpg"
+    imageLink: "Himachal.jpg"
   },
   {
     name: "Kerala",
     description: "Experience the ancient history & beaches",
-    imageLink: "kerala.jpg"
+    imageLink: "Kerala.jpg"
   },
   {
     name: "Maharashtra",
     description: "Experience the ancient history & beaches",
-    imageLink: "maharashtra.jpg"
+    imageLink: "Maharashtra.jpg"
   },
   {
     name: "Karnataka",
     description: "Experience the ancient history & beaches",
-    imageLink: "karnataka.jpg"
+    imageLink: "Karnataka.jpg"
   },
   {
     name: "Rajasthan",
     description: "Experience the ancient history & beaches",
-    imageLink: "rajasthan.jpg"
+    imageLink: "Rajasthan.jpg"
   },
   {
     name: "India",
     description: "Experience the ancient history & beaches",
-    imageLink: "india.jpg"
+    imageLink: "India.jpg"
   }
 ];
 
