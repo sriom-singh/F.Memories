@@ -61,7 +61,7 @@ const GridLayout = ({
                     <div className="relative rounded-lg overflow-hidden shadow-lg">
                       <div
                         className="h-72 bg-cover bg-center"
-                        style={{ backgroundImage: `url('${item.imageLink}')` }}
+                        style={{ backgroundImage: `url('/${item.imageLink}')` }}
                         title={item.name}
                       ></div>
                       <div className="absolute inset-0  bg-black/40 flex flex-col justify-end p-4">
@@ -91,7 +91,7 @@ const GridLayout = ({
                   <div
                     className="bg-cover w-full h-full bg-center"
                     style={{
-                      backgroundImage: `url('${item.imageLink}')`
+                      backgroundImage: `url('/${item.imageLink}')`
                     }}
                     title={item.name}
                   ></div>
