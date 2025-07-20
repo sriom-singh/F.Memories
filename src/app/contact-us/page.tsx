@@ -5,7 +5,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-const page = () => {
+const ContactPage = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -244,4 +244,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default ContactPage;
