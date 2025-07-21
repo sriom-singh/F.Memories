@@ -125,19 +125,19 @@ export const navItemsGroup = [
     places: [
       {
         title: "North India",
-        link: "/india/delhi",
+        link: "#",
         places: [
           {
             title: "Kashmir",
-            link: "/india/kashmir"
+            link: "/india?place=kashmir"
           },
           {
             title: "Ladakh",
-            link: "/india/ladakh"
+            link: "/india?place=ladakh"
           },
           {
             title: "Uttarakhand",
-            link: "/india/uttarakhand"
+            link: "/india?place=uttarakhand"
           }
         ]
 
@@ -148,25 +148,25 @@ export const navItemsGroup = [
         places: [
           {
             title: "Kerala",
-            link: "/india/kerala"
+            link: "/india?place=kerala"
           },
           {
             title: "Karnataka",
-            link: "/india/karnataka"
+            link: "/india?place=karnataka"
           }
         ]
       },
       {
         title: "East & North East India",
-        link: "/india/bangalore",
+        link: "#",
         places: [
           {
             title: "Meghalaya",
-            link: "/india/meghalaya"
+            link: "/india/?place=meghalaya"
           },
           {
             title: "Sikkim",
-            link: "/india/sikkim"
+            link: "/india?place=sikkim"
           }
         ]
       },
@@ -193,18 +193,8 @@ export const navItemsGroup = [
         ]
       }, {
         title: "Andaman",
-        link: "/india/bangalore",
-        places: [
-          {
-            title: "Simple Andaman",
-            link: "/india/simple-andaman"
-          },
-          {
-            title: "Unlimited Andaman",
-            link: "/india/unlimited-andaman"
-          },
+        link: "/india?place=andaman",
 
-        ]
       }
     ]
   },

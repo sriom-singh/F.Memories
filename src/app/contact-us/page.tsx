@@ -58,9 +58,8 @@ const ContactPage = () => {
             <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
               Contact us
             </h2>
-            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-500">
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis.
+            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-700">
+              Want to get in touch? We'd love to hear from you. Here's how you can reach us.
             </p>
           </div>
 
@@ -146,12 +145,14 @@ const ContactPage = () => {
             </div>
 
             <div className=" mx-auto mt-12 overflow-hidden max-w-3xl shadow-sm border-[0.2px] bg-white rounded-xl">
-              <div className="px-6 py-12 sm:p-12">
-                <h3 className="text-3xl font-semibold text-center text-gray-900">
-                  Send us a message
+              <div className="px-6 pt-12 sm:p-12">
+                <h3 className="text-3xl font-bold text-center text-gray-900">
+                  Get in Touch
                 </h3>
-
-                <form onSubmit={handleSubmit} className="mt-14">
+                <p className="mt-3 text-sm md:max-w-6/7 mx-auto text-center text-gray-500">
+                  We would love to hear from you. Please fill out the form below and we will get back to you as soon as possible.
+                  </p>
+                <form onSubmit={handleSubmit} className="mt-12">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
                     <div>
                       <label className="text-base font-medium text-gray-900">Your name</label>
@@ -237,9 +238,10 @@ const ContactPage = () => {
                 </form>
               </div>
             </div>
-          </div>
         </div>
+    </div>
       </Section>
+<iframe className=" h-[470px] border-none mx-auto min-w-7xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.071857903479!2d77.26705299999999!3d28.687497000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfdf2a2babe25%3A0x8c2d4003335a6d3c!2sFraming%20Memories!5e0!3m2!1sen!2sin!4v1753067098205!5m2!1sen!2sin"   allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>      
     </div>
   );
 };

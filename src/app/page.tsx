@@ -16,94 +16,7 @@ import { Packages } from "@/types/types";
 import GridLayout from "@/components/layout/GridLayout";
 import CorouselLayout from "@/components/layout/CorouselLayout";
 
-const indiaFamousPlaces = [
-  {
-    name: "The Taj Mahal",
-    image: "https://cdn.pixabay.com/photo/2022/06/13/21/06/taj-mahal-7260693_1280.jpg",
-    description: "The Taj Mahal is a renowned white marble mausoleum located in Agra, India, commissioned by Mughal emperor Shah Jahan in memory of his wife, Mumtaz Mahal.",
-    place: "Agra"
-  },
-  {
-    name: "Qutub Minar",
-    image: "https://cdn.pixabay.com/photo/2017/03/19/08/01/qutub-minar-2155776_1280.jpg",
-    description: "Qutub Minar is a UNESCO World Heritage Site in Delhi. It's a towering minaret that represents Indo-Islamic architecture from the 12th century.",
-    place: "Delhi"
-  },
-  {
-    name: "Gateway of India",
-    image: "https://media.gettyimages.com/id/459431043/photo/big-monument.jpg?s=612x612&w=0&k=20&c=S2yW0bJu6D2ez5wYZPpzHBr6xdUlA9v0lL5RIswfuZQ=",
-    description: "The Gateway of India is a monumental arch overlooking the Arabian Sea in Mumbai. It was built during the 20th century to commemorate King George V's visit.",
-    place: "Mumbai"
-  },
-  {
-    name: "Hawa Mahal",
-    image: "https://media.gettyimages.com/id/932393156/photo/palace-of-the-winds-at-dusk-jaipur-india.jpg?s=612x612&w=0&k=20&c=8lrLXBQFtWo6h8s2X5qcCQq0BKtgoVAA4a41uo4KhEY=",
-    description: "Hawa Mahal, or the 'Palace of Winds', is a pink sandstone structure in Jaipur known for its lattice windows designed for royal women to observe street festivals.",
-    place: "Jaipur"
-  },
-  {
-    name: "Charminar",
-    image: "https://media.gettyimages.com/id/175804012/photo/hyderabad-blues.jpg?s=612x612&w=0&k=20&c=gS8eQVRxorkiyeAvf9nTStwfgLFbcAaBtupdgBWr_sc=",
-    description: "Charminar is a historic mosque and landmark in Hyderabad, built in 1591. It is known for its distinctive four minarets and Islamic architecture.",
-    place: "Hyderabad"
-  },
-  {
-    name: "Golden Temple",
-    image: "https://media.gettyimages.com/id/159386488/photo/the-golden-temple-amritsar-india.jpg?s=612x612&w=0&k=20&c=9dtM5H270QaHd0wyPBwrJ_1MPOE9_opiAUZAXiHcRpE=",
-    description: "The Golden Temple, also known as Harmandir Sahib, is a central religious place of the Sikhs in Amritsar, famous for its golden architecture and spiritual significance.",
-    place: "Amritsar"
-  }
-];
-const globalFamousPlaces = [
-  {
-    name: "Eiffel Tower",
-    image: "https://images.unsplash.com/photo-1583265266785-aab9e443ee68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGVpZmZlbCUyMHRvd2VyfGVufDB8MHwwfHx8MA%3D%3D",
-    description: "The Eiffel Tower is an iconic iron lattice tower in Paris, France. It was completed in 1889 as the entrance arch to the 1889 World's Fair.",
-    place: "Paris"
-  },
-  {
-    name: "Statue of Liberty",
-    image: "https://images.unsplash.com/photo-1590858148182-ad4bdfa495fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFN0YXR1ZSUyMG9mJTIwTGliZXJ0eXxlbnwwfDB8MHx8fDA%3D",
-    description: "A symbol of freedom, the Statue of Liberty is a gift from France to the United States, located on Liberty Island in New York Harbor.",
-    place: "New York City"
-  },
-  {
-    name: "Great Wall of China",
-    image: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3JlYXQlMjB3YWxsJTIwb2YlMjBjaGluYXxlbnwwfDB8MHx8fDA%3D",
-    description: "The Great Wall of China is a historic series of fortifications stretching over 13,000 miles, built to protect Chinese states against invasions.",
-    place: "China"
-  },
-  {
-    name: "Colosseum",
-    image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Q29sb3NzZXVtfGVufDB8MHwwfHx8MA%3D%3D",
-    description: "The Colosseum is a vast ancient amphitheater in Rome, Italy, known for hosting gladiator contests and public spectacles.",
-    place: "Rome"
-  },
-  {
-    name: "Christ the Redeemer",
-    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
-    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
-    place: "Rio de Janeiro"
-  },
-  {
-    name: "Sydney Opera House",
-    image: "https://images.unsplash.com/photo-1540448051910-09cfadd5df61?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U3lkbmV5JTIwT3BlcmElMjBIb3VzZXxlbnwwfDB8MHx8fDA%3D",
-    description: "The Sydney Opera House is a world-renowned architectural masterpiece and performing arts venue located in Sydney, Australia.",
-    place: "Sydney"
-  },
-  {
-    name: "Christ the Redeemer",
-    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
-    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
-    place: "Rio de Janeiro"
-  },
-  {
-    name: "Christ the Redeemer",
-    image: "https://destinationlesstravel.com/wp-content/uploads/2022/10/Christ-the-Redeemer-statue-Rio-de-Janeiro-Brazil.jpg",
-    description: "Standing atop Corcovado Mountain, Christ the Redeemer is a massive Art Deco statue of Jesus in Rio de Janeiro, Brazil.",
-    place: "Rio de Janeiro"
-  },
-];
+
 const globalDestinations = [
   {
     name: "Singapore",
@@ -437,7 +350,7 @@ export default async function Home() {
 
 
       {/* Get Help */}
-      <Section>
+      {/* <Section>
         <div className="bg-gradient-to-r from-slate-900 to-slate-700 p-8">
           <h2 className="font-cursive text-xl ">Confused Get Help</h2>
           <div className="flex justify-between">
@@ -452,7 +365,9 @@ export default async function Home() {
             Lorem, ipsum dolor sit amet consectetur adipisicing elit.{" "}
           </p>
         </div>
-      </Section>
+      </Section> */}
+      <iframe className=" h-[470px] border-none mx-auto w-7xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.071857903479!2d77.26705299999999!3d28.687497000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfdf2a2babe25%3A0x8c2d4003335a6d3c!2sFraming%20Memories!5e0!3m2!1sen!2sin!4v1753067098205!5m2!1sen!2sin"   allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>      
+
     </>
   );
 }

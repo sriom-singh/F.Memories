@@ -1,5 +1,5 @@
 "use client";
-
+import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from "react";
 import RangeSlider from "@/components/rangeSlider";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,9 @@ const FilterCard = ({
   setFilteredPackages: any;
   packages: Packages[];
 }) => {
+  const searchParams = useSearchParams()
+
+  const place = searchParams.get('place')
   const [location, setLocation] = useState("");
   const [locationOptions, setLocationOptions] = useState<any[]>();
   const [durationOptions, setDurationOptions] = useState<any[]>();
@@ -22,6 +25,7 @@ const FilterCard = ({
   const [duration, setDuration] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+console.log(place,location);
 
   function getPlacesWithIds() {
     const seen = new Set();
@@ -57,7 +61,7 @@ const FilterCard = ({
   // const [filteredPackages, setFilteredPackages] =
   //   useState<Packages[]>(allPackages);
 
-  const handleFilter = async (e: any) => {
+  const handleFilter = async () => {
     const filters = {
       place: location,
       minPrice: Number(budget.minPrice),
@@ -80,6 +84,17 @@ const FilterCard = ({
     getPlacesWithIds();
     getDurationWithIds();
   }, [packages]);
+useEffect(() => {
+    if (place) {
+      setLocation(String(place).charAt(0).toUpperCase() + String(place).slice(1));
+    }
+},[place])
+
+  useEffect(() => {
+    if (location) {
+      handleFilter();
+    }
+  }, [location]);
 
   return (
     <Card className="xl:w-1/4 md:w-[35%] max-h-fit bg-primary/5 shadow-xl">
@@ -144,26 +159,26 @@ const FilterCard = ({
           </div>
         </div>
         <h2 className="font-semibold my-2 mt-4">Avaibility</h2>
-       <div className="flex gap-2 w-full">
-  <div className="flex-1 min-w-0">
-    <Label className="opacity-70">From</Label>
-    <input
-      type="date"
-      className="border bg-white p-2 w-full text-xs mt-1"
-      value={startDate}
-      onChange={(e) => setStartDate(e.target.value)}
-    />
-  </div>
-  <div className="flex-1 min-w-0">
-    <Label className="opacity-70">End</Label>
-    <input
-      type="date"
-      className="border bg-white p-2 w-full text-xs mt-1"
-      value={endDate}
-      onChange={(e) => setEndDate(e.target.value)}
-    />
-  </div>
-</div>
+        <div className="flex gap-2 w-full">
+          <div className="flex-1 min-w-0">
+            <Label className="opacity-70">From</Label>
+            <input
+              type="date"
+              className="border bg-white p-2 w-full text-xs mt-1"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </div>
+          <div className="flex-1 min-w-0">
+            <Label className="opacity-70">End</Label>
+            <input
+              type="date"
+              className="border bg-white p-2 w-full text-xs mt-1"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </div>
+        </div>
         <Button className="w-full mt-4 cursor-pointer" onClick={handleFilter}>
           Apply
         </Button>
