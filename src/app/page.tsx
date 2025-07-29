@@ -316,7 +316,7 @@ export default async function Home() {
           </WobbleCard>
           <WobbleCard
             className="bg-black/10"
-            containerClassName="col-span-1  lg:col-span-3 bg-blue-900 min-h-[300px] lg:min-h-[400px] xl:min-h-[300px]"
+            containerClassName="col-span-1  lg:col-span-3 bg-blue-900 min-h-[500px] lg:min-h-[400px] xl:min-h-[300px]"
           >
             <div className="max-w-3xl min-h-min">
               <h2 className="max-w-sm md:max-w-lg  text-left text-balance text-xl lg:text-3xl font-semibold tracking-[-0.015em] text-white">
