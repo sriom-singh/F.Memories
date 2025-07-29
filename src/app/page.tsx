@@ -299,7 +299,7 @@ export default async function Home() {
                 src="/planning2.png"
                 width={1000}
                 height={1000}
-                className="absolute size-96 -right-10  lg:-right-[4%] -bottom-0 object-contain rounded-2xl"
+                className="absolute size-96  -right-10  lg:-right-[4%] bottom-0 -mb-10 md:mb-0 object-contain rounded-2xl"
               />
             </div>
           </WobbleCard>
