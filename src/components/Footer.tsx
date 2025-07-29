@@ -149,7 +149,7 @@ const Footer = () => {
               <ul className="flex items-center space-x-3  w-full ">
                 <li>
                   <a
-                    href="#"
+                    href="https://x.com/fr_memories"
                     title="Twitter"
                     target="_blank"
                     className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-primary focus:bg-primary"
@@ -167,7 +167,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://www.facebook.com/profile.php?id=61578281794472"
                     title="Facebook"
                     target="_blank"
                     className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-primary focus:bg-primary"
@@ -185,7 +185,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/info.framingmemoriess/"
                     target="_blank"
                     title="Instagram"
                     className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-primary focus:bg-primary"
@@ -217,7 +217,7 @@ const Footer = () => {
 
                 <li>
                   <a
-                    href="#"
+                    href="https://www.youtube.com/channel/UCiU627uVVscGBzxfnKVdQXA"
                     target="_blank"
                     title="Youtube"
                     className="flex items-center justify-center text-white transition-all duration-200 bg-gray-800 rounded-full w-7 h-7 hover:bg-primary focus:bg-primary"
