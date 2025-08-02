@@ -15,6 +15,9 @@ import Stats from "@/components/Stats";
 import { Packages } from "@/types/types";
 import GridLayout from "@/components/layout/GridLayout";
 import CorouselLayout from "@/components/layout/CorouselLayout";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import HeroCorousel from "@/components/heroCorousel";
 
 
 const globalDestinations = [
@@ -137,17 +140,18 @@ export default async function Home() {
 
   return (
     <>
-      <div className="relative mx-auto">
-        <Image
+      <div className="">
+        {/* <Image
           width={1920}
           height={1080}
           alt="hero"
           src="/hero.jpg"
           className="w-full h-[100vh] object-cover"
-        />
-        <div className="absolute inset-0 bg-gray-950 opacity-70 "></div>
+        /> */}
+      <HeroCorousel/>
+        {/* <div className="absolute inset-0 bg-gray-950 opacity-70 "></div> */}
 
-        <div className="absolute inset-0 flex items-center justify-center px-4">
+        {/* <div className="absolute inset-0 flex items-center justify-center px-4">
           <div className="text-center text-white max-w-3xl">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
               Frame Your Holidays
@@ -170,7 +174,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
 
@@ -330,14 +334,14 @@ export default async function Home() {
             </div>
             <div className="relative w-full h-full">
 
-            <Image
-              width={1400}
-              height={1400}
-              src="/tourist-with-thumb-up.png"
-              alt="pricing"
-              className="absolute -right-10  size-96 md:size-96 lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
+              <Image
+                width={1400}
+                height={1400}
+                src="/tourist-with-thumb-up.png"
+                alt="pricing"
+                className="absolute -right-10  size-96 md:size-96 lg:-right-[5%] -bottom-10 object-contain rounded-2xl"
               />
-              </div>
+            </div>
           </WobbleCard>
         </div>
 
@@ -374,7 +378,7 @@ export default async function Home() {
       </Section> */}
 
       {/* Google Map */}
-      
+
       <iframe className=" md:h-[470px] h-[350px] border-none mx-auto w-full px-6 md:w-[95%] lg:w-[80%]" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.071857903479!2d77.26705299999999!3d28.687497000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfdf2a2babe25%3A0x8c2d4003335a6d3c!2sFraming%20Memories!5e0!3m2!1sen!2sin!4v1753067098205!5m2!1sen!2sin" allowFullScreen={false} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
 
     </>

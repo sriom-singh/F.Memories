@@ -43,9 +43,10 @@ export default async function RootLayout({
       >
         <SessionProviderWrapper session={session}>
           <MainNavbar />
+
           <WelcomeModal />
           {/* Main content area */}
-          <div className="font-openSans bg-white"> {children}</div>
+          <div className="font-openSans bg-white  mt-16"> {children}</div>
           {/* Floating Whatsapp Button */}
           <a
             href="https://wa.me/919910583811?text=Hello%20I%20am%20interested%20in%20your%20services"

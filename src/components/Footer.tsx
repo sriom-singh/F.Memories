@@ -323,12 +323,10 @@ const Footer = () => {
 
             <div className="col-span-2 md:col-span-1 lg:col-span-2 lg:pl-8">
               <p className="text-sm font-semibold tracking-widest text-gray-400 uppercase">
-                Address
+                Contact
               </p>
               <div className="text-lg leading-relaxed pb-2 text-gray-600 mt-7">
-                <p className="flex gap-2 items-center text-black text-">
-                  <Landmark className="text-primary" size={16} /> V-32/2, Arvind Nagar, Delhi-110053
-                </p>
+        
                 <p className="flex gap-2 pt-2 items-center text-black ">
                   <Phone className="text-primary" size={16} />
                   +91-9910583811
