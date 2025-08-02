@@ -148,7 +148,7 @@ export default async function Home() {
           src="/hero.jpg"
           className="w-full h-[100vh] object-cover"
         /> */}
-      <HeroCorousel/>
+        <HeroCorousel />
         {/* <div className="absolute inset-0 bg-gray-950 opacity-70 "></div> */}
 
         {/* <div className="absolute inset-0 flex items-center justify-center px-4">
