@@ -98,7 +98,7 @@ export function MainNavbar() {
             {status !== "authenticated" && (
               <NavbarButton
                 variant="secondary"
-                className="font-normal  rounded-full border-[0.01px] text-white"
+                className="font-normal  rounded-full border-[0.01px] text-black"
                 onClick={() => signIn()}
               >
                 Login
