@@ -178,6 +178,10 @@ export default async function Home() {
       </div>
 
 
+      {/* Testimonials */}
+      <Section>
+        <Testimonials />
+      </Section>
 
       {/* Explore the world */}
       <Section>
@@ -189,56 +193,7 @@ export default async function Home() {
         </h2>
         <GridLayout famousPlaces={globalDestinations} coverImage={globalCoverImage} />
         <CorouselLayout packages={packages} />
-        {/* <div className=" flex flex-col md:flex-row gap-10 md:flex justify-between md:gap-2 mt-10 md:mt-16">
-          <div className="flex flex-col justify-center gap-2 items-center">
-            <Image
-              width={100}
-              height={100}
-              alt="destination icon"
-              src={"/icons/destination.png"}
-              className="size-20"
-            />
-            <h3 className="text-black text-xl font-semibold text-center">
-              Most Popular Destination
-            </h3>
-            <p className="text-black text-sm text-center w-2/3 ">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-              cumque velit eius nisi non cum!
-            </p>
-          </div>
-          <div className="flex flex-col justify-center gap-2 items-center">
-            <Image
-              width={100}
-              height={100}
-              alt="tour-icon"
-              src={"/icons/tour-package.png"}
-              className="size-20"
-            />
-            <h3 className="text-black text-xl font-semibold text-center">
-              Budget Friendly Packages
-            </h3>
-            <p className="text-black text-sm text-center w-2/3 ">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-              cumque velit eius nisi non cum!
-            </p>
-          </div>
-          <div className="flex flex-col justify-center gap-2 items-center">
-            <Image
-              width={100}
-              height={100}
-              alt="beach icon"
-              src={"/icons/beach.png"}
-              className="size-20"
-            />
-            <h3 className="text-black text-xl font-semibold text-center">
-              Satisfaction Guaranteed
-            </h3>
-            <p className="text-black text-sm text-center w-2/3 ">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-              cumque velit eius nisi non cum!
-            </p>
-          </div>
-        </div> */}
+  
 
 
       </Section>
@@ -350,9 +305,9 @@ export default async function Home() {
 
 
       {/* Testimonials */}
-      <Section>
+      {/* <Section>
         <Testimonials />
-      </Section>
+      </Section> */}
       {/* FAQ */}
       <Section>
         <Faq />

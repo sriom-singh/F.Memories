@@ -11,9 +11,9 @@ export const InfiniteMovingCards = ({
     className,
 }: {
     items?: {
-        quote: string;
+        comment: string;
         name: string;
-        title: string;
+        image: string[];
     }[];
     direction?: "left" | "right";
     speed?: "fast" | "normal" | "slow";
@@ -85,55 +85,26 @@ export const InfiniteMovingCards = ({
                     pauseOnHover && "hover:[animation-play-state:paused]",
                 )}
             >
-              
-                <div className="max-w-lg ">
-                    <div className="shadow-sm border-[0.04px] border-gray-200 w-full rounded flex overflow-hidden">
-                        <img className=" w-64 aspect-square overflow-hidden object-cover" src="/testimonial1.jpg" />
-                        <div className="bg-white p-12">
-                            <p className="font-light text-sm italic font-gray-800">
-                               Amazing and splendid experience..!! Framing Memories made our journey too smooth and convenient.
-                            </p>
-                            <p className="mt-4 font-light text-sm text-gray-500">Ak Verma</p>
-                            <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p>
+                {items?.map((item, index) => (
+                    <div className="max-w-lg " key={index}>
+                        <div className="shadow-sm p-1 relative border-[0.04px] border-gray-200 w-full rounded flex overflow-hidden">
+                            <img className=" w-72 aspect-square overflow-hidden object-cover" src={item.image[0]} />
+                            {/* <img className=" w-24 opacity-[0.5] rotate-45 right-2 aspect-square absolute overflow-hidden object-cover" src="/testimonial1.jpg" />
+                        <img className=" w-24 opacity-[0.5] -rotate-45 right-2 bottom-2 aspect-square absolute overflow-hidden object-cover" src="/testimonial1.jpg" /> */}
+
+                            <div className="bg-white p-12">
+                                <img src={'/quotes.png'} className="w-8 opacity-[0.3] mb-4" />
+                                <p className="font-light text-sm italic font-gray-800">
+                                    {item.comment}
+                                </p>
+                                <p className="mt-4 font-light text-sm text-gray-500">{item.name}</p>
+                                {/* <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p> */}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="max-w-lg ">
-                    <div className="shadow-sm border-[0.04px] border-gray-200 w-full rounded flex overflow-hidden">
-                        <img className=" w-64 aspect-square overflow-hidden object-cover" src="/testimonial1.jpg" />
-                        <div className="bg-white p-12">
-                            <p className="font-light text-sm italic font-gray-800">
-                               Amazing and splendid experience..!! Framing Memories made our journey too smooth and convenient.
-                            </p>
-                            <p className="mt-4 font-light text-sm text-gray-500">Ak Verma</p>
-                            <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="max-w-lg ">
-                    <div className="shadow-sm border-[0.04px] border-gray-200 w-full rounded flex overflow-hidden">
-                        <img className=" w-64 aspect-square overflow-hidden object-cover" src="/testimonial1.jpg" />
-                        <div className="bg-white p-12">
-                            <p className="font-light text-sm italic font-gray-800">
-                               Amazing and splendid experience..!! Framing Memories made our journey too smooth and convenient.
-                            </p>
-                            <p className="mt-4 font-light text-sm text-gray-500">Ak Verma</p>
-                            <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="max-w-lg ">
-                    <div className="shadow-sm border-[0.04px] border-gray-200 w-full rounded flex overflow-hidden">
-                        <img className=" w-64 aspect-square overflow-hidden object-cover" src="/testimonial1.jpg" />
-                        <div className="bg-white p-12">
-                            <p className="font-light text-sm italic font-gray-800">
-                               Amazing and splendid experience..!! Framing Memories made our journey too smooth and convenient.
-                            </p>
-                            <p className="mt-4 font-light text-sm text-gray-500">Ak Verma</p>
-                            <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p>
-                        </div>
-                    </div>
-                </div>
+                ))}
+
+
 
             </ul>
         </div>

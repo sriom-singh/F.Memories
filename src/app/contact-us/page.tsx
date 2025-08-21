@@ -64,8 +64,8 @@ const ContactPage = () => {
           </div>
 
           <div className=" gap-4 justify-between mx-auto mt-12 sm:mt-16">
-            <div className="grid  gap-4 px-8 text-center md:px-0 md:grid-cols-3">
-              <div className="overflow-hidden py-2 bg-white/80 rounded-xl">
+            <div className="flex flex-row mx-auto gap-10 px-8 text-center items-center justify-center  md:flex-row">
+              <div className="overflow-hidden w-84 bg-white/80 rounded-xl">
                 <div className="p-4 ">
                   <svg
                     className="flex-shrink-0 w-10 h-10 mx-auto text-primary"
@@ -89,8 +89,7 @@ const ContactPage = () => {
                   </p> */}
                 </div>
               </div>
-
-              <div className="overflow-hidden  bg-white/80 rounded-xl">
+              <div className="overflow-hidden px-4 bg-white/80 rounded-xl">
                 <div className="p-4">
                   <svg
                     className="flex-shrink-0 w-10 h-10 mx-auto text-primary text-gray-400 text"
@@ -115,7 +114,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <div className="overflow-hidden bg-white/80 rounded-xl">
+              {/* <div className="overflow-hidden bg-white/80 rounded-xl">
                 <div className="p-4">
                   <svg
                     className="flex-shrink-0 w-10 h-10 mx-auto text-primary "
@@ -141,7 +140,7 @@ const ContactPage = () => {
                     V-32/2, Arvind Nagar, Delhi-110053
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className=" mx-auto mt-12 overflow-hidden max-w-3xl shadow-sm border-[0.2px] bg-white rounded-xl">

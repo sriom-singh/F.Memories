@@ -39,7 +39,7 @@ export function Testimonials() {
           </p>
         </div>
 
-        <InfiniteMovingCards speed={"normal"} className="pt-16" />
+        <InfiniteMovingCards speed={"normal"} className="pt-16" items={testimonials} />
       </div>
     </section>
   );
@@ -47,32 +47,49 @@ export function Testimonials() {
 
 const testimonials = [
   {
-    quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    comment: "Amazing and splendid experience..!! Framing Memories made our journey too smooth and convenient.",
+    name: "Deeksha",
+    image: ['/testimonial1.jpg'],
   },
   {
-    quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
-    name: "William Shakespeare",
-    title: "Hamlet",
+    comment: "Everything was perfectly organized, I just enjoyed without any stress.",
+    name: "Anchal",
+    image: ['/Anchal_1.jpg'],
+  }, {
+    comment: "Best decision ever—choosing this travel agency!",
+    name: "Ankit Jain",
+    image: ['/Ankit_Jain_1.jpg'],
+  }, {
+    comment: "Every moment felt like a dream come true.",
+    name: "Dilip Choudhary",
+    image: ['/Dilip_Choudhary_2.jpg'],
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    comment: "Seamless bookings, comfortable stays, amazing experiences.",
+    name: "Meena Jerath ",//(Kamakhya Devi Group) 
+    image: ['/Meena_Jerath_1.jpg'],
   },
   {
-    quote:
-      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+    comment: "What a special trip! So many firsts and beautiful memories. 🎉✈️💕",
+    name: "Laxmi Kulhari",
+    image: ['/Laxmi_Kulhari_2.jpg'],
+  }, {
+    comment: "The trip was amazing and exceptionally beautiful. 😍",
+    name: "Manisha Goyal",
+    image: ['/Manisha_Goyal_2.jpg'],
+  }, {
+    comment: "I couldn’t stop clicking photos—everything was so beautiful.",
+    name: "Mayur",
+    image: ['/Mayur.jpg'],
   },
   {
-    quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    comment: "Everything was perfectly organized, I just enjoyed without any stress.",
+    name: "Naresh Bagai",
+    image: ['/Naresh_Bagai_1.jpg', '/Naresh_Bagai_2.jpg', '/Naresh_Bagai_3.jpg'],
   },
+  {
+    comment: "I’ll treasure these memories forever.",
+    name: "Marshall Gupta",
+    image: ['/Naresh_Bagai_1.jpg', '/Naresh_Bagai_2.jpg', '/Naresh_Bagai_3.jpg'],
+  }
 ];
