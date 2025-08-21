@@ -127,26 +127,25 @@ const Footer = () => {
           © 2025. All rights are reserved.
         </p>
       </div> */}
-      <section className="py-10 bg-gray-50  bg-primary/10 sm:pt-16 lg:pt-24">
+      <section className="py-10 bg-gray-50  bg-primary/10 sm:pt-16 lg:pt-20">
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-10">
             <div className="col-span-2 md:col-span-3   lg:col-span-2 lg:pr-8">
-              <h1 className="font-openSans cursor-pointer text-3xl  text-primary font-semibold">
-                <Link href={"/"} className="flex items-center gap-2">
+              <h1 className="font-openSans cursor-pointer text-2xl text-primary font-semibold">
+                <Link href={"/"} className="flex flex-col items-center gap-2 ">
                   <Image
                     alt="favicon"
-                    height={38}
-                    src={"/favicon.ico"}
-                    width={38}
-                    className="size-9"
+                    height={408}
+                    src={"/logo_full.png"}
+                    width={408}
+                    className="size-44 mr-auto"
                   />
-                  Framing Memories
+                  {/* Framing Memories */}
                 </Link>
               </h1>
 
-              <p className="py-4 text-black text-[18px]">Live the journey, frame your memory with us
-              </p>
-              <ul className="flex items-center space-x-3  w-full ">
+              {/* <p className="py-4 text-black text-[14px]">Live the journey, frame your memory with us</p> */}
+              <ul className="flex items-center space-x-3 mt-2 w-full ">
                 <li>
                   <a
                     href="https://x.com/fr_memories"
