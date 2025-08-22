@@ -90,6 +90,6 @@ const testimonials = [
   {
     comment: "I’ll treasure these memories forever.",
     name: "Marshall Gupta",
-    image: ['/Naresh_Bagai_1.jpg', '/Naresh_Bagai_2.jpg', '/Naresh_Bagai_3.jpg'],
+    image: ['/Marshall_Gupta.jpg'],
   }
 ];

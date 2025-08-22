@@ -275,7 +275,7 @@ export function MainNavbar() {
       <div ref={ref}
         // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
         className={cn(
-          "fixed font-openSans inset-x-0 top-16 z-[10] h-11 w-full",
+          "fixed font-openSans inset-x-0 md:top-17 lg:top-16 xl:top-15 top-18 z-[10] h-11 w-full",
 
           !visible ? " bg-black/50 " : "bg-black/60 -translate-y-40 hidden animate duration-[300ms] backdrop-blur-[1px]"
         )} >

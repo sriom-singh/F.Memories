@@ -193,7 +193,7 @@ export default async function Home() {
         </h2>
         <GridLayout famousPlaces={globalDestinations} coverImage={globalCoverImage} />
         <CorouselLayout packages={packages} />
-  
+
 
 
       </Section>

@@ -92,12 +92,12 @@ export const InfiniteMovingCards = ({
                             {/* <img className=" w-24 opacity-[0.5] rotate-45 right-2 aspect-square absolute overflow-hidden object-cover" src="/testimonial1.jpg" />
                         <img className=" w-24 opacity-[0.5] -rotate-45 right-2 bottom-2 aspect-square absolute overflow-hidden object-cover" src="/testimonial1.jpg" /> */}
 
-                            <div className="bg-white p-12">
+                            <div className="bg-white p-10">
                                 <img src={'/quotes.png'} className="w-8 opacity-[0.3] mb-4" />
-                                <p className="font-light text-sm italic font-gray-800">
+                                <p className="font-bold text-sm italic text-black">
                                     {item.comment}
                                 </p>
-                                <p className="mt-4 font-light text-sm text-gray-500">{item.name}</p>
+                                <p className="mt-4 font-normal text-sm text-primary">{item.name}</p>
                                 {/* <p className="mt-1 font-semibold text-sm text-gray-900">US transport</p> */}
                             </div>
                         </div>
