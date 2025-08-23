@@ -91,5 +91,13 @@ const testimonials = [
     comment: "I’ll treasure these memories forever.",
     name: "Marshall Gupta",
     image: ['/Marshall_Gupta.jpg'],
+  }, {
+    comment: "Our family vacation became truly memorable—all thanks to your flawless planning.",
+    name: "Akash Gupta",
+    image: ["/Akash_Gupta.jpeg"]
+  }, {
+    comment: "Booking with you felt effortless, yet the experience was world-class.",
+    name: "Anjali Gupta",
+    image: ["/Anjali_Gupta.jpeg"]
   }
 ];
