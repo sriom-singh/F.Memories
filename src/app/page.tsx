@@ -241,8 +241,7 @@ export default async function Home() {
                 Amazing Tour Plans
               </h2>
               <p className="mt-4 text-left  text-base/6 text-neutral-200">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quam
-                itaque, dolorum ut doloribus
+                Curated tour plans for relaxing getaways and adventure-filled journeys.           
               </p>
               <h2 className=" absolute right-4 z-10 bottom-2 bg-black/5 text-balance  flex flex- gap-1 text-xl lg:text-3xl font-semibold  text-white">
                 10k+{" "}
@@ -270,7 +269,7 @@ export default async function Home() {
               Best Travel Guides
             </h2>
             <p className="mt-4 max-w-[26rem] text-left  text-base/6 text-neutral-200">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Experienced guides offering local insights and seamless support.
             </p>
           </WobbleCard>
           <WobbleCard
@@ -282,9 +281,7 @@ export default async function Home() {
                 Affordable Pricing Plans
               </h2>
               <p className="mt-4 max-w-full text-left  text-base/6 text-neutral-200">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore
-                ex expedita totam doloremque. Voluptatum quisquam incidunt
-                pariatur quis consequuntur debitis mollitia .
+              Enjoy transparent pricing with no hidden costs. Our travel packages are thoughtfully priced to offer the best value, ensuring premium experiences that fit your budget.
               </p>
             </div>
             <div className="relative w-full h-full">

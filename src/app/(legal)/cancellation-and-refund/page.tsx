@@ -25,20 +25,22 @@ const page = () => {
 
           <ul className="py-2 font-sans flex flex-col gap-2 pl-6 list-disc">
             <li>
-              If you cancel more than 30 days after booking, we will charge a
-              10% deduction from the total tour cost.{" "}
+              If you cancel more than 30 days before the tour start date, a 10% deduction from the total tour cost will apply.
             </li>
             <li>
-              For cancellations made between 29 and 22 days of booking, we
-              charge a 25% non-refundable fee.
+            For cancellations made 29 to 22 days before the tour start date, a 25% non-refundable fee will be charged.
             </li>
             <li>
-              Cancellations between 21 and 16 days after booking will incur a
-              60% non-refundable fee.
+              Cancellations made 21 to 16 days before the tour start date will incur a 60% non-refundable fee.
             </li>
             <li>
-              If you cancel 15 days before the tour starts, we will charge the
-              full non-refundable amount.
+            If you cancel 15 days or less before the tour start date, 100% of the tour cost is non-refundable.
+            </li>
+            <li>
+             Refunds will be processed within 7 working days after verification.
+            </li>
+             <li>
+             Refunds will be credited to the original mode of payment.
             </li>
           </ul>
         </div>

@@ -198,143 +198,143 @@ export const navItemsGroup = [
       }
     ]
   },
-  {
-    title: "Other Services",
-    link: "/other-services",
-    places: [
-      {
-        title: "Packages",
-        link: "#",
+  // {
+  //   title: "Other Services",
+  //   link: "/other-services",
+  //   places: [
+  //     {
+  //       title: "Packages",
+  //       link: "#",
 
-      },
-      {
-        title: "Destinations",
-        link: "#",
+  //     },
+  //     {
+  //       title: "Destinations",
+  //       link: "#",
         
-      },
-      {
-        title: "Air Tickets",
-        link: "#",
+  //     },
+  //     {
+  //       title: "Air Tickets",
+  //       link: "#",
         
-      },
-      {
-        title: "Travel Insurance",
-        link: "#",
+  //     },
+  //     {
+  //       title: "Travel Insurance",
+  //       link: "#",
        
-      }, {
-        title: "Visas",
-        link: "#",
+  //     }, {
+  //       title: "Visas",
+  //       link: "#",
 
-      }
-    ]
-  },
-  {
-    title: "Global",
-    link: "/global",
-    places: [
-      {
-        title: "Africa",
-        link: "/global/africa",
-        places: [
-          {
-            title: "Egypt",
-            link: "/global/egypt"
-          }
-        ]
-      },
-      {
-        title: "America",
-        link: "/global/america",
-        places: [
-          {
-            title: "USA",
-            link: "/global/usa"
-          },
-          {
-            title: "California",
-            link: "/global/california"
-          },
-          {
-            title: "New York",
-            link: "/global/new-york"
-          },
-          {
-            title: "Florida",
-            link: "/global/florida"
-          },
-          {
-            title: "Canada",
-            link: "/global/canada"
-          }
-        ]
-      },
-      {
-        title: "Asia",
-        link: "/global/asia",
-        places: [
-          {
-            title: "Nepal",
-            link: "/global/nepal"
-          },
-          {
-            title: "Bhutan",
-            link: "/global/bhutan"
-          },
-          {
-            title: "Japan",
-            link: "/global/japan"
-          },
-          {
-            title: "Thailand",
-            link: "/global/thailand"
-          },
-          {
-            title: "Vietnam",
-            link: "/global/vietnam"
-          }
-        ]
-      },
-      {
-        title: "Europe",
-        link: "/global/asia",
-        places: [
-          {
-            title: "Greece",
-            link: "/global/greece"
-          },
-          {
-            title: "Italy",
-            link: "/global/italy"
-          },
-          {
-            title: "France",
-            link: "/global/france"
-          },
-          {
-            title: "Switzerland",
-            link: "/global/switzerland"
-          }
-        ]
-      },
-      {
-        title: "Middle East",
-        link: "/global/middle-east",
-        places: [
-          {
-            title: "Dubai",
-            link: "/global/greece"
-          },
-          {
-            title: "Turkey",
-            link: "/global/turkey"
-          }
-        ]
-      }, {
-        title: "South East Asia",
-        link: "/south-east-asia",
-      }
-    ]
-  },
+  //     }
+  //   ]
+  // },
+  // {
+  //   title: "Global",
+  //   link: "/global",
+  //   places: [
+  //     {
+  //       title: "Africa",
+  //       link: "/global/africa",
+  //       places: [
+  //         {
+  //           title: "Egypt",
+  //           link: "/global/egypt"
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: "America",
+  //       link: "/global/america",
+  //       places: [
+  //         {
+  //           title: "USA",
+  //           link: "/global/usa"
+  //         },
+  //         {
+  //           title: "California",
+  //           link: "/global/california"
+  //         },
+  //         {
+  //           title: "New York",
+  //           link: "/global/new-york"
+  //         },
+  //         {
+  //           title: "Florida",
+  //           link: "/global/florida"
+  //         },
+  //         {
+  //           title: "Canada",
+  //           link: "/global/canada"
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: "Asia",
+  //       link: "/global/asia",
+  //       places: [
+  //         {
+  //           title: "Nepal",
+  //           link: "/global/nepal"
+  //         },
+  //         {
+  //           title: "Bhutan",
+  //           link: "/global/bhutan"
+  //         },
+  //         {
+  //           title: "Japan",
+  //           link: "/global/japan"
+  //         },
+  //         {
+  //           title: "Thailand",
+  //           link: "/global/thailand"
+  //         },
+  //         {
+  //           title: "Vietnam",
+  //           link: "/global/vietnam"
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: "Europe",
+  //       link: "/global/asia",
+  //       places: [
+  //         {
+  //           title: "Greece",
+  //           link: "/global/greece"
+  //         },
+  //         {
+  //           title: "Italy",
+  //           link: "/global/italy"
+  //         },
+  //         {
+  //           title: "France",
+  //           link: "/global/france"
+  //         },
+  //         {
+  //           title: "Switzerland",
+  //           link: "/global/switzerland"
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       title: "Middle East",
+  //       link: "/global/middle-east",
+  //       places: [
+  //         {
+  //           title: "Dubai",
+  //           link: "/global/greece"
+  //         },
+  //         {
+  //           title: "Turkey",
+  //           link: "/global/turkey"
+  //         }
+  //       ]
+  //     }, {
+  //       title: "South East Asia",
+  //       link: "/south-east-asia",
+  //     }
+  //   ]
+  // },
 ];
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);

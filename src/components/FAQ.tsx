@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
+
 const Faq = () => {
   return (
     <div>
@@ -18,8 +19,7 @@ const Faq = () => {
             Frequently Asked Questions
           </h2>
           <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
-            Find answers to common queries and plan your journey with
-            confidence.
+            Quick answers to help you plan your trip with confidence.
           </p>
         </div>
 
@@ -28,83 +28,72 @@ const Faq = () => {
           collapsible
           className="max-w-5xl mx-auto mt-8 space-y-4 md:mt-16 text-black"
         >
-          <AccordionItem
-            value="item-1"
-            className="transition-all duration-200 bg-white cursor-pointer "
-          >
-            <AccordionTrigger className="flex items-center justify-between w-full px-4 ">
-              <span className="flex text-lg font-semibold text-black">
-                {" "}
-                How to create an account?{" "}
-              </span>
+          <AccordionItem value="item-1" className="bg-white cursor-pointer">
+            <AccordionTrigger className="px-4 text-lg font-semibold">
+              How do I book a tour package?
             </AccordionTrigger>
-
-            <AccordionContent className=" px-4 ">
+            <AccordionContent className="px-4">
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                Choose your destination, select dates, and complete payment
+                online to confirm your booking.
               </p>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem
-            value="item-2"
-            className="transition-all duration-200 bg-white cursor-pointer "
-          >
-            <AccordionTrigger className="flex items-center justify-between w-full px-4 ">
-              <span className="flex text-lg font-semibold text-black">
-                How can I make payment using Paypal?
-              </span>
-            </AccordionTrigger>
 
-            <AccordionContent className=" px-4 ">
+          <AccordionItem value="item-2" className="bg-white cursor-pointer">
+            <AccordionTrigger className="px-4 text-lg font-semibold">
+              What payment methods do you accept?
+            </AccordionTrigger>
+            <AccordionContent className="px-4">
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                We accept credit/debit cards, UPI, net banking, and digital
+                wallets through secure payment gateways.
               </p>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem
-            value="item-4"
-            className="transition-all duration-200 bg-white cursor-pointer "
-          >
-            <AccordionTrigger className="flex items-center justify-between w-full px-4 ">
-              <span className="flex text-lg font-semibold text-black">
-                How can I reach to support?
-              </span>
-            </AccordionTrigger>
 
-            <AccordionContent className=" px-4 ">
+          <AccordionItem value="item-5" className="bg-white cursor-pointer">
+            <AccordionTrigger className="px-4 text-lg font-semibold">
+              Are flights and hotels included in the package?
+            </AccordionTrigger>
+            <AccordionContent className="px-4">
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                Inclusions vary by package. Please check package details or
+                contact our team for confirmation.
               </p>
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem
-            value="item-3"
-            className="transition-all duration-200 bg-white cursor-pointer "
-          >
-            <AccordionTrigger className="flex items-center justify-between w-full px-4 ">
-              <span className="flex text-lg font-semibold text-black">
-                Can I cancel my plan?
-              </span>
-            </AccordionTrigger>
 
-            <AccordionContent className=" px-4 ">
+          <AccordionItem value="item-6" className="bg-white cursor-pointer">
+            <AccordionTrigger className="px-4 text-lg font-semibold">
+              Do you offer customized travel packages?
+            </AccordionTrigger>
+            <AccordionContent className="px-4">
               <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
+                Yes, we create customized packages based on your preferences,
+                budget, and travel dates.
+              </p>
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-8" className="bg-white cursor-pointer">
+            <AccordionTrigger className="px-4 text-lg font-semibold">
+              How can I contact customer support?
+            </AccordionTrigger>
+            <AccordionContent className="px-4">
+              <p>
+                You can reach us via the Contact Us page, email, or phone for
+                quick assistance.
               </p>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
 
-        <p className="text-center text-gray-600 textbase mt-9">
-          Didn’t find the answer you are looking for?{" "}
+        <p className="text-center text-gray-600 mt-9">
+          Still have questions?{" "}
           <Link
             href="/contact-us"
-            title=""
-            className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline"
+            className="font-medium text-blue-600 hover:underline"
           >
             Contact our support
           </Link>
