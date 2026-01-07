@@ -9,7 +9,7 @@ const USAPackagePage = () => {
   return (
     <Section className="-mt-6 max-w-4xl flex flex-col gap-10">
       {/* HERO SECTION */}
-      <Hero image={["/usa.jpg", "/usa2.jpg", "/usa3.jpg"]} />
+      <Hero image={["/USA.jpg", "/usa2.jpg", "/usa3.jpg"]} />
 
       {/* PACKAGE SUMMARY */}
       <PackageSummary

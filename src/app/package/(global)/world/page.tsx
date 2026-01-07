@@ -7,7 +7,7 @@ import { Section } from "@/components/layout/Section";
 const WorldPackagePage = () => {
     return (
         <Section className="-mt-6 max-w-4xl flex flex-col gap-10">
-            <Hero image={["/world.jpg", "/france.jpg", "/japan.jpg"]} />
+            <Hero image={["/World.jpg", "/france.jpg", "/japan.jpg"]} />
 
             <PackageSummary
                 nights={15}

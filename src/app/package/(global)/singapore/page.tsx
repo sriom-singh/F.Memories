@@ -10,7 +10,7 @@ const PackagePage = () => {
     return (
         <Section className="-mt-6 max-w-4xl flex flex-col gap-10 ">
             <Hero
-                image={["/singapore.jpg","/singapore2.jpg","/singapore3.jpg"]}
+                image={["/Singapore.jpg","/singapore2.jpg","/singapore3.jpg"]}
             />
 
             <PackageSummary

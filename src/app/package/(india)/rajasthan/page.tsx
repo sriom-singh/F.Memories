@@ -9,7 +9,7 @@ import { Section } from "@/components/layout/Section";
 const RajasthanPackagePage = () => {
   return (
     <Section className="-mt-6 max-w-4xl flex flex-col gap-10">
-      <Hero image={["/rajasthan.jpg", "/rajasthan2.jpg", "/rajasthan3.jpg"]} />
+      <Hero image={["/Rajasthan.jpg", "/rajasthan2.jpg", "/rajasthan3.jpg"]} />
 
       <PackageSummary
         nights={7}

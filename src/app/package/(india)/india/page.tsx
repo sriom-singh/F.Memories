@@ -9,7 +9,7 @@ import { Section } from "@/components/layout/Section";
 const IndiaGrandTourPackagePage = () => {
   return (
     <Section className="-mt-6 max-w-4xl flex flex-col gap-10">
-      <Hero image={["/india.jpg", "/rajasthan2.jpg", "/kashmir2.jpg"]} />
+      <Hero image={["/India.jpg", "/rajasthan2.jpg", "/kashmir2.jpg"]} />
 
       <PackageSummary
         nights={12}
