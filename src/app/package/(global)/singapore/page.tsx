@@ -10,14 +10,17 @@ const PackagePage = () => {
     return (
         <Section className="-mt-6 max-w-4xl flex flex-col gap-10 ">
             <Hero
-                image={["/Singapore.jpg","/singapore2.jpg","/singapore3.jpg"]}
+                image={["/Singapore.jpg", "/singapore2.jpg", "/singapore3.jpg"]}
             />
 
             <PackageSummary
                 nights={6}
-                locations={["2N Bangkok", "2N Krabi", "2N Phuket"]}
+                locations={[
+                    "3N Singapore City",
+                    "2N Sentosa Island",
+                    "1N Leisure Stay",]}
                 price="₹1,25,000"
-                 title="Let's Explore Singapore"
+                title="Let's Explore Singapore"
                 subtitle="Join our Singapore tour for breathtaking views."
             />
 
@@ -32,9 +35,42 @@ const PackagePage = () => {
 
             <Itinerary
                 days={[
-                    { title: "Arrival in Bangkok", description: "Airport pickup and hotel check-in." },
-                    { title: "Safari World", description: "Enjoy wildlife and marine shows." },
-                ]}
+          {
+            title: "Day 1 – Arrival in Singapore",
+            description:
+              "Arrive at Changi Airport. Private transfer to hotel. Evening free for leisure or shopping at Orchard Road."
+          },
+          {
+            title: "Day 2 – Singapore City Tour",
+            description:
+              "Visit Merlion Park, Marina Bay Sands (photo stop), Chinatown, Little India, and Singapore Flyer."
+          },
+          {
+            title: "Day 3 – Night Safari Experience",
+            description:
+              "Day at leisure. Evening visit to the famous Night Safari with tram ride and live animal shows."
+          },
+          {
+            title: "Day 4 – Sentosa Island Adventure",
+            description:
+              "Cable car ride, Madame Tussauds 5-in-1, Wings of Time show, and leisure time at Sentosa."
+          },
+          {
+            title: "Day 5 – Universal Studios Singapore",
+            description:
+              "Full day at Universal Studios with thrilling rides, shows, and themed zones."
+          },
+          {
+            title: "Day 6 – Gardens by the Bay & Leisure",
+            description:
+              "Visit Gardens by the Bay (Cloud Forest & Flower Dome). Evening free at Clarke Quay."
+          },
+          {
+            title: "Day 7 – Departure",
+            description:
+              "Checkout and private transfer to airport for onward journey."
+          },
+        ]}
             />
 
             <Inclusions

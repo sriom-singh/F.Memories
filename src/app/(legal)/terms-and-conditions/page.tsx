@@ -186,7 +186,7 @@ const page = () => {
                 className="hover:text-blue-400"
                 href="https://wa.me/ 91991058381"
               >
-                +91991058381
+                +919910583811
               </a>
             </div>
           </ol>
