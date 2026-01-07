@@ -195,9 +195,9 @@ export function MainNavbar() {
                 <span className="block">{item.name}</span>
               </Link>
             ))}
-            {navItemsGroup.map((item, idx) => (
+            {/* {navItemsGroup.map((item, idx) => (
               <MobileDropdownButton title={item.title} key={`dropdown-${idx}`} link={item.link} places={item.places} />
-            ))}
+            ))} */}
 
 
             <div className="flex w-full flex-col gap-4">

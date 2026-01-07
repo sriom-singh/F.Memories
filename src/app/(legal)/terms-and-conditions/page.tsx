@@ -5,32 +5,46 @@ import React from 'react'
 const page = () => {
   return (
     <div>
-         <div className="relative h-96  bg-blend-multiply bg-opacity-30  bg-black bg-right-bottom">
-          <Image alt='terms & condtions' width={1000} height={1000} src="/legal.jpg" className="w-[100vw] object-cover opacity-60 h-96 " />
-          <h2 className="md:text-6xl tracking-tight absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
-            Terms and Conditions
-            
-          </h2>
-        </div>
-           <div className=" text-black mx-auto pt-4 ">
+      <div className="relative h-96  bg-blend-multiply bg-opacity-30  bg-black bg-right-bottom">
+        <Image alt='terms & condtions' width={1000} height={1000} src="/legal.jpg" className="w-[100vw] object-cover opacity-60 h-96 " />
+        <h2 className="md:text-6xl tracking-tight absolute translate left-1/2 -translate-x-1/2 -translate-y-1/2 top-1/2 text-center  text-white font-medium text-5xl md:pt-6 py-2">
+          Terms and Conditions
+
+        </h2>
+      </div>
+      <div className=" text-black mx-auto pt-4 ">
         <div className="max-w-3xl mx-auto py-4 pb-16 px-7">
-          <h1 className='text-xl font-bold py-1'>Terms and Conditions</h1>
+          <h1 className='text-2xl font-bold py-1'>Terms and Conditions</h1>
           <p className=" pb-4 ">
-            Welcome to Framing Memories. Please read the following terms and
-            conditions carefully. By accessing or using our website, you agree
-            to comply with these terms. If you do not agree, we kindly request
-            that you do not use our platform.
+            Welcome to Framing Memories. By accessing or using our website and services,
+            you agree to be bound by the following
+            Terms and Conditions. If you do not agree with any part of these terms,
+            please do not use our website or services
           </p>
           <ol className="pl-2">
             <li className="text-xl pt-6 font-semibold">Our Role</li>
 
             <p>
-              Framing Memories operates as a creative service provider, helping
-              clients book photography, videography, and memory-making
-              experiences. While we may coordinate with third-party venues,
-              decorators, or vendors upon request, our responsibility is limited
-              to the services we directly offer.
+              Framing Memories operates as a travel planning and tour facilitation service, offering travel packages, itineraries, and related booking assistance.
+              We act as an intermediary between customers and third-party service providers such as hotels, transport operators, and local vendors.
             </p>
+            <p>
+              We do not own or operate airlines, hotels, vehicles, or other travel services unless explicitly stated.
+            </p>
+
+            <li className="text-xl pt-6 font-semibold">Services Offered</li>
+            <p>Our services may include:</p>
+              <ul className="pb-2 font-sans pl-6 list-disc">
+              <li>
+                Tour and holiday packages
+
+              </li>
+              <li>Hotel booking assistance</li>
+              <li>Transportation coordination</li>
+              <li>Customized itineraries</li>
+              <li>Destination support through third-party vendors </li>
+              <li>Specific inclusions and exclusions are clearly mentioned in each package.</li>
+            </ul>
 
             <li className="text-xl pt-6 font-semibold">Pricing & Payments</li>
             <p>

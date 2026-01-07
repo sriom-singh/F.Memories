@@ -20,48 +20,81 @@ import Autoplay from "embla-carousel-autoplay";
 import HeroCorousel from "@/components/heroCorousel";
 
 
-const globalDestinations = [
+export const globalDestinations = [
   {
+    id: 1,
     name: "Singapore",
     description: "Here is filled with diverse cultures & cities",
-    imageLink: "Singapore.jpg"
+    imageLink: "Singapore.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Singapore",
+    mrp: 125000,
   },
   {
+    id: 2,
     name: "Japan",
     description: "Experience the ancient history & beaches",
-    imageLink: "Japan.jpg"
+    imageLink: "Japan.jpg",
+    duration: "7 Nights / 8 Days",
+    place: "Tokyo · Kyoto · Osaka",
+    mrp: 175000,
   },
   {
+    id: 3,
     name: "Vietnam",
     description: "Experience the ancient history & beaches",
-    imageLink: "Vietnam.jpg"
+    imageLink: "Vietnam.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Hanoi · Da Nang · Ho Chi Minh",
+    mrp: 110000,
   },
   {
+    id: 4,
     name: "Bhutan",
     description: "Experience the ancient history & beaches",
-    imageLink: "Bhutan.jpg"
+    imageLink: "Bhutan.jpg",
+    duration: "5 Nights / 6 Days",
+    place: "Thimphu · Paro",
+    mrp: 95000,
   },
   {
+    id: 5,
     name: "France",
     description: "Indulge in the art, culture, and cuisine",
-    imageLink: "France.jpg"
+    imageLink: "France.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Paris · Nice",
+    mrp: 190000,
   },
   {
+    id: 6,
     name: "USA",
     description: "Experience the ancient history & beaches",
-    imageLink: "USA.jpg"
+    imageLink: "USA.jpg",
+    duration: "8 Nights / 9 Days",
+    place: "New York · Las Vegas · Los Angeles",
+    mrp: 250000,
   },
   {
+    id: 7,
     name: "Switzerland",
     description: "Experience the ancient history & beaches",
-    imageLink: "Switzerland.jpg"
+    imageLink: "Switzerland.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Lucerne · Interlaken · Zurich",
+    mrp: 210000,
   },
   {
+    id: 8,
     name: "World",
     description: "Experience the ancient history & beaches",
-    imageLink: "World.jpg"
-  }
+    imageLink: "World.jpg",
+    duration: "15 Nights / 16 Days",
+    place: "Europe · Asia · USA",
+    mrp: 550000,
+  },
 ];
+
 const globalCoverImage = [
   {
     imageLink: "World-3.jpg",
@@ -90,47 +123,79 @@ const indianCoverImage = [
     name: "Travel India"
   },
 ]
-const indianDestinations = [
+export const indiaDestinations = [
   {
+    id: 101,
     name: "Kashmir",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Kashmir.jpg"
+    description: "Snow-capped mountains, serene lakes, and breathtaking valleys.",
+    imageLink: "Kashmir.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Srinagar · Gulmarg · Pahalgam",
+    mrp: 45000,
   },
   {
+    id: 102,
     name: "Ladakh",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Ladakh.jpg"
+    description: "High-altitude deserts, monasteries, and thrilling landscapes.",
+    imageLink: "Ladakh.jpg",
+    duration: "7 Nights / 8 Days",
+    place: "Leh · Nubra Valley · Pangong Lake",
+    mrp: 52000,
   },
   {
+    id: 103,
     name: "Himachal Pradesh",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Himachal.jpg"
+    description: "Hill towns, adventure sports, and scenic Himalayan views.",
+    imageLink: "Himachal.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Manali · Solang · Shimla",
+    mrp: 38000,
   },
   {
+    id: 104,
     name: "Kerala",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Kerala.jpg"
+    description: "Backwaters, beaches, lush greenery, and Ayurveda retreats.",
+    imageLink: "Kerala.jpg",
+    duration: "5 Nights / 6 Days",
+    place: "Munnar · Alleppey · Kochi",
+    mrp: 42000,
   },
   {
+    id: 105,
     name: "Maharashtra",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Maharashtra.jpg"
+    description: "Historic forts, vibrant cities, and coastal beauty.",
+    imageLink: "Maharashtra.jpg",
+    duration: "5 Nights / 6 Days",
+    place: "Mumbai · Lonavala · Mahabaleshwar",
+    mrp: 35000,
   },
   {
+    id: 106,
     name: "Karnataka",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Karnataka.jpg"
+    description: "Royal heritage, waterfalls, and coffee plantations.",
+    imageLink: "Karnataka.jpg",
+    duration: "6 Nights / 7 Days",
+    place: "Bengaluru · Coorg · Mysore",
+    mrp: 39000,
   },
   {
+    id: 107,
     name: "Rajasthan",
-    description: "Experience the ancient history & beaches",
-    imageLink: "Rajasthan.jpg"
+    description: "Royal palaces, desert safaris, and colorful culture.",
+    imageLink: "Rajasthan.jpg",
+    duration: "7 Nights / 8 Days",
+    place: "Jaipur · Jodhpur · Udaipur",
+    mrp: 48000,
   },
   {
+    id: 108,
     name: "India",
-    description: "Experience the ancient history & beaches",
-    imageLink: "India.jpg"
-  }
+    description: "A grand journey through India’s most iconic destinations.",
+    imageLink: "India.jpg",
+    duration: "12 Nights / 13 Days",
+    place: "Delhi · Agra · Jaipur · Kerala · Goa",
+    mrp: 85000,
+  },
 ];
 
 
@@ -192,7 +257,7 @@ export default async function Home() {
           Explore the world
         </h2>
         <GridLayout famousPlaces={globalDestinations} coverImage={globalCoverImage} />
-        <CorouselLayout packages={packages} />
+        <CorouselLayout packages={globalDestinations} />
 
 
 
@@ -205,9 +270,9 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Incredible India
         </h2>
-        <GridLayout famousPlaces={indianDestinations} coverImage={indianCoverImage} />
+        <GridLayout famousPlaces={indiaDestinations} coverImage={indianCoverImage} />
 
-        <CorouselLayout packages={packages} />
+        <CorouselLayout packages={indiaDestinations} />
       </Section>
       {/* Popular Locations */}
       <Section>
@@ -217,7 +282,7 @@ export default async function Home() {
         <h2 className="font-openSans tracking-tight text-center xl:text-5xl text-3xl lg:text-4xl text-black font-semibold">
           Popular Locations
         </h2>
-        <CorouselLayout packages={packages} />
+        <CorouselLayout packages={[...globalDestinations,...indiaDestinations]} />
       </Section>
       {/* Why choose us */}
 

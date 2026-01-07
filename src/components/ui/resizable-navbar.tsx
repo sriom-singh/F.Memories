@@ -364,9 +364,9 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           <span className="relative text-base z-20 text-black/80">{item.name}</span>
         </Link>
       ))}
-      {navItemsGroup.map((item, idx) => (
+      {/* {navItemsGroup.map((item, idx) => (
         <DropdownButton title={item.title} key={`dropdown-${idx}`} link={item.link} places={item.places} />
-      ))}
+      ))} */}
     </motion.div>
   );
 };

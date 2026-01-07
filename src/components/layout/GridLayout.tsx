@@ -11,14 +11,15 @@ import {
 import Autoplay from 'embla-carousel-autoplay';
 import { Destination } from '@/types/types';
 import { Button } from '../ui/button';
-
+import { useRouter } from 'next/navigation';
 const GridLayout = ({
   famousPlaces,
   coverImage
 }: {
   famousPlaces: Destination[];
-  coverImage: { imageLink: string; name: string }[];
+  coverImage: { imageLink: string; name: string;}[];
 }) => {
+  const router = useRouter();
   return (
     <div className="max-w-screen-xl mx-auto py-10 lg:py-14 relative">
       <div className="grid grid-cols-1 sm:grid-cols-12 gap-2">
@@ -34,7 +35,7 @@ const GridLayout = ({
             {coverImage.map((item, index) => (
               <CarouselItem
                 key={index}
-                className="relative  cursor-pointer overflow-hidden w-full text-white min-h-[550px] max-w-[500px]"
+                className="relative overflow-hidden w-full text-white min-h-[550px] max-w-[500px]"
               >
                 <a href="#">
                   <div
@@ -67,7 +68,7 @@ const GridLayout = ({
                       <div className="absolute inset-0  bg-black/40 flex flex-col justify-end p-4">
                         <p className="text-white text-lg font-bold ">{item.name}</p>
                         <p className="text-white text-sm">{item.description}</p>
-                        <Button size="sm" className="mt-4 text-xs px-4 py-2">
+                        <Button onClick={()=>router.push("package/"+ encodeURIComponent(item.name.toLowerCase().replace(/\s+/g, '')))} size="sm" className="mt-4 cursor-pointer text-xs px-4 py-2">
                           View Package
                         </Button>
                       </div>
@@ -85,7 +86,7 @@ const GridLayout = ({
             {famousPlaces.slice(0, 8).map((item, index) => (
               <div
                 key={index}
-                className="shadow-lg cursor-pointer relative h-full transition duration-500  ease-in-out rounded-lg"
+                className="shadow-lg  relative h-full transition duration-500  ease-in-out rounded-lg"
               >
                 <a href="#">
                   <div
@@ -99,7 +100,7 @@ const GridLayout = ({
                 <div className="absolute flex flex-col justify-end gap-2 top-0  h-full w-full bg-black/30 p-4">
                   <p className="text-white font-bold text-center pb-4 ">{item.name}</p>
                   <p className="text-white text-sm text-center">{item.description}</p>
-                  <Button size="sm" className="mt-2 w-full text-xs px-4 py-2">
+                  <Button onClick={()=>router.push("package/"+ encodeURIComponent(item.name.toLowerCase().replace(/\s+/g, '')))} size="sm" className="mt-2 w-full cursor-pointer text-xs px-4 py-2">
                     View <span className='hidden lg:inline'>Package</span> 
                   </Button>
                 </div>
