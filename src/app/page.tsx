@@ -20,7 +20,7 @@ import Autoplay from "embla-carousel-autoplay";
 import HeroCorousel from "@/components/heroCorousel";
 
 
-export const globalDestinations = [
+const globalDestinations = [
   {
     id: 1,
     name: "Singapore",
