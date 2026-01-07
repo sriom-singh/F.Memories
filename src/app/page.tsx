@@ -123,7 +123,7 @@ const indianCoverImage = [
     name: "Travel India"
   },
 ]
-export const indiaDestinations = [
+const indiaDestinations = [
   {
     id: 101,
     name: "Kashmir",
