@@ -163,8 +163,7 @@ const page = () => {
             <li className="text-xl pt-6 font-semibold">Governing Law</li>
             <p>
               These terms are governed by the laws of India. Any disputes will
-              be subject to the jurisdiction of the courts in Bhopal, Madhya
-              Pradesh.
+              be subject to the jurisdiction of the courts in Delhi, New Delhi.
             </p>
             <li className="text-xl pt-6 font-semibold">Contact Us</li>
             <p>
